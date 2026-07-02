@@ -1,0 +1,2362 @@
+{
+  "H": {
+    "id": "hydrogen",
+    "atomic_number": 1,
+    "symbol": "H",
+    "names": {
+      "en": "Hydrogen",
+      "la": "Hydrogenium",
+      "cs": "vodík",
+      "de": "Wasserstoff",
+      "hu": "hidrogén",
+      "zh": "氢",
+      "fr": "hydrogène",
+      "ja": "水素",
+      "es": "hidrógeno",
+      "pl": "wodór",
+      "uk": "Гідроген",
+      "ko": "수소",
+      "it": "idrogeno"
+    }
+  },
+  "He": {
+    "id": "helium",
+    "atomic_number": 2,
+    "symbol": "He",
+    "names": {
+      "en": "Helium",
+      "la": "Helium",
+      "cs": "helium",
+      "de": "Helium",
+      "hu": "hélium",
+      "zh": "氦",
+      "fr": "hélium",
+      "ja": "ヘリウム",
+      "es": "helio",
+      "pl": "hel",
+      "uk": "Гелій",
+      "ko": "헬륨",
+      "it": "elio"
+    }
+  },
+  "Li": {
+    "id": "lithium",
+    "atomic_number": 3,
+    "symbol": "Li",
+    "names": {
+      "en": "Lithium",
+      "la": "Lithium",
+      "cs": "lithium",
+      "de": "Lithium",
+      "hu": "lítium",
+      "zh": "锂",
+      "fr": "lithium",
+      "ja": "リチウム",
+      "es": "litio",
+      "pl": "lit",
+      "uk": "Літій",
+      "ko": "리튬",
+      "it": "litio"
+    }
+  },
+  "Be": {
+    "id": "beryllium",
+    "atomic_number": 4,
+    "symbol": "Be",
+    "names": {
+      "en": "Beryllium",
+      "la": "Beryllium",
+      "cs": "beryllium",
+      "de": "Beryllium",
+      "hu": "berillium",
+      "zh": "铍",
+      "fr": "béryllium",
+      "ja": "ベリリウム",
+      "es": "berilio",
+      "pl": "beryl",
+      "uk": "Берилій",
+      "ko": "베릴륨",
+      "it": "berillio"
+    }
+  },
+  "B": {
+    "id": "boron",
+    "atomic_number": 5,
+    "symbol": "B",
+    "names": {
+      "en": "Boron",
+      "la": "Borium",
+      "cs": "bor",
+      "de": "Bor",
+      "hu": "bór",
+      "zh": "硼",
+      "fr": "bore",
+      "ja": "ホウ素",
+      "es": "boro",
+      "pl": "bor",
+      "uk": "Бор",
+      "ko": "붕소",
+      "it": "boro"
+    }
+  },
+  "C": {
+    "id": "carbon",
+    "atomic_number": 6,
+    "symbol": "C",
+    "names": {
+      "en": "Carbon",
+      "la": "Carbonium",
+      "cs": "uhlík",
+      "de": "Kohlenstoff",
+      "hu": "szén",
+      "zh": "碳",
+      "fr": "carbone",
+      "ja": "炭素",
+      "es": "carbono",
+      "pl": "węgiel",
+      "uk": "Карбон",
+      "ko": "탄소",
+      "it": "carbonio"
+    }
+  },
+  "N": {
+    "id": "nitrogen",
+    "atomic_number": 7,
+    "symbol": "N",
+    "names": {
+      "en": "Nitrogen",
+      "la": "Nitrogenium",
+      "cs": "dusík",
+      "de": "Stickstoff",
+      "hu": "nitrogén",
+      "zh": "氮",
+      "fr": "azote",
+      "ja": "窒素",
+      "es": "nitrógeno",
+      "pl": "azot",
+      "uk": "Нітроген",
+      "ko": "질소",
+      "it": "azoto"
+    }
+  },
+  "O": {
+    "id": "oxygen",
+    "atomic_number": 8,
+    "symbol": "O",
+    "names": {
+      "en": "Oxygen",
+      "la": "Oxygenium",
+      "cs": "kyslík",
+      "de": "Sauerstoff",
+      "hu": "oxigén",
+      "zh": "氧",
+      "fr": "oxygène",
+      "ja": "酸素",
+      "es": "oxígeno",
+      "pl": "tlen",
+      "uk": "Оксиген",
+      "ko": "산소",
+      "it": "ossigeno"
+    }
+  },
+  "F": {
+    "id": "fluorine",
+    "atomic_number": 9,
+    "symbol": "F",
+    "names": {
+      "en": "Fluorine",
+      "la": "Fluorum",
+      "cs": "fluor",
+      "de": "Fluor",
+      "hu": "fluor",
+      "zh": "氟",
+      "fr": "fluor",
+      "ja": "フッ素",
+      "es": "flúor",
+      "pl": "fluor",
+      "uk": "Флуор",
+      "ko": "플루오린",
+      "it": "fluoro"
+    }
+  },
+  "Ne": {
+    "id": "neon",
+    "atomic_number": 10,
+    "symbol": "Ne",
+    "names": {
+      "en": "Neon",
+      "la": "Neon",
+      "cs": "neon",
+      "de": "Neon",
+      "hu": "neon",
+      "zh": "氖",
+      "fr": "néon",
+      "ja": "ネオン",
+      "es": "neón",
+      "pl": "neon",
+      "uk": "Неон",
+      "ko": "네온",
+      "it": "neon"
+    }
+  },
+  "Na": {
+    "id": "sodium",
+    "atomic_number": 11,
+    "symbol": "Na",
+    "names": {
+      "en": "Sodium",
+      "la": "Natrium",
+      "cs": "sodík",
+      "de": "Natrium",
+      "hu": "nátrium",
+      "zh": "钠",
+      "fr": "sodium",
+      "ja": "ナトリウム",
+      "es": "sodio",
+      "pl": "sód",
+      "uk": "Натрій",
+      "ko": "나트륨",
+      "it": "sodio"
+    }
+  },
+  "Mg": {
+    "id": "magnesium",
+    "atomic_number": 12,
+    "symbol": "Mg",
+    "names": {
+      "en": "Magnesium",
+      "la": "Magnesium",
+      "cs": "hořčík",
+      "de": "Magnesium",
+      "hu": "magnézium",
+      "zh": "镁",
+      "fr": "magnésium",
+      "ja": "マグネシウム",
+      "es": "magnesio",
+      "pl": "magnez",
+      "uk": "Магній",
+      "ko": "마그네슘",
+      "it": "magnesio"
+    }
+  },
+  "Al": {
+    "id": "aluminium",
+    "atomic_number": 13,
+    "symbol": "Al",
+    "names": {
+      "en": "Aluminium",
+      "la": "Aluminium",
+      "cs": "hliník",
+      "de": "Aluminium",
+      "hu": "alumínium",
+      "zh": "铝",
+      "fr": "aluminium",
+      "ja": "アルミニウム",
+      "es": "aluminio",
+      "pl": "glin",
+      "uk": "Алюміній",
+      "ko": "알루미늄",
+      "it": "alluminio"
+    }
+  },
+  "Si": {
+    "id": "silicon",
+    "atomic_number": 14,
+    "symbol": "Si",
+    "names": {
+      "en": "Silicon",
+      "la": "Silicium",
+      "cs": "křemík",
+      "de": "Silicium",
+      "hu": "szilícium",
+      "zh": "硅",
+      "fr": "silicium",
+      "ja": "ケイ素",
+      "es": "silicio",
+      "pl": "krzem",
+      "uk": "Силіцій",
+      "ko": "규소",
+      "it": "silicio"
+    }
+  },
+  "P": {
+    "id": "phosphorus",
+    "atomic_number": 15,
+    "symbol": "P",
+    "names": {
+      "en": "Phosphorus",
+      "la": "Phosphorus",
+      "cs": "fosfor",
+      "de": "Phosphor",
+      "hu": "foszfor",
+      "zh": "磷",
+      "fr": "phosphore",
+      "ja": "リン",
+      "es": "fósforo",
+      "pl": "fosfor",
+      "uk": "Фосфор",
+      "ko": "인",
+      "it": "fosforo"
+    }
+  },
+  "S": {
+    "id": "sulfur",
+    "atomic_number": 16,
+    "symbol": "S",
+    "names": {
+      "en": "Sulfur",
+      "la": "Sulphurium",
+      "cs": "síra",
+      "de": "Schwefel",
+      "hu": "kén",
+      "zh": "硫",
+      "fr": "soufre",
+      "ja": "硫黄",
+      "es": "azufre",
+      "pl": "siarka",
+      "uk": "Сульфур",
+      "ko": "황",
+      "it": "zolfo"
+    }
+  },
+  "Cl": {
+    "id": "chlorine",
+    "atomic_number": 17,
+    "symbol": "Cl",
+    "names": {
+      "en": "Chlorine",
+      "la": "Chlorium",
+      "cs": "chlor",
+      "de": "Chlor",
+      "hu": "klór",
+      "zh": "氯",
+      "fr": "chlore",
+      "ja": "塩素",
+      "es": "cloro",
+      "pl": "chlor",
+      "uk": "Хлор",
+      "ko": "염소",
+      "it": "cloro"
+    }
+  },
+  "Ar": {
+    "id": "argon",
+    "atomic_number": 18,
+    "symbol": "Ar",
+    "names": {
+      "en": "Argon",
+      "la": "Argon",
+      "cs": "argon",
+      "de": "Argon",
+      "hu": "argon",
+      "zh": "氩",
+      "fr": "argon",
+      "ja": "アルゴン",
+      "es": "argón",
+      "pl": "argon",
+      "uk": "Аргон",
+      "ko": "아르곤",
+      "it": "argon"
+    }
+  },
+  "K": {
+    "id": "potassium",
+    "atomic_number": 19,
+    "symbol": "K",
+    "names": {
+      "en": "Potassium",
+      "la": "Kalium",
+      "cs": "draslík",
+      "de": "Kalium",
+      "hu": "kálium",
+      "zh": "钾",
+      "fr": "potassium",
+      "ja": "カリウム",
+      "es": "potasio",
+      "pl": "potas",
+      "uk": "Калій",
+      "ko": "칼륨",
+      "it": "potassio"
+    }
+  },
+  "Ca": {
+    "id": "calcium",
+    "atomic_number": 20,
+    "symbol": "Ca",
+    "names": {
+      "en": "Calcium",
+      "la": "Calcium",
+      "cs": "vápník",
+      "de": "Calcium",
+      "hu": "kalcium",
+      "zh": "钙",
+      "fr": "calcium",
+      "ja": "カルシウム",
+      "es": "calcio",
+      "pl": "wapń",
+      "uk": "Кальцій",
+      "ko": "칼슘",
+      "it": "calcio"
+    }
+  },
+  "Sc": {
+    "id": "scandium",
+    "atomic_number": 21,
+    "symbol": "Sc",
+    "names": {
+      "en": "Scandium",
+      "la": "Scandium",
+      "cs": "skandium",
+      "de": "Scandium",
+      "hu": "szkandium",
+      "zh": "钪",
+      "fr": "scandium",
+      "ja": "スカンジウム",
+      "es": "escandio",
+      "pl": "skand",
+      "uk": "Скандій",
+      "ko": "스칸듐",
+      "it": "scandio"
+    }
+  },
+  "Ti": {
+    "id": "titanium",
+    "atomic_number": 22,
+    "symbol": "Ti",
+    "names": {
+      "en": "Titanium",
+      "la": "Titanium",
+      "cs": "titan",
+      "de": "Titan",
+      "hu": "titán",
+      "zh": "钛",
+      "fr": "titane",
+      "ja": "チタン",
+      "es": "titanio",
+      "pl": "tytan",
+      "uk": "Титан",
+      "ko": "타이타늄",
+      "it": "titanio"
+    }
+  },
+  "V": {
+    "id": "vanadium",
+    "atomic_number": 23,
+    "symbol": "V",
+    "names": {
+      "en": "Vanadium",
+      "la": "Vanadium",
+      "cs": "vanad",
+      "de": "Vanadium",
+      "hu": "vanádium",
+      "zh": "钒",
+      "fr": "vanadium",
+      "ja": "バナジウム",
+      "es": "vanadio",
+      "pl": "wanad",
+      "uk": "Ванадій",
+      "ko": "바나듐",
+      "it": "vanadio"
+    }
+  },
+  "Cr": {
+    "id": "chromium",
+    "atomic_number": 24,
+    "symbol": "Cr",
+    "names": {
+      "en": "Chromium",
+      "la": "Chromium",
+      "cs": "chrom",
+      "de": "Chrom",
+      "hu": "króm",
+      "zh": "铬",
+      "fr": "chrome",
+      "ja": "クロム",
+      "es": "cromo",
+      "pl": "chrom",
+      "uk": "Хром",
+      "ko": "크로뮴",
+      "it": "cromo"
+    }
+  },
+  "Mn": {
+    "id": "manganese",
+    "atomic_number": 25,
+    "symbol": "Mn",
+    "names": {
+      "en": "Manganese",
+      "la": "Manganum",
+      "cs": "mangan",
+      "de": "Mangan",
+      "hu": "mangán",
+      "zh": "锰",
+      "fr": "manganèse",
+      "ja": "マンガン",
+      "es": "manganeso",
+      "pl": "mangan",
+      "uk": "Манган",
+      "ko": "망가니즈",
+      "it": "manganese"
+    }
+  },
+  "Fe": {
+    "id": "iron",
+    "atomic_number": 26,
+    "symbol": "Fe",
+    "names": {
+      "en": "Iron",
+      "la": "Ferrum",
+      "cs": "železo",
+      "de": "Eisen",
+      "hu": "vas",
+      "zh": "铁",
+      "fr": "fer",
+      "ja": "鉄",
+      "es": "hierro",
+      "pl": "żelazo",
+      "uk": "Ферум",
+      "ko": "철",
+      "it": "ferro"
+    }
+  },
+  "Co": {
+    "id": "cobalt",
+    "atomic_number": 27,
+    "symbol": "Co",
+    "names": {
+      "en": "Cobalt",
+      "la": "Cobaltum",
+      "cs": "kobalt",
+      "de": "Cobalt",
+      "hu": "kobalt",
+      "zh": "钴",
+      "fr": "cobalt",
+      "ja": "コバルト",
+      "es": "cobalto",
+      "pl": "kobalt",
+      "uk": "Кобальт",
+      "ko": "코발트",
+      "it": "cobalto"
+    }
+  },
+  "Ni": {
+    "id": "nickel",
+    "atomic_number": 28,
+    "symbol": "Ni",
+    "names": {
+      "en": "Nickel",
+      "la": "Niccolum",
+      "cs": "nikl",
+      "de": "Nickel",
+      "hu": "nikkel",
+      "zh": "镍",
+      "fr": "nickel",
+      "ja": "ニッケル",
+      "es": "níquel",
+      "pl": "nikiel",
+      "uk": "Нікель",
+      "ko": "니켈",
+      "it": "nichel"
+    }
+  },
+  "Cu": {
+    "id": "copper",
+    "atomic_number": 29,
+    "symbol": "Cu",
+    "names": {
+      "en": "Copper",
+      "la": "Cuprum",
+      "cs": "měď",
+      "de": "Kupfer",
+      "hu": "réz",
+      "zh": "铜",
+      "fr": "cuivre",
+      "ja": "銅",
+      "es": "cobre",
+      "pl": "miedź",
+      "uk": "Купрум",
+      "ko": "구리",
+      "it": "rame"
+    }
+  },
+  "Zn": {
+    "id": "zinc",
+    "atomic_number": 30,
+    "symbol": "Zn",
+    "names": {
+      "en": "Zinc",
+      "la": "Zincum",
+      "cs": "zinek",
+      "de": "Zink",
+      "hu": "cink",
+      "zh": "锌",
+      "fr": "zinc",
+      "ja": "亜鉛",
+      "es": "zinc",
+      "pl": "cynk",
+      "uk": "Цинк",
+      "ko": "아연",
+      "it": "zinco"
+    }
+  },
+  "Ga": {
+    "id": "gallium",
+    "atomic_number": 31,
+    "symbol": "Ga",
+    "names": {
+      "en": "Gallium",
+      "la": "Gallium",
+      "cs": "gallium",
+      "de": "Gallium",
+      "hu": "gallium",
+      "zh": "镓",
+      "fr": "gallium",
+      "ja": "ガリウム",
+      "es": "galio",
+      "pl": "gal",
+      "uk": "Галій",
+      "ko": "갈륨",
+      "it": "gallio"
+    }
+  },
+  "Ge": {
+    "id": "germanium",
+    "atomic_number": 32,
+    "symbol": "Ge",
+    "names": {
+      "en": "Germanium",
+      "la": "Germanium",
+      "cs": "germanium",
+      "de": "Germanium",
+      "hu": "germánium",
+      "zh": "锗",
+      "fr": "germanium",
+      "ja": "ゲルマニウム",
+      "es": "germanio",
+      "pl": "german",
+      "uk": "Германій",
+      "ko": "저마늄",
+      "it": "germanio"
+    }
+  },
+  "As": {
+    "id": "arsenic",
+    "atomic_number": 33,
+    "symbol": "As",
+    "names": {
+      "en": "Arsenic",
+      "la": "Arsenicum",
+      "cs": "arsen",
+      "de": "Arsen",
+      "hu": "arzén",
+      "zh": "砷",
+      "fr": "arsenic",
+      "ja": "ヒ素",
+      "es": "arsénico",
+      "pl": "arsen",
+      "uk": "Арсен",
+      "ko": "비소",
+      "it": "arsenico"
+    }
+  },
+  "Se": {
+    "id": "selenium",
+    "atomic_number": 34,
+    "symbol": "Se",
+    "names": {
+      "en": "Selenium",
+      "la": "Selenium",
+      "cs": "selen",
+      "de": "Selen",
+      "hu": "szelén",
+      "zh": "硒",
+      "fr": "sélénium",
+      "ja": "セレン",
+      "es": "selenio",
+      "pl": "selen",
+      "uk": "Селен",
+      "ko": "셀레늄",
+      "it": "selenio"
+    }
+  },
+  "Br": {
+    "id": "bromine",
+    "atomic_number": 35,
+    "symbol": "Br",
+    "names": {
+      "en": "Bromine",
+      "la": "Bromium",
+      "cs": "brom",
+      "de": "Brom",
+      "hu": "bróm",
+      "zh": "溴",
+      "fr": "brome",
+      "ja": "臭素",
+      "es": "bromo",
+      "pl": "brom",
+      "uk": "Бром",
+      "ko": "브로민",
+      "it": "bromo"
+    }
+  },
+  "Kr": {
+    "id": "krypton",
+    "atomic_number": 36,
+    "symbol": "Kr",
+    "names": {
+      "en": "Krypton",
+      "la": "Krypton",
+      "cs": "krypton",
+      "de": "Krypton",
+      "hu": "kripton",
+      "zh": "氪",
+      "fr": "krypton",
+      "ja": "クリプトン",
+      "es": "criptón",
+      "pl": "krypton",
+      "uk": "Криптон",
+      "ko": "크립톤",
+      "it": "cripton"
+    }
+  },
+  "Rb": {
+    "id": "rubidium",
+    "atomic_number": 37,
+    "symbol": "Rb",
+    "names": {
+      "en": "Rubidium",
+      "la": "Rubidium",
+      "cs": "rubidium",
+      "de": "Rubidium",
+      "hu": "rubídium",
+      "zh": "铷",
+      "fr": "rubidium",
+      "ja": "ルビジウム",
+      "es": "rubidio",
+      "pl": "rubid",
+      "uk": "Рубідій",
+      "ko": "루비듐",
+      "it": "rubidio"
+    }
+  },
+  "Sr": {
+    "id": "strontium",
+    "atomic_number": 38,
+    "symbol": "Sr",
+    "names": {
+      "en": "Strontium",
+      "la": "Strontium",
+      "cs": "stroncium",
+      "de": "Strontium",
+      "hu": "stroncium",
+      "zh": "锶",
+      "fr": "strontium",
+      "ja": "ストロンチウム",
+      "es": "estroncio",
+      "pl": "stront",
+      "uk": "Стронцій",
+      "ko": "스트론튬",
+      "it": "stronzio"
+    }
+  },
+  "Y": {
+    "id": "yttrium",
+    "atomic_number": 39,
+    "symbol": "Y",
+    "names": {
+      "en": "Yttrium",
+      "la": "Yttrium",
+      "cs": "yttrium",
+      "de": "Yttrium",
+      "hu": "ittrium",
+      "zh": "钇",
+      "fr": "yttrium",
+      "ja": "イットリウム",
+      "es": "itrio",
+      "pl": "itr",
+      "uk": "Ітрій",
+      "ko": "이트륨",
+      "it": "ittrio"
+    }
+  },
+  "Zr": {
+    "id": "zirconium",
+    "atomic_number": 40,
+    "symbol": "Zr",
+    "names": {
+      "en": "Zirconium",
+      "la": "Zirconium",
+      "cs": "zirkonium",
+      "de": "Zirconium",
+      "hu": "cirkónium",
+      "zh": "锆",
+      "fr": "zirconium",
+      "ja": "ジルコニウム",
+      "es": "circonio",
+      "pl": "cyrkon",
+      "uk": "Цирконій",
+      "ko": "지르코늄",
+      "it": "zirconio"
+    }
+  },
+  "Nb": {
+    "id": "niobium",
+    "atomic_number": 41,
+    "symbol": "Nb",
+    "names": {
+      "en": "Niobium",
+      "la": "Niobium",
+      "cs": "niob",
+      "de": "Niob",
+      "hu": "nióbium",
+      "zh": "铌",
+      "fr": "niobium",
+      "ja": "ニオブ",
+      "es": "niobio",
+      "pl": "niob",
+      "uk": "Ніобій",
+      "ko": "나이오븀",
+      "it": "niobio"
+    }
+  },
+  "Mo": {
+    "id": "molybdenum",
+    "atomic_number": 42,
+    "symbol": "Mo",
+    "names": {
+      "en": "Molybdenum",
+      "la": "Molybdenum",
+      "cs": "molybden",
+      "de": "Molybdän",
+      "hu": "molibdén",
+      "zh": "钼",
+      "fr": "molybdène",
+      "ja": "モリブデン",
+      "es": "molibdeno",
+      "pl": "molibden",
+      "uk": "Молібден",
+      "ko": "몰리브데넘",
+      "it": "molibdeno"
+    }
+  },
+  "Tc": {
+    "id": "technetium",
+    "atomic_number": 43,
+    "symbol": "Tc",
+    "names": {
+      "en": "Technetium",
+      "la": "Technetium",
+      "cs": "technecium",
+      "de": "Technetium",
+      "hu": "technécium",
+      "zh": "锝",
+      "fr": "technétium",
+      "ja": "テクネチウム",
+      "es": "tecnecio",
+      "pl": "technet",
+      "uk": "Технецій",
+      "ko": "테크네튬",
+      "it": "tecnezio"
+    }
+  },
+  "Ru": {
+    "id": "ruthenium",
+    "atomic_number": 44,
+    "symbol": "Ru",
+    "names": {
+      "en": "Ruthenium",
+      "la": "Ruthenium",
+      "cs": "ruthenium",
+      "de": "Ruthenium",
+      "hu": "ruténium",
+      "zh": "钌",
+      "fr": "ruthénium",
+      "ja": "ルテニウム",
+      "es": "rutenio",
+      "pl": "ruten",
+      "uk": "Рутеній",
+      "ko": "루테늄",
+      "it": "rutenio"
+    }
+  },
+  "Rh": {
+    "id": "rhodium",
+    "atomic_number": 45,
+    "symbol": "Rh",
+    "names": {
+      "en": "Rhodium",
+      "la": "Rhodium",
+      "cs": "rhodium",
+      "de": "Rhodium",
+      "hu": "ródium",
+      "zh": "铑",
+      "fr": "rhodium",
+      "ja": "ロジウム",
+      "es": "rodio",
+      "pl": "rod",
+      "uk": "Родій",
+      "ko": "로듐",
+      "it": "rodio"
+    }
+  },
+  "Pd": {
+    "id": "palladium",
+    "atomic_number": 46,
+    "symbol": "Pd",
+    "names": {
+      "en": "Palladium",
+      "la": "Palladium",
+      "cs": "palladium",
+      "de": "Palladium",
+      "hu": "palládium",
+      "zh": "钯",
+      "fr": "palladium",
+      "ja": "パラジウム",
+      "es": "paladio",
+      "pl": "pallad",
+      "uk": "Паладій",
+      "ko": "팔라듐",
+      "it": "palladio"
+    }
+  },
+  "Ag": {
+    "id": "silver",
+    "atomic_number": 47,
+    "symbol": "Ag",
+    "names": {
+      "en": "Silver",
+      "la": "Argentum",
+      "cs": "stříbro",
+      "de": "Silber",
+      "hu": "ezüst",
+      "zh": "银",
+      "fr": "argent",
+      "ja": "銀",
+      "es": "plata",
+      "pl": "srebro",
+      "uk": "Аргентум",
+      "ko": "은",
+      "it": "argento"
+    }
+  },
+  "Cd": {
+    "id": "cadmium",
+    "atomic_number": 48,
+    "symbol": "Cd",
+    "names": {
+      "en": "Cadmium",
+      "la": "Cadmium",
+      "cs": "kadmium",
+      "de": "Cadmium",
+      "hu": "kadmium",
+      "zh": "镉",
+      "fr": "cadmium",
+      "ja": "カドミウム",
+      "es": "cadmio",
+      "pl": "kadm",
+      "uk": "Кадмій",
+      "ko": "카드뮴",
+      "it": "cadmio"
+    }
+  },
+  "In": {
+    "id": "indium",
+    "atomic_number": 49,
+    "symbol": "In",
+    "names": {
+      "en": "Indium",
+      "la": "Indium",
+      "cs": "indium",
+      "de": "Indium",
+      "hu": "indium",
+      "zh": "铟",
+      "fr": "indium",
+      "ja": "インジウム",
+      "es": "indio",
+      "pl": "ind",
+      "uk": "Індій",
+      "ko": "인듐",
+      "it": "indio"
+    }
+  },
+  "Sn": {
+    "id": "tin",
+    "atomic_number": 50,
+    "symbol": "Sn",
+    "names": {
+      "en": "Tin",
+      "la": "Stannum",
+      "cs": "cín",
+      "de": "Zinn",
+      "hu": "ón",
+      "zh": "锡",
+      "fr": "étain",
+      "ja": "スズ",
+      "es": "estaño",
+      "pl": "cyna",
+      "uk": "Станум",
+      "ko": "주석",
+      "it": "stagno"
+    }
+  },
+  "Sb": {
+    "id": "antimony",
+    "atomic_number": 51,
+    "symbol": "Sb",
+    "names": {
+      "en": "Antimony",
+      "la": "Stibium",
+      "cs": "antimon",
+      "de": "Antimon",
+      "hu": "antimon",
+      "zh": "锑",
+      "fr": "antimoine",
+      "ja": "アンチモン",
+      "es": "antimonio",
+      "pl": "antymon",
+      "uk": "Стибій",
+      "ko": "안티모니",
+      "it": "antimonio"
+    }
+  },
+  "Te": {
+    "id": "tellurium",
+    "atomic_number": 52,
+    "symbol": "Te",
+    "names": {
+      "en": "Tellurium",
+      "la": "Tellurium",
+      "cs": "tellur",
+      "de": "Tellur",
+      "hu": "tellúr",
+      "zh": "碲",
+      "fr": "tellure",
+      "ja": "テルル",
+      "es": "telurio",
+      "pl": "tellur",
+      "uk": "Телур",
+      "ko": "텔루륨",
+      "it": "tellurio"
+    }
+  },
+  "I": {
+    "id": "iodine",
+    "atomic_number": 53,
+    "symbol": "I",
+    "names": {
+      "en": "Iodine",
+      "la": "Iodium",
+      "cs": "jod",
+      "de": "Iod",
+      "hu": "jód",
+      "zh": "碘",
+      "fr": "iode",
+      "ja": "ヨウ素",
+      "es": "yodo",
+      "pl": "jod",
+      "uk": "Йод",
+      "ko": "아이오딘",
+      "it": "iodio"
+    }
+  },
+  "Xe": {
+    "id": "xenon",
+    "atomic_number": 54,
+    "symbol": "Xe",
+    "names": {
+      "en": "Xenon",
+      "la": "Xenon",
+      "cs": "xenon",
+      "de": "Xenon",
+      "hu": "xenon",
+      "zh": "氙",
+      "fr": "xénon",
+      "ja": "キセノン",
+      "es": "xenón",
+      "pl": "ksenon",
+      "uk": "Ксенон",
+      "ko": "제논",
+      "it": "xeno"
+    }
+  },
+  "Cs": {
+    "id": "caesium",
+    "atomic_number": 55,
+    "symbol": "Cs",
+    "names": {
+      "en": "Caesium",
+      "la": "Caesium",
+      "cs": "cesium",
+      "de": "Caesium",
+      "hu": "cézium",
+      "zh": "铯",
+      "fr": "césium",
+      "ja": "セシウム",
+      "es": "cesio",
+      "pl": "cez",
+      "uk": "Цезій",
+      "ko": "세슘",
+      "it": "cesio"
+    }
+  },
+  "Ba": {
+    "id": "barium",
+    "atomic_number": 56,
+    "symbol": "Ba",
+    "names": {
+      "en": "Barium",
+      "la": "Barium",
+      "cs": "baryum",
+      "de": "Barium",
+      "hu": "bárium",
+      "zh": "钡",
+      "fr": "baryum",
+      "ja": "バリウム",
+      "es": "bario",
+      "pl": "bar",
+      "uk": "Барій",
+      "ko": "바륨",
+      "it": "bario"
+    }
+  },
+  "La": {
+    "id": "lanthanum",
+    "atomic_number": 57,
+    "symbol": "La",
+    "names": {
+      "en": "Lanthanum",
+      "la": "Lanthanum",
+      "cs": "lanthan",
+      "de": "Lanthan",
+      "hu": "lantán",
+      "zh": "镧",
+      "fr": "lanthane",
+      "ja": "ランタン",
+      "es": "lantano",
+      "pl": "lantan",
+      "uk": "Лантан",
+      "ko": "란타넘",
+      "it": "lantanio"
+    }
+  },
+  "Ce": {
+    "id": "cerium",
+    "atomic_number": 58,
+    "symbol": "Ce",
+    "names": {
+      "en": "Cerium",
+      "la": "Cerium",
+      "cs": "cer",
+      "de": "Cer",
+      "hu": "cérium",
+      "zh": "铈",
+      "fr": "cérium",
+      "ja": "セリウム",
+      "es": "cerio",
+      "pl": "cer",
+      "uk": "Церій",
+      "ko": "세륨",
+      "it": "cerio"
+    }
+  },
+  "Pr": {
+    "id": "praseodymium",
+    "atomic_number": 59,
+    "symbol": "Pr",
+    "names": {
+      "en": "Praseodymium",
+      "la": "Praseodymium",
+      "cs": "praseodym",
+      "de": "Praseodym",
+      "hu": "prazeodímium",
+      "zh": "镨",
+      "fr": "praséodyme",
+      "ja": "プラセオジム",
+      "es": "praseodimio",
+      "pl": "prazeodym",
+      "uk": "Празеодим",
+      "ko": "프라세오디뮴",
+      "it": "praseodimio"
+    }
+  },
+  "Nd": {
+    "id": "neodymium",
+    "atomic_number": 60,
+    "symbol": "Nd",
+    "names": {
+      "en": "Neodymium",
+      "la": "Neodymium",
+      "cs": "neodym",
+      "de": "Neodym",
+      "hu": "neodímium",
+      "zh": "钕",
+      "fr": "néodyme",
+      "ja": "ネオジム",
+      "es": "neodimio",
+      "pl": "neodym",
+      "uk": "Неодим",
+      "ko": "네오디뮴",
+      "it": "neodimio"
+    }
+  },
+  "Pm": {
+    "id": "promethium",
+    "atomic_number": 61,
+    "symbol": "Pm",
+    "names": {
+      "en": "Promethium",
+      "la": "Promethium",
+      "cs": "promethium",
+      "de": "Promethium",
+      "hu": "prométium",
+      "zh": "钷",
+      "fr": "prométhium",
+      "ja": "プロメチウム",
+      "es": "prometio",
+      "pl": "promet",
+      "uk": "Прометій",
+      "ko": "프로메튬",
+      "it": "promezio"
+    }
+  },
+  "Sm": {
+    "id": "samarium",
+    "atomic_number": 62,
+    "symbol": "Sm",
+    "names": {
+      "en": "Samarium",
+      "la": "Samarium",
+      "cs": "samarium",
+      "de": "Samarium",
+      "hu": "szamárium",
+      "zh": "钐",
+      "fr": "samarium",
+      "ja": "サマリウム",
+      "es": "samario",
+      "pl": "samar",
+      "uk": "Самарій",
+      "ko": "사마륨",
+      "it": "samario"
+    }
+  },
+  "Eu": {
+    "id": "europium",
+    "atomic_number": 63,
+    "symbol": "Eu",
+    "names": {
+      "en": "Europium",
+      "la": "Europium",
+      "cs": "europium",
+      "de": "Europium",
+      "hu": "európium",
+      "zh": "铕",
+      "fr": "europium",
+      "ja": "ユウロピウム",
+      "es": "europio",
+      "pl": "europ",
+      "uk": "Європій",
+      "ko": "유로퓸",
+      "it": "europio"
+    }
+  },
+  "Gd": {
+    "id": "gadolinium",
+    "atomic_number": 64,
+    "symbol": "Gd",
+    "names": {
+      "en": "Gadolinium",
+      "la": "Gadolinium",
+      "cs": "gadolinium",
+      "de": "Gadolinium",
+      "hu": "gadolínium",
+      "zh": "钆",
+      "fr": "gadolinium",
+      "ja": "ガドリニウム",
+      "es": "gadolinio",
+      "pl": "gadolin",
+      "uk": "Гадоліній",
+      "ko": "가돌리늄",
+      "it": "gadolinio"
+    }
+  },
+  "Tb": {
+    "id": "terbium",
+    "atomic_number": 65,
+    "symbol": "Tb",
+    "names": {
+      "en": "Terbium",
+      "la": "Terbium",
+      "cs": "terbium",
+      "de": "Terbium",
+      "hu": "terbium",
+      "zh": "铽",
+      "fr": "terbium",
+      "ja": "テルビウム",
+      "es": "terbio",
+      "pl": "terb",
+      "uk": "Тербій",
+      "ko": "터븀",
+      "it": "terbio"
+    }
+  },
+  "Dy": {
+    "id": "dysprosium",
+    "atomic_number": 66,
+    "symbol": "Dy",
+    "names": {
+      "en": "Dysprosium",
+      "la": "Dysprosium",
+      "cs": "dysprosium",
+      "de": "Dysprosium",
+      "hu": "diszprózium",
+      "zh": "镝",
+      "fr": "dysprosium",
+      "ja": "ジスプロシウム",
+      "es": "disprosio",
+      "pl": "dysproz",
+      "uk": "Диспрозій",
+      "ko": "디스프로슘",
+      "it": "disprosio"
+    }
+  },
+  "Ho": {
+    "id": "holmium",
+    "atomic_number": 67,
+    "symbol": "Ho",
+    "names": {
+      "en": "Holmium",
+      "la": "Holmium",
+      "cs": "holmium",
+      "de": "Holmium",
+      "hu": "holmium",
+      "zh": "钬",
+      "fr": "holmium",
+      "ja": "ホルミウム",
+      "es": "holmio",
+      "pl": "holm",
+      "uk": "Гольмій",
+      "ko": "홀뮴",
+      "it": "olmio"
+    }
+  },
+  "Er": {
+    "id": "erbium",
+    "atomic_number": 68,
+    "symbol": "Er",
+    "names": {
+      "en": "Erbium",
+      "la": "Erbium",
+      "cs": "erbium",
+      "de": "Erbium",
+      "hu": "erbium",
+      "zh": "铒",
+      "fr": "erbium",
+      "ja": "エルビウム",
+      "es": "erbio",
+      "pl": "erb",
+      "uk": "Ербій",
+      "ko": "어븀",
+      "it": "erbio"
+    }
+  },
+  "Tm": {
+    "id": "thulium",
+    "atomic_number": 69,
+    "symbol": "Tm",
+    "names": {
+      "en": "Thulium",
+      "la": "Thulium",
+      "cs": "thulium",
+      "de": "Thulium",
+      "hu": "túlium",
+      "zh": "铥",
+      "fr": "thulium",
+      "ja": "ツリウム",
+      "es": "tulio",
+      "pl": "tul",
+      "uk": "Тулій",
+      "ko": "툴륨",
+      "it": "tulio"
+    }
+  },
+  "Yb": {
+    "id": "ytterbium",
+    "atomic_number": 70,
+    "symbol": "Yb",
+    "names": {
+      "en": "Ytterbium",
+      "la": "Ytterbium",
+      "cs": "ytterbium",
+      "de": "Ytterbium",
+      "hu": "itterbium",
+      "zh": "镱",
+      "fr": "ytterbium",
+      "ja": "イッテルビウム",
+      "es": "iterbio",
+      "pl": "iterb",
+      "uk": "Ітербій",
+      "ko": "이터븀",
+      "it": "itterbio"
+    }
+  },
+  "Lu": {
+    "id": "lutetium",
+    "atomic_number": 71,
+    "symbol": "Lu",
+    "names": {
+      "en": "Lutetium",
+      "la": "Lutetium",
+      "cs": "lutecium",
+      "de": "Lutetium",
+      "hu": "lutécium",
+      "zh": "镥",
+      "fr": "lutécium",
+      "ja": "ルテチウム",
+      "es": "lutecio",
+      "pl": "lutet",
+      "uk": "Лютецій",
+      "ko": "루테튬",
+      "it": "lutezio"
+    }
+  },
+  "Hf": {
+    "id": "hafnium",
+    "atomic_number": 72,
+    "symbol": "Hf",
+    "names": {
+      "en": "Hafnium",
+      "la": "Hafnium",
+      "cs": "hafnium",
+      "de": "Hafnium",
+      "hu": "hafnium",
+      "zh": "铪",
+      "fr": "hafnium",
+      "ja": "ハフニウム",
+      "es": "hafnio",
+      "pl": "hafn",
+      "uk": "Гафній",
+      "ko": "하프늄",
+      "it": "afnio"
+    }
+  },
+  "Ta": {
+    "id": "tantalum",
+    "atomic_number": 73,
+    "symbol": "Ta",
+    "names": {
+      "en": "Tantalum",
+      "la": "Tantalum",
+      "cs": "tantal",
+      "de": "Tantal",
+      "hu": "tantál",
+      "zh": "钽",
+      "fr": "tantale",
+      "ja": "タンタル",
+      "es": "tántalo",
+      "pl": "tantal",
+      "uk": "Тантал",
+      "ko": "탄탈럼",
+      "it": "tantalio"
+    }
+  },
+  "W": {
+    "id": "tungsten",
+    "atomic_number": 74,
+    "symbol": "W",
+    "names": {
+      "en": "Tungsten",
+      "la": "Wolframium",
+      "cs": "wolfram",
+      "de": "Wolfram",
+      "hu": "volfrám",
+      "zh": "钨",
+      "fr": "tungstène",
+      "ja": "タングステン",
+      "es": "wolframio",
+      "pl": "wolfram",
+      "uk": "Вольфрам",
+      "ko": "텅스텐",
+      "it": "tungsteno"
+    }
+  },
+  "Re": {
+    "id": "rhenium",
+    "atomic_number": 75,
+    "symbol": "Re",
+    "names": {
+      "en": "Rhenium",
+      "la": "Rhenium",
+      "cs": "rhenium",
+      "de": "Rhenium",
+      "hu": "rénium",
+      "zh": "铼",
+      "fr": "rhénium",
+      "ja": "レニウム",
+      "es": "renio",
+      "pl": "ren",
+      "uk": "Реній",
+      "ko": "레늄",
+      "it": "renio"
+    }
+  },
+  "Os": {
+    "id": "osmium",
+    "atomic_number": 76,
+    "symbol": "Os",
+    "names": {
+      "en": "Osmium",
+      "la": "Osmium",
+      "cs": "osmium",
+      "de": "Osmium",
+      "hu": "ozmium",
+      "zh": "锇",
+      "fr": "osmium",
+      "ja": "オスミウム",
+      "es": "osmio",
+      "pl": "osm",
+      "uk": "Осмій",
+      "ko": "오스뮴",
+      "it": "osmio"
+    }
+  },
+  "Ir": {
+    "id": "iridium",
+    "atomic_number": 77,
+    "symbol": "Ir",
+    "names": {
+      "en": "Iridium",
+      "la": "Iridium",
+      "cs": "iridium",
+      "de": "Iridium",
+      "hu": "irídium",
+      "zh": "铱",
+      "fr": "iridium",
+      "ja": "イリジウム",
+      "es": "iridio",
+      "pl": "iryd",
+      "uk": "Іридій",
+      "ko": "이리듐",
+      "it": "iridio"
+    }
+  },
+  "Pt": {
+    "id": "platinum",
+    "atomic_number": 78,
+    "symbol": "Pt",
+    "names": {
+      "en": "Platinum",
+      "la": "Platinum",
+      "cs": "platina",
+      "de": "Platin",
+      "hu": "platina",
+      "zh": "铂",
+      "fr": "platine",
+      "ja": "プラチナ",
+      "es": "platino",
+      "pl": "platyna",
+      "uk": "Платина",
+      "ko": "백금",
+      "it": "platino"
+    }
+  },
+  "Au": {
+    "id": "gold",
+    "atomic_number": 79,
+    "symbol": "Au",
+    "names": {
+      "en": "Gold",
+      "la": "Aurum",
+      "cs": "zlato",
+      "de": "Gold",
+      "hu": "arany",
+      "zh": "金",
+      "fr": "or",
+      "ja": "金",
+      "es": "oro",
+      "pl": "złoto",
+      "uk": "Аурум",
+      "ko": "금",
+      "it": "oro"
+    }
+  },
+  "Hg": {
+    "id": "mercury",
+    "atomic_number": 80,
+    "symbol": "Hg",
+    "names": {
+      "en": "Mercury",
+      "la": "Hydrargyrum",
+      "cs": "rtuť",
+      "de": "Quecksilber",
+      "hu": "higany",
+      "zh": "汞",
+      "fr": "mercure",
+      "ja": "水銀",
+      "es": "mercurio",
+      "pl": "rtęć",
+      "uk": "Меркурій",
+      "ko": "수은",
+      "it": "mercurio"
+    }
+  },
+  "Tl": {
+    "id": "thallium",
+    "atomic_number": 81,
+    "symbol": "Tl",
+    "names": {
+      "en": "Thallium",
+      "la": "Thallium",
+      "cs": "thallium",
+      "de": "Thallium",
+      "hu": "tallium",
+      "zh": "铊",
+      "fr": "thallium",
+      "ja": "タリウム",
+      "es": "talio",
+      "pl": "tal",
+      "uk": "Талій",
+      "ko": "탈륨",
+      "it": "tallio"
+    }
+  },
+  "Pb": {
+    "id": "lead",
+    "atomic_number": 82,
+    "symbol": "Pb",
+    "names": {
+      "en": "Lead",
+      "la": "Plumbum",
+      "cs": "olovo",
+      "de": "Blei",
+      "hu": "ólom",
+      "zh": "铅",
+      "fr": "plomb",
+      "ja": "鉛",
+      "es": "plomo",
+      "pl": "ołów",
+      "uk": "Плюмбум",
+      "ko": "납",
+      "it": "piombo"
+    }
+  },
+  "Bi": {
+    "id": "bismuth",
+    "atomic_number": 83,
+    "symbol": "Bi",
+    "names": {
+      "en": "Bismuth",
+      "la": "Bisemutum",
+      "cs": "bismut",
+      "de": "Bismut",
+      "hu": "bizmut",
+      "zh": "铋",
+      "fr": "bismuth",
+      "ja": "ビスマス",
+      "es": "bismuto",
+      "pl": "bizmut",
+      "uk": "Бісмут",
+      "ko": "비스무트",
+      "it": "bismuto"
+    }
+  },
+  "Po": {
+    "id": "polonium",
+    "atomic_number": 84,
+    "symbol": "Po",
+    "names": {
+      "en": "Polonium",
+      "la": "Polonium",
+      "cs": "polonium",
+      "de": "Polonium",
+      "hu": "polónium",
+      "zh": "钋",
+      "fr": "polonium",
+      "ja": "ポロニウム",
+      "es": "polonio",
+      "pl": "polon",
+      "uk": "Полоній",
+      "ko": "폴로늄",
+      "it": "polonio"
+    }
+  },
+  "At": {
+    "id": "astatine",
+    "atomic_number": 85,
+    "symbol": "At",
+    "names": {
+      "en": "Astatine",
+      "la": "Astatium",
+      "cs": "astat",
+      "de": "Astat",
+      "hu": "asztácium",
+      "zh": "砹",
+      "fr": "astate",
+      "ja": "アスタチン",
+      "es": "astato",
+      "pl": "astat",
+      "uk": "Астат",
+      "ko": "아스타틴",
+      "it": "astato"
+    }
+  },
+  "Rn": {
+    "id": "radon",
+    "atomic_number": 86,
+    "symbol": "Rn",
+    "names": {
+      "en": "Radon",
+      "la": "Radon",
+      "cs": "radon",
+      "de": "Radon",
+      "hu": "radon",
+      "zh": "氡",
+      "fr": "radon",
+      "ja": "ラドン",
+      "es": "radón",
+      "pl": "radon",
+      "uk": "Радон",
+      "ko": "라돈",
+      "it": "radon"
+    }
+  },
+  "Fr": {
+    "id": "francium",
+    "atomic_number": 87,
+    "symbol": "Fr",
+    "names": {
+      "en": "Francium",
+      "la": "Francium",
+      "cs": "francium",
+      "de": "Francium",
+      "hu": "francium",
+      "zh": "钫",
+      "fr": "francium",
+      "ja": "フランシウム",
+      "es": "francio",
+      "pl": "frans",
+      "uk": "Францій",
+      "ko": "프랑슘",
+      "it": "francio"
+    }
+  },
+  "Ra": {
+    "id": "radium",
+    "atomic_number": 88,
+    "symbol": "Ra",
+    "names": {
+      "en": "Radium",
+      "la": "Radium",
+      "cs": "radium",
+      "de": "Radium",
+      "hu": "rádium",
+      "zh": "镭",
+      "fr": "radium",
+      "ja": "ラジウム",
+      "es": "radio",
+      "pl": "rad",
+      "uk": "Радій",
+      "ko": "라듐",
+      "it": "radio"
+    }
+  },
+  "Ac": {
+    "id": "actinium",
+    "atomic_number": 89,
+    "symbol": "Ac",
+    "names": {
+      "en": "Actinium",
+      "la": "Actinium",
+      "cs": "aktinium",
+      "de": "Actinium",
+      "hu": "aktínium",
+      "zh": "锕",
+      "fr": "actinium",
+      "ja": "アクチニウム",
+      "es": "actinio",
+      "pl": "aktyn",
+      "uk": "Актиній",
+      "ko": "악티늄",
+      "it": "attinio"
+    }
+  },
+  "Th": {
+    "id": "thorium",
+    "atomic_number": 90,
+    "symbol": "Th",
+    "names": {
+      "en": "Thorium",
+      "la": "Thorium",
+      "cs": "thorium",
+      "de": "Thorium",
+      "hu": "tórium",
+      "zh": "钍",
+      "fr": "thorium",
+      "ja": "トリウム",
+      "es": "torio",
+      "pl": "tor",
+      "uk": "Торій",
+      "ko": "토륨",
+      "it": "torio"
+    }
+  },
+  "Pa": {
+    "id": "protactinium",
+    "atomic_number": 91,
+    "symbol": "Pa",
+    "names": {
+      "en": "Protactinium",
+      "la": "Protactinium",
+      "cs": "protaktinium",
+      "de": "Protactinium",
+      "hu": "protaktínium",
+      "zh": "镤",
+      "fr": "protactinium",
+      "ja": "プロトアクチニウム",
+      "es": "protactinio",
+      "pl": "protaktyn",
+      "uk": "Протактиній",
+      "ko": "프로트악티늄",
+      "it": "protoattinio"
+    }
+  },
+  "U": {
+    "id": "uranium",
+    "atomic_number": 92,
+    "symbol": "U",
+    "names": {
+      "en": "Uranium",
+      "la": "Uranium",
+      "cs": "uran",
+      "de": "Uran",
+      "hu": "urán",
+      "zh": "铀",
+      "fr": "uranium",
+      "ja": "ウラン",
+      "es": "uranio",
+      "pl": "uran",
+      "uk": "Уран",
+      "ko": "우라늄",
+      "it": "uranio"
+    }
+  },
+  "Np": {
+    "id": "neptunium",
+    "atomic_number": 93,
+    "symbol": "Np",
+    "names": {
+      "en": "Neptunium",
+      "la": "Neptunium",
+      "cs": "neptunium",
+      "de": "Neptunium",
+      "hu": "neptúnium",
+      "zh": "镎",
+      "fr": "neptunium",
+      "ja": "ネプツニウム",
+      "es": "neptunio",
+      "pl": "neptun",
+      "uk": "Нептуній",
+      "ko": "넵투늄",
+      "it": "nettunio"
+    }
+  },
+  "Pu": {
+    "id": "plutonium",
+    "atomic_number": 94,
+    "symbol": "Pu",
+    "names": {
+      "en": "Plutonium",
+      "la": "Plutonium",
+      "cs": "plutonium",
+      "de": "Plutonium",
+      "hu": "plutónium",
+      "zh": "钚",
+      "fr": "plutonium",
+      "ja": "プルトニウム",
+      "es": "plutonio",
+      "pl": "pluton",
+      "uk": "Плутоній",
+      "ko": "플루토늄",
+      "it": "plutonio"
+    }
+  },
+  "Am": {
+    "id": "americium",
+    "atomic_number": 95,
+    "symbol": "Am",
+    "names": {
+      "en": "Americium",
+      "la": "Americium",
+      "cs": "americium",
+      "de": "Americium",
+      "hu": "amerícium",
+      "zh": "镅",
+      "fr": "américium",
+      "ja": "アメリシウム",
+      "es": "americio",
+      "pl": "ameryk",
+      "uk": "Америцій",
+      "ko": "아메리슘",
+      "it": "americio"
+    }
+  },
+  "Cm": {
+    "id": "curium",
+    "atomic_number": 96,
+    "symbol": "Cm",
+    "names": {
+      "en": "Curium",
+      "la": "Curium",
+      "cs": "curium",
+      "de": "Curium",
+      "hu": "kűrium",
+      "zh": "锔",
+      "fr": "curium",
+      "ja": "キュリウム",
+      "es": "curio",
+      "pl": "kiur",
+      "uk": "Кюрій",
+      "ko": "퀴륨",
+      "it": "curio"
+    }
+  },
+  "Bk": {
+    "id": "berkelium",
+    "atomic_number": 97,
+    "symbol": "Bk",
+    "names": {
+      "en": "Berkelium",
+      "la": "Berkelium",
+      "cs": "berkelium",
+      "de": "Berkelium",
+      "hu": "berkélium",
+      "zh": "锫",
+      "fr": "berkélium",
+      "ja": "バークリウム",
+      "es": "berkelio",
+      "pl": "berkel",
+      "uk": "Берклій",
+      "ko": "버클륨",
+      "it": "berkelio"
+    }
+  },
+  "Cf": {
+    "id": "californium",
+    "atomic_number": 98,
+    "symbol": "Cf",
+    "names": {
+      "en": "Californium",
+      "la": "Californium",
+      "cs": "kalifornium",
+      "de": "Californium",
+      "hu": "kalifornium",
+      "zh": "锎",
+      "fr": "californium",
+      "ja": "カリホルニウム",
+      "es": "californio",
+      "pl": "kaliforn",
+      "uk": "Каліфорній",
+      "ko": "캘리포늄",
+      "it": "californio"
+    }
+  },
+  "Es": {
+    "id": "einsteinium",
+    "atomic_number": 99,
+    "symbol": "Es",
+    "names": {
+      "en": "Einsteinium",
+      "la": "Einsteinium",
+      "cs": "einsteinium",
+      "de": "Einsteinium",
+      "hu": "einsteinium",
+      "zh": "锿",
+      "fr": "einsteinium",
+      "ja": "アインスタイニウム",
+      "es": "einstenio",
+      "pl": "einstein",
+      "uk": "Ейнштейній",
+      "ko": "아인슈타이늄",
+      "it": "einsteinio"
+    }
+  },
+  "Fm": {
+    "id": "fermium",
+    "atomic_number": 100,
+    "symbol": "Fm",
+    "names": {
+      "en": "Fermium",
+      "la": "Fermium",
+      "cs": "fermium",
+      "de": "Fermium",
+      "hu": "fermium",
+      "zh": "镄",
+      "fr": "fermium",
+      "ja": "フェルミウム",
+      "es": "fermio",
+      "pl": "ferm",
+      "uk": "Фермій",
+      "ko": "페르뮴",
+      "it": "fermio"
+    }
+  },
+  "Md": {
+    "id": "mendelevium",
+    "atomic_number": 101,
+    "symbol": "Md",
+    "names": {
+      "en": "Mendelevium",
+      "la": "Mendelevium",
+      "cs": "mendelevium",
+      "de": "Mendelevium",
+      "hu": "mendelévium",
+      "zh": "钔",
+      "fr": "mendélévium",
+      "ja": "メンデレビウム",
+      "es": "mendelevio",
+      "pl": "mendelew",
+      "uk": "Менделевій",
+      "ko": "멘델레븀",
+      "it": "mendelevio"
+    }
+  },
+  "No": {
+    "id": "nobelium",
+    "atomic_number": 102,
+    "symbol": "No",
+    "names": {
+      "en": "Nobelium",
+      "la": "Nobelium",
+      "cs": "nobelium",
+      "de": "Nobelium",
+      "hu": "nobélium",
+      "zh": "锘",
+      "fr": "nobélium",
+      "ja": "ノーベリウム",
+      "es": "nobelio",
+      "pl": "nobel",
+      "uk": "Нобелій",
+      "ko": "노벨륨",
+      "it": "nobelio"
+    }
+  },
+  "Lr": {
+    "id": "lawrencium",
+    "atomic_number": 103,
+    "symbol": "Lr",
+    "names": {
+      "en": "Lawrencium",
+      "la": "Lawrencium",
+      "cs": "lawrencium",
+      "de": "Lawrencium",
+      "hu": "laurencium",
+      "zh": "铹",
+      "fr": "lawrencium",
+      "ja": "ローレンシウム",
+      "es": "lawrencio",
+      "pl": "lorens",
+      "uk": "Лоуренсій",
+      "ko": "로렌슘",
+      "it": "laurenzio"
+    }
+  },
+  "Rf": {
+    "id": "rutherfordium",
+    "atomic_number": 104,
+    "symbol": "Rf",
+    "names": {
+      "en": "Rutherfordium",
+      "la": "Rutherfordium",
+      "cs": "rutherfordium",
+      "de": "Rutherfordium",
+      "hu": "raderfordium",
+      "zh": "𬬻",
+      "fr": "rutherfordium",
+      "ja": "ラザホージウム",
+      "es": "rutherfordio",
+      "pl": "rutherford",
+      "uk": "Резерфордій",
+      "ko": "러더포듐",
+      "it": "rutherfordio"
+    }
+  },
+  "Db": {
+    "id": "dubnium",
+    "atomic_number": 105,
+    "symbol": "Db",
+    "names": {
+      "en": "Dubnium",
+      "la": "Dubnium",
+      "cs": "dubnium",
+      "de": "Dubnium",
+      "hu": "dubnium",
+      "zh": "𬭊",
+      "fr": "dubnium",
+      "ja": "ドブニウム",
+      "es": "dubnio",
+      "pl": "dubn",
+      "uk": "Дубній",
+      "ko": "더브늄",
+      "it": "dubnio"
+    }
+  },
+  "Sg": {
+    "id": "seaborgium",
+    "atomic_number": 106,
+    "symbol": "Sg",
+    "names": {
+      "en": "Seaborgium",
+      "la": "Seaborgium",
+      "cs": "seaborgium",
+      "de": "Seaborgium",
+      "hu": "seaborgium",
+      "zh": "𬭳",
+      "fr": "seaborgium",
+      "ja": "シーボーギウム",
+      "es": "seaborgio",
+      "pl": "seaborg",
+      "uk": "Сіборгій",
+      "ko": "시보귬",
+      "it": "seaborgio"
+    }
+  },
+  "Bh": {
+    "id": "bohrium",
+    "atomic_number": 107,
+    "symbol": "Bh",
+    "names": {
+      "en": "Bohrium",
+      "la": "Bohrium",
+      "cs": "bohrium",
+      "de": "Bohrium",
+      "hu": "bohrium",
+      "zh": "𬭛",
+      "fr": "bohrium",
+      "ja": "ボーリウム",
+      "es": "bohrio",
+      "pl": "bohr",
+      "uk": "Борій",
+      "ko": "보륨",
+      "it": "bohrio"
+    }
+  },
+  "Hs": {
+    "id": "hassium",
+    "atomic_number": 108,
+    "symbol": "Hs",
+    "names": {
+      "en": "Hassium",
+      "la": "Hassium",
+      "cs": "hassium",
+      "de": "Hassium",
+      "hu": "hassium",
+      "zh": "𬭶",
+      "fr": "hassium",
+      "ja": "ハッシウム",
+      "es": "hassio",
+      "pl": "has",
+      "uk": "Гасій",
+      "ko": "하슘",
+      "it": "hassio"
+    }
+  },
+  "Mt": {
+    "id": "meitnerium",
+    "atomic_number": 109,
+    "symbol": "Mt",
+    "names": {
+      "en": "Meitnerium",
+      "la": "Meitnerium",
+      "cs": "meitnerium",
+      "de": "Meitnerium",
+      "hu": "meitnerium",
+      "zh": "鿏",
+      "fr": "meitnérium",
+      "ja": "マイトネリウム",
+      "es": "meitnerio",
+      "pl": "meitner",
+      "uk": "Мейтнерій",
+      "ko": "마이트너륨",
+      "it": "meitnerio"
+    }
+  },
+  "Ds": {
+    "id": "darmstadtium",
+    "atomic_number": 110,
+    "symbol": "Ds",
+    "names": {
+      "en": "Darmstadtium",
+      "la": "Darmstadtium",
+      "cs": "darmstadtium",
+      "de": "Darmstadtium",
+      "hu": "darmstadtium",
+      "zh": "𫟼",
+      "fr": "darmstadtium",
+      "ja": "ダームスタチウム",
+      "es": "darmstadtio",
+      "pl": "darmsztadt",
+      "uk": "Дармштадтій",
+      "ko": "다름슈타튬",
+      "it": "darmstadtio"
+    }
+  },
+  "Rg": {
+    "id": "roentgenium",
+    "atomic_number": 111,
+    "symbol": "Rg",
+    "names": {
+      "en": "Roentgenium",
+      "la": "Roentgenium",
+      "cs": "roentgenium",
+      "de": "Roentgenium",
+      "hu": "röntgénium",
+      "zh": "𬬭",
+      "fr": "roentgenium",
+      "ja": "レントゲニウム",
+      "es": "roentgenio",
+      "pl": "rentgen",
+      "uk": "Рентгеній",
+      "ko": "뢴트게늄",
+      "it": "roentgenio"
+    }
+  },
+  "Cn": {
+    "id": "copernicium",
+    "atomic_number": 112,
+    "symbol": "Cn",
+    "names": {
+      "en": "Copernicium",
+      "la": "Copernicium",
+      "cs": "kopernicium",
+      "de": "Copernicium",
+      "hu": "kopernícium",
+      "zh": "鿔",
+      "fr": "copernicium",
+      "ja": "コペルニシウム",
+      "es": "copernicio",
+      "pl": "kopernik",
+      "uk": "Коперницій",
+      "ko": "코페르니슘",
+      "it": "copernicio"
+    }
+  },
+  "Nh": {
+    "id": "nihonium",
+    "atomic_number": 113,
+    "symbol": "Nh",
+    "names": {
+      "en": "Nihonium",
+      "la": "Nihonium",
+      "cs": "nihonium",
+      "de": "Nihonium",
+      "hu": "nihónium",
+      "zh": "鿭",
+      "fr": "nihonium",
+      "ja": "ニホニウム",
+      "es": "nihonio",
+      "pl": "nihon",
+      "uk": "Ніхоній",
+      "ko": "니호늄",
+      "it": "nihonio"
+    }
+  },
+  "Fl": {
+    "id": "flerovium",
+    "atomic_number": 114,
+    "symbol": "Fl",
+    "names": {
+      "en": "Flerovium",
+      "la": "Flerovium",
+      "cs": "flerovium",
+      "de": "Flerovium",
+      "hu": "fleróvium",
+      "zh": "𫓧",
+      "fr": "flérovium",
+      "ja": "フレロビウム",
+      "es": "flerovio",
+      "pl": "flerow",
+      "uk": "Флеровій",
+      "ko": "플레로븀",
+      "it": "flerovio"
+    }
+  },
+  "Mc": {
+    "id": "moscovium",
+    "atomic_number": 115,
+    "symbol": "Mc",
+    "names": {
+      "en": "Moscovium",
+      "la": "Moscovium",
+      "cs": "moscovium",
+      "de": "Moscovium",
+      "hu": "moszkóvium",
+      "zh": "镆",
+      "fr": "moscovium",
+      "ja": "モスコビウム",
+      "es": "moscovio",
+      "pl": "moskow",
+      "uk": "Московій",
+      "ko": "모스코븀",
+      "it": "moscovio"
+    }
+  },
+  "Lv": {
+    "id": "livermorium",
+    "atomic_number": 116,
+    "symbol": "Lv",
+    "names": {
+      "en": "Livermorium",
+      "la": "Livermorium",
+      "cs": "livermorium",
+      "de": "Livermorium",
+      "hu": "livermórium",
+      "zh": "𫟷",
+      "fr": "livermorium",
+      "ja": "リバモリウム",
+      "es": "livermorio",
+      "pl": "liwermor",
+      "uk": "Ліверморій",
+      "ko": "리버모륨",
+      "it": "livermorio"
+    }
+  },
+  "Ts": {
+    "id": "tennessine",
+    "atomic_number": 117,
+    "symbol": "Ts",
+    "names": {
+      "en": "Tennessine",
+      "la": "Tennessine",
+      "cs": "tennessin",
+      "de": "Tenness",
+      "hu": "tenesszium",
+      "zh": "鿬",
+      "fr": "tennesse",
+      "ja": "テネシン",
+      "es": "teneso",
+      "pl": "tenes",
+      "uk": "Теннессин",
+      "ko": "테네신",
+      "it": "tennessinio"
+    }
+  },
+  "Og": {
+    "id": "oganesson",
+    "atomic_number": 118,
+    "symbol": "Og",
+    "names": {
+      "en": "Oganesson",
+      "la": "Oganesson",
+      "cs": "oganesson",
+      "de": "Oganesson",
+      "hu": "oganesszon",
+      "zh": "鿫",
+      "fr": "oganesson",
+      "ja": "オガネソン",
+      "es": "oganesson",
+      "pl": "oganeson",
+      "uk": "Оганесон",
+      "ko": "오가네손",
+      "it": "oganesson"
+    }
+  }
+}

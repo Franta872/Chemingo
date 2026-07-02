@@ -1,0 +1,54 @@
+{
+  "en": {
+    "native_name": "English",
+    "english_name": "English"
+  },
+  "la": {
+    "native_name": "Latina",
+    "english_name": "Latin"
+  },
+  "cs": {
+    "native_name": "Čeština",
+    "english_name": "Czech"
+  },
+  "de": {
+    "native_name": "Deutsch",
+    "english_name": "German"
+  },
+  "hu": {
+    "native_name": "Magyar",
+    "english_name": "Hungarian"
+  },
+  "zh": {
+    "native_name": "中文",
+    "english_name": "Chinese, Simplified"
+  },
+  "fr": {
+    "native_name": "Français",
+    "english_name": "French"
+  },
+  "ja": {
+    "native_name": "日本語",
+    "english_name": "Japanese"
+  },
+  "es": {
+    "native_name": "Español",
+    "english_name": "Spanish"
+  },
+  "pl": {
+    "native_name": "Polski",
+    "english_name": "Polish"
+  },
+  "uk": {
+    "native_name": "Українська",
+    "english_name": "Ukrainian"
+  },
+  "ko": {
+    "native_name": "한국어",
+    "english_name": "Korean"
+  },
+  "it": {
+    "native_name": "Italiano",
+    "english_name": "Italian"
+  }
+}

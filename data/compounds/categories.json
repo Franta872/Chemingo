@@ -1,0 +1,230 @@
+[
+  {
+    "id": "halides",
+    "names": {
+      "en": "halides",
+      "la": "halogenida",
+      "cs": "halogenidy",
+      "de": "Halogenide",
+      "hu": "halogenidek",
+      "zh": "卤化物",
+      "fr": "halogénures",
+      "ja": "ハロゲン化物",
+      "es": "haluros",
+      "pl": "halogenki",
+      "uk": "галогеніди",
+      "ko": "할로젠화물",
+      "it": "alogenuri"
+    },
+    "compound_count": 16
+  },
+  {
+    "id": "oxides",
+    "names": {
+      "en": "oxides",
+      "la": "oxida",
+      "cs": "oxidy",
+      "de": "Oxide",
+      "hu": "oxidok",
+      "zh": "氧化物",
+      "fr": "oxydes",
+      "ja": "酸化物",
+      "es": "óxidos",
+      "pl": "tlenki",
+      "uk": "оксиди",
+      "ko": "산화물",
+      "it": "ossidi"
+    },
+    "compound_count": 16
+  },
+  {
+    "id": "sulfides",
+    "names": {
+      "en": "sulfides",
+      "la": "sulfida",
+      "cs": "sulfidy",
+      "de": "Sulfide",
+      "hu": "szulfidok",
+      "zh": "硫化物",
+      "fr": "sulfures",
+      "ja": "硫化物",
+      "es": "sulfuros",
+      "pl": "siarczki",
+      "uk": "сульфіди",
+      "ko": "황화물",
+      "it": "solfuri"
+    },
+    "compound_count": 12
+  },
+  {
+    "id": "hydroxides",
+    "names": {
+      "en": "hydroxides",
+      "la": "hydroxida",
+      "cs": "hydroxidy",
+      "de": "Hydroxide",
+      "hu": "hidroxidok",
+      "zh": "氢氧化物",
+      "fr": "hydroxydes",
+      "ja": "水酸化物",
+      "es": "hidróxidos",
+      "pl": "wodorotlenki",
+      "uk": "гідроксиди",
+      "ko": "수산화물",
+      "it": "idrossidi"
+    },
+    "compound_count": 11
+  },
+  {
+    "id": "salts",
+    "names": {
+      "en": "salts",
+      "la": "sales",
+      "cs": "soli",
+      "de": "Salze",
+      "hu": "sók",
+      "zh": "盐",
+      "fr": "sels",
+      "ja": "塩",
+      "es": "sales",
+      "pl": "sole",
+      "uk": "солі",
+      "ko": "염",
+      "it": "sali"
+    },
+    "compound_count": 19
+  },
+  {
+    "id": "binary_acids",
+    "names": {
+      "en": "binary acids",
+      "la": "acida binaria",
+      "cs": "bezkyslíkaté kyseliny",
+      "de": "sauerstofffreie Säuren",
+      "hu": "oxigénmentes savak",
+      "zh": "无氧酸",
+      "fr": "acides binaires",
+      "ja": "二元酸",
+      "es": "ácidos hidrácidos",
+      "pl": "kwasy beztlenowe",
+      "uk": "безоксигенові кислоти",
+      "ko": "무산소산",
+      "it": "acidi binari"
+    },
+    "compound_count": 7
+  },
+  {
+    "id": "oxyacids",
+    "names": {
+      "en": "oxyacids",
+      "la": "oxoacida",
+      "cs": "kyslíkaté kyseliny",
+      "de": "Sauerstoffsäuren",
+      "hu": "oxosavak",
+      "zh": "含氧酸",
+      "fr": "oxacides",
+      "ja": "オキソ酸",
+      "es": "oxoácidos",
+      "pl": "kwasy tlenowe",
+      "uk": "оксигеновмісні кислоти",
+      "ko": "산소산",
+      "it": "ossiacidi"
+    },
+    "compound_count": 13
+  },
+  {
+    "id": "organic_acids",
+    "names": {
+      "en": "organic acids",
+      "la": "acida organica",
+      "cs": "organické kyseliny",
+      "de": "organische Säuren",
+      "hu": "szerves savak",
+      "zh": "有机酸",
+      "fr": "acides organiques",
+      "ja": "有機酸",
+      "es": "ácidos orgánicos",
+      "pl": "kwasy organiczne",
+      "uk": "органічні кислоти",
+      "ko": "유기산",
+      "it": "acidi organici"
+    },
+    "compound_count": 5
+  },
+  {
+    "id": "hydrides",
+    "names": {
+      "en": "hydrides",
+      "la": "hydrida",
+      "cs": "hydridy",
+      "de": "Hydride",
+      "hu": "hidridek",
+      "zh": "氢化物",
+      "fr": "hydrures",
+      "ja": "水素化物",
+      "es": "hidruros",
+      "pl": "wodorki",
+      "uk": "гідриди",
+      "ko": "수소화물",
+      "it": "idruri"
+    },
+    "compound_count": 7
+  },
+  {
+    "id": "peroxides",
+    "names": {
+      "en": "peroxides",
+      "la": "peroxida",
+      "cs": "peroxidy",
+      "de": "Peroxide",
+      "hu": "peroxidok",
+      "zh": "过氧化物",
+      "fr": "peroxydes",
+      "ja": "過酸化物",
+      "es": "peróxidos",
+      "pl": "nadtlenki",
+      "uk": "пероксиди",
+      "ko": "과산화물",
+      "it": "perossidi"
+    },
+    "compound_count": 3
+  },
+  {
+    "id": "nitrides",
+    "names": {
+      "en": "nitrides",
+      "la": "nitrida",
+      "cs": "nitridy",
+      "de": "Nitride",
+      "hu": "nitridek",
+      "zh": "氮化物",
+      "fr": "nitrures",
+      "ja": "窒化物",
+      "es": "nitruros",
+      "pl": "azotki",
+      "uk": "нітриди",
+      "ko": "질화물",
+      "it": "nitruri"
+    },
+    "compound_count": 4
+  },
+  {
+    "id": "carbides",
+    "names": {
+      "en": "carbides",
+      "la": "carbida",
+      "cs": "karbidy",
+      "de": "Carbide",
+      "hu": "karbidok",
+      "zh": "碳化物",
+      "fr": "carbures",
+      "ja": "炭化物",
+      "es": "carburos",
+      "pl": "węgliki",
+      "uk": "карбіди",
+      "ko": "탄화물",
+      "it": "carburi"
+    },
+    "compound_count": 3
+  }
+]
