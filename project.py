@@ -1,22 +1,18 @@
 # TEXTUAL imports
 from textual.app import App
-from textual.widgets import Header, Footer, Label, Button
-from textual.containers import Horizontal, Vertical
-from textual.screen import Screen
-from textual.reactive import reactive
+from textual.widgets import Header, Footer
 # PYTHON import
 from dataclasses import dataclass
 # APP import
 # from folder.folder.file import class
 from screens.welcome.welcome import WelcomeScreen
+from data.locales.ui.translation import Translate
 
 @dataclass
 class AppState:
-    language: str = "en"
+    ...
 
 class ChemistryQuiz(App):
-    CSS_PATH = "project.tcss"
-
     SCREENS = {
         "welcome": WelcomeScreen
     }
@@ -26,6 +22,8 @@ class ChemistryQuiz(App):
         yield Footer()
 
     def on_mount(self):
+        self.translate = Translate("en")
+
         self.state = AppState()
         self.push_screen("welcome")
 

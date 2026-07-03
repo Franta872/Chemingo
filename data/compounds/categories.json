@@ -1,6 +1,5 @@
-[
-  {
-    "id": "halides",
+{
+  "halides": {
     "names": {
       "en": "halides",
       "la": "halogenida",
@@ -18,8 +17,7 @@
     },
     "compound_count": 16
   },
-  {
-    "id": "oxides",
+  "oxides": {
     "names": {
       "en": "oxides",
       "la": "oxida",
@@ -37,8 +35,7 @@
     },
     "compound_count": 16
   },
-  {
-    "id": "sulfides",
+  "sulfides": {
     "names": {
       "en": "sulfides",
       "la": "sulfida",
@@ -56,8 +53,7 @@
     },
     "compound_count": 12
   },
-  {
-    "id": "hydroxides",
+  "hydroxides": {
     "names": {
       "en": "hydroxides",
       "la": "hydroxida",
@@ -75,8 +71,7 @@
     },
     "compound_count": 11
   },
-  {
-    "id": "salts",
+  "salts": {
     "names": {
       "en": "salts",
       "la": "sales",
@@ -94,8 +89,7 @@
     },
     "compound_count": 19
   },
-  {
-    "id": "binary_acids",
+  "binary_acids": {
     "names": {
       "en": "binary acids",
       "la": "acida binaria",
@@ -113,8 +107,7 @@
     },
     "compound_count": 7
   },
-  {
-    "id": "oxyacids",
+  "oxyacids": {
     "names": {
       "en": "oxyacids",
       "la": "oxoacida",
@@ -132,8 +125,7 @@
     },
     "compound_count": 13
   },
-  {
-    "id": "organic_acids",
+  "organic_acids": {
     "names": {
       "en": "organic acids",
       "la": "acida organica",
@@ -151,8 +143,7 @@
     },
     "compound_count": 5
   },
-  {
-    "id": "hydrides",
+  "hydrides": {
     "names": {
       "en": "hydrides",
       "la": "hydrida",
@@ -170,8 +161,7 @@
     },
     "compound_count": 7
   },
-  {
-    "id": "peroxides",
+  "peroxides": {
     "names": {
       "en": "peroxides",
       "la": "peroxida",
@@ -189,8 +179,7 @@
     },
     "compound_count": 3
   },
-  {
-    "id": "nitrides",
+  "nitrides": {
     "names": {
       "en": "nitrides",
       "la": "nitrida",
@@ -208,8 +197,7 @@
     },
     "compound_count": 4
   },
-  {
-    "id": "carbides",
+  "carbides": {
     "names": {
       "en": "carbides",
       "la": "carbida",
@@ -227,4 +215,4 @@
     },
     "compound_count": 3
   }
-]
+}

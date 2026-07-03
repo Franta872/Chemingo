@@ -1,3 +1,15 @@
-#language-select {
-    width: 20;
+Label {
+    margin: 1 0 0 2;
+}
+Select {
+    margin: 0 0 3 1;
+    width: 18%;
+}
+
+FigletWidget {
+    width: 100%;
+    margin: 2;
+}
+Horizontal {
+    align-horizontal: center;
 }
