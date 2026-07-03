@@ -1,7 +1,6 @@
 from textual.screen import Screen
 from textual.widgets import Button, Header, Select
 from textual.containers import Horizontal
-from textual_pyfiglet import FigletWidget
 
 # path from the main file
 from data.database import all_languages_select
@@ -36,4 +35,4 @@ class WelcomeScreen(Screen):
             widget.update_language()
         
     def on_button_pressed(self, event: Button.Pressed):
-        ...
+        self.app.push_screen("choice")

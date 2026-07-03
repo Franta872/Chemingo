@@ -1,0 +1,9 @@
+#grid {
+    layout: grid;
+    grid-size: 18 9;
+    grid-gutter: 1;
+}
+.element, Static {
+    height: 5;
+    width: 5;
+}

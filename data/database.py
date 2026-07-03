@@ -3,7 +3,7 @@ import json
 
 from data.locales.all_languages.language_select import all_languages
 
-def open_json_file(path: str) -> dict:
+def open_json_file(path: str) -> dict | list:
     with Path(path).open(encoding="utf-8") as file:
         return json.load(file)
 
@@ -78,6 +78,11 @@ A tuple of all language codes of languages, that this app supports.
 Example: 
 ```
 ('en', 'la', 'cs', 'de', ...)
+"""
+periodic_table: list[list[str|None]] = open_json_file("data/elements/periodic_table.json")
+"""
+List of lists witch represents periodic table. Elements are represented with they're symbols 
+and ```null``` or ```None``` means there is no elements in that square.
 """
 
 if __name__ == "__main__":
