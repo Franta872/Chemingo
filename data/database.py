@@ -8,26 +8,26 @@ def open_json_file(path: str) -> dict | list:
         return json.load(file)
 
 
-compounds_by_formula: dict = open_json_file("data/compounds/by_formula.json")
+compounds_by_formula: dict[str, dict] = open_json_file("data/compounds/by_formula.json")
 """
 A large dictionary of **compounds sorted by formula**.
 Example:
 ```
 {
-    "formula": {
+    "(formula)": {
       "id": "...",
       "category_id": "...",
       "formula": "...",
       "formula_unicode": "...",
     "names": {
-      "language code": "name in that language",
+      "(language code)": "(name in that language)",
       ...
     },
   ...
 }
 ```
 """
-compounds_categories: dict = open_json_file("data/compounds/categories.json")
+compounds_categories: dict[str, dict] = open_json_file("data/compounds/categories.json")
 """
 A dictionary of **compounds categories sorted by their id** (englisch name).
 Example:
@@ -35,7 +35,7 @@ Example:
 {
 "(id)": {
   "names": {
-    "(language code)": "(language code)",
+    "(language code)": "(name in that language)",
     ...
   },
   "compound_count": ...
@@ -55,7 +55,7 @@ Example:
     "atomic_number": ...,
     "symbol": "...",
     "names": {
-      "(language code)": "(language code)",
+      "(language code)": "(name in that language)",
       ...
     }
   },

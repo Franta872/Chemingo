@@ -1,9 +1,32 @@
-#grid {
+TabbedContent {
+    height: 1fr;
+}
+ContentSwitcher {
+    height: 1fr;
+}
+TabPane {
+    height: 1fr;
+}
+
+#elements-scroll {
+    width: 100%;
+    height: 1fr;
+    overflow: auto;
+}
+#elements-grid {
     layout: grid;
     grid-size: 18 9;
     grid-gutter: 1;
+    min-width: 89;
+    min-height: 35;
+    overflow: auto;
 }
-.element, Static {
-    height: 5;
-    width: 5;
+/* .element, Static {
+    width: auto;
+    height: auto;
+    min-width: 4;
+    min-height: 4;
+} */
+#compounds-container {
+    overflow: auto;
 }
