@@ -135,27 +135,3 @@ class TransTabPane(TabPane):
         This function will send order to translate itself to currently set language.
         """
         self.screen.query_one(TabbedContent).get_tab(self.id).label = self.translate.t(self._word, self._screen)
-
-
-# complete this !!!!!!!
-# from textual.widgets.selection_list import Selection
-# class TransSelection(Selection):
-#     """
-#     Ordinary Textual Selection, but it can translate itself 
-#     with ```update_language()``` function.
-#     """
-#     def __init__(self, word: str, screen: str, trans, *args, **kwargs):
-#         self._word = word
-#         self._screen = screen
-#         self.translate = trans
-
-#         super().__init__(*args, **kwargs)
-
-#     def on_mount(self) -> None:
-#         self.update_language()
-    
-#     def update_language(self) -> None:
-#         """
-#         This function will send order to translate itself to currently set language.
-#         """
-#         self.value = self.translate.t(self._word, self._screen)

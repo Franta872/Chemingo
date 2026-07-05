@@ -27,7 +27,7 @@ TabPane {
     min-width: 4;
     min-height: 4;
 } */
-.compounds-container {
+#main-compounds-container {
     overflow: auto;
     height: 1fr;
     layout: horizontal;

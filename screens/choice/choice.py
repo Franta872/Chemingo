@@ -34,7 +34,7 @@ class ChoiceScreen(Screen):
                 yield Container(
                     Container(id="compounds-container-1"),
                     Container(id="compounds-container-2"),
-                    classes="compounds-container"
+                    id="main-compounds-container"
                     )
             with TransTabPane("testing", *st):
                 yield Container(id="testing-container")
@@ -53,6 +53,23 @@ class ChoiceScreen(Screen):
                         # button with the element symbol
                         )
         # compounds
+        # self.add_compounds()
+
+
+    async def on_select_changed(self, event: Select.Changed):
+        if event.select.id == "language-select":
+            for widget in self.query("TransLabel, TransElementButton, TransTabPane, TransCompoundLabel"):
+                self.app.translate.language = event.value
+                
+                widget.update_language()
+        
+        await self.query_one("#compounds-container-1").remove_children()
+        await self.query_one("#compounds-container-2").remove_children()
+        self.add_compounds()
+
+
+        
+    def add_compounds(self) -> None:
         num_of_categories = [0, len(compounds_categories)]
         for category_id in compounds_categories:
             category_container_num = "1" if num_of_categories[0] < num_of_categories[1] // 2.5 else "2"
@@ -67,17 +84,3 @@ class ChoiceScreen(Screen):
                     self.query_one(f"#{category_id}", SelectionList).add_option(
                         (f"{compounds_by_formula[compound]["formula_unicode"]}: {compounds_by_formula[compound]["names"][self.app.translate.language]}",)*2
                     )
-
-
-
-
-
-
-
-
-    def on_select_changed(self, event: Select.Changed):
-        if event.select.id == "language-select":
-            for widget in self.query("TransLabel, TransElementButton, TransTabPane, TransCompoundLabel"):
-                self.app.translate.language = event.value
-                
-                widget.update_language()
