@@ -1,20 +1,43 @@
 from textual.screen import Screen
-from textual.widgets import Button, Static, TabbedContent, SelectionList
-from textual.containers import Container
+from textual.widgets import Static, TabbedContent, SelectionList, \
+                            Select, Label
+from textual.containers import Container, HorizontalGroup
 
-from data.database import periodic_table, compounds_categories, compounds_by_formula
+from data.database import periodic_table, compounds_categories, compounds_by_formula, \
+                          all_languages_select
+from utils.translatable_widgets import TransLabel, TransElementButton, TransTabPane, \
+                                       TransCompoundLabel
 
 class ChoiceScreen(Screen):
     CSS_PATH = "choice.tcss"
+    HORIZONTAL_BREAKPOINTS = [
+        (0, "small"),
+        (70, "wide")
+    ]
 
     def compose(self):
-        with TabbedContent("periodic table", "compounds", "testing"):
-            yield Container(
+        st = "choice", self.app.translate
+
+        yield HorizontalGroup(
+            TransLabel("language", *st, id="language-label"),
+            Select(all_languages_select, allow_blank=False, compact=True, id="language-select"),
+            id="language-horizontal"
+            )
+
+        with TabbedContent():
+            with TransTabPane("periodic_table", *st):
+                yield Container(
                 Container(id="elements-grid"),
                 id="elements-scroll"
                 )
-            yield Container(id="compounds-container")
-            yield Container(id="testing-container")
+            with TransTabPane("compounds", *st):
+                yield Container(
+                    Container(id="compounds-container-1"),
+                    Container(id="compounds-container-2"),
+                    classes="compounds-container"
+                    )
+            with TransTabPane("testing", *st):
+                yield Container(id="testing-container")
 
     def on_mount(self) -> None:
         # periodic table
@@ -26,17 +49,35 @@ class ChoiceScreen(Screen):
                         )
                 else: # type(element) is str
                     self.query_one("#elements-grid", Container).mount(
-                        Button(element, id=element.lower(), classes="element")
+                        TransElementButton(element, self.app.translate, id=element, classes="element")
                         # button with the element symbol
                         )
         # compounds
+        num_of_categories = [0, len(compounds_categories)]
         for category_id in compounds_categories:
-            self.query_one("#compounds-container", Container).mount(
+            category_container_num = "1" if num_of_categories[0] < num_of_categories[1] // 2.5 else "2"
+            num_of_categories[0] += 1
+            self.query_one(f"#compounds-container-{category_container_num}", Container).mount(
+                TransCompoundLabel(compounds_categories[category_id]["names"][self.app.translate.language],
+                    self.app.translate, classes="compounds-category-label", id=f"{category_id}-label"),
                 SelectionList(id=category_id, classes="compounds-selection-list")
             )
-            self.query_one(f"#{category_id}", SelectionList).border_title = compounds_categories[category_id]["names"][self.app.translate.language]
             for compound in compounds_by_formula:
                 if compounds_by_formula[compound]["category_id"] == category_id:
                     self.query_one(f"#{category_id}", SelectionList).add_option(
                         (f"{compounds_by_formula[compound]["formula_unicode"]}: {compounds_by_formula[compound]["names"][self.app.translate.language]}",)*2
                     )
+
+
+
+
+
+
+
+
+    def on_select_changed(self, event: Select.Changed):
+        if event.select.id == "language-select":
+            for widget in self.query("TransLabel, TransElementButton, TransTabPane, TransCompoundLabel"):
+                self.app.translate.language = event.value
+                
+                widget.update_language()

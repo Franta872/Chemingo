@@ -1,7 +1,7 @@
-TabbedContent {
-    height: 1fr;
+Screen {
+    layers: normal language;
 }
-ContentSwitcher {
+TabbedContent {
     height: 1fr;
 }
 TabPane {
@@ -27,6 +27,41 @@ TabPane {
     min-width: 4;
     min-height: 4;
 } */
-#compounds-container {
+.compounds-container {
     overflow: auto;
+    height: 1fr;
+    layout: horizontal;
+}
+Screen.small .compounds-container {
+    layout: vertical;
+}
+Screen.wide .compounds-container {
+    layout: horizontal;
+}
+#compounds-container-1,
+#compounds-container-2 {
+    height: auto;
+}
+
+#language-label {
+    margin: 0;
+}
+#language-select {
+    margin: 0;
+    width: 15;
+}
+#language-horizontal {
+    width: auto;
+    height: 1;
+    layer: language;
+}
+.compounds-category-label {
+    border: heavy $background-lighten-2;
+    content-align: center middle;
+    width: 100%;
+    height: auto;
+    margin: 0;
+}
+.selection-list--button {
+    color: red;
 }
