@@ -1,12 +1,15 @@
 from textual.screen import Screen
 from textual.widgets import Static, TabbedContent, SelectionList, \
-                            Select, Label
+                            Select
 from textual.containers import Container, HorizontalGroup
 
 from data.database import periodic_table, compounds_categories, compounds_by_formula, \
                           all_languages_select
 from utils.translatable_widgets import TransLabel, TransElementButton, TransTabPane, \
                                        TransCompoundLabel
+
+from textual.widgets._toggle_button import ToggleButton
+ToggleButton.BUTTON_INNER = "●"
 
 class ChoiceScreen(Screen):
     CSS_PATH = "choice.tcss"
@@ -20,7 +23,8 @@ class ChoiceScreen(Screen):
 
         yield HorizontalGroup(
             TransLabel("language", *st, id="language-label"),
-            Select(all_languages_select, allow_blank=False, compact=True, id="language-select"),
+            Select(all_languages_select, allow_blank=False, compact=True, id="language-select",
+                   value=self.app.translate.language),
             id="language-horizontal"
             )
 
@@ -49,7 +53,8 @@ class ChoiceScreen(Screen):
                         )
                 else: # type(element) is str
                     self.query_one("#elements-grid", Container).mount(
-                        TransElementButton(element, self.app.translate, id=element, classes="element")
+                        TransElementButton(element[0], self.app.translate, id=element[0],
+                                           classes=f"element {element[1]}")
                         # button with the element symbol
                         )
         # compounds
@@ -63,13 +68,22 @@ class ChoiceScreen(Screen):
                 
                 widget.update_language()
         
+        selected: dict[str, list[str]] = dict()
+        if not self.query_one("#compounds-container-1").is_empty and \
+           not self.query_one("#compounds-container-2").is_empty:
+            for category in compounds_categories:
+                selected.update({category: self.query_one(f"#{category}", SelectionList).selected})
+
         await self.query_one("#compounds-container-1").remove_children()
         await self.query_one("#compounds-container-2").remove_children()
         self.add_compounds()
-
+        
+        for category in selected:
+            for item in selected[category]:
+                self.query_one(f"#{category}", SelectionList).select(item)
 
         
-    def add_compounds(self) -> None:
+    def add_compounds(self):
         num_of_categories = [0, len(compounds_categories)]
         for category_id in compounds_categories:
             category_container_num = "1" if num_of_categories[0] < num_of_categories[1] // 2.5 else "2"
@@ -82,5 +96,6 @@ class ChoiceScreen(Screen):
             for compound in compounds_by_formula:
                 if compounds_by_formula[compound]["category_id"] == category_id:
                     self.query_one(f"#{category_id}", SelectionList).add_option(
-                        (f"{compounds_by_formula[compound]["formula_unicode"]}: {compounds_by_formula[compound]["names"][self.app.translate.language]}",)*2
+                        (f"{compounds_by_formula[compound]["formula_unicode"]}: {compounds_by_formula[compound]["names"][self.app.translate.language]}",
+                         compound)
                     )

@@ -16,9 +16,9 @@ TabPane {
 #elements-grid {
     layout: grid;
     grid-size: 18 9;
-    grid-gutter: 1;
-    min-width: 89;
-    min-height: 35;
+    grid-gutter: 0;
+    min-width: 108;
+    height: 28;
     overflow: auto;
 }
 /* .element, Static {
@@ -62,6 +62,61 @@ Screen.wide .compounds-container {
     height: auto;
     margin: 0;
 }
-.selection-list--button {
+.selection-list--button, .selection-list--button-highlighted {
     color: red;
+}
+.selection-list--button-selected, .selection-list--button-selected-highlighted {
+    color: lime;
+}
+
+
+
+.alkali-metal {
+    background: #5b1f2a;
+    border: round #a94455;
+}
+
+.alkaline-earth-metal {
+    background: #4a3218;
+    border: round #9b6a32;
+}
+
+.transition-metal {
+    background: #45451d;
+    border: round #8a8a3a;
+}
+
+.post-transition-metal {
+    background: #253f2b;
+    border: round #5f8f66;
+}
+
+.metalloid {
+    background: #1f4a35;
+    border: round #4fa36c;
+}
+
+.reactive-nonmetal {
+    background: #17344a;
+    border: round #4b8fbd;
+}
+
+.halogen {
+    background: #37265a;
+    border: round #8160c7;
+}
+
+.noble-gas {
+    background: #33204d;
+    border: round #7656a6;
+}
+
+.lanthanide {
+    background: #4a2538;
+    border: round #a05c7d;
+}
+
+.actinide {
+    background: #4f2c1e;
+    border: round #a46645;
 }

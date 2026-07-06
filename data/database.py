@@ -79,10 +79,11 @@ Example:
 ```
 ('en', 'la', 'cs', 'de', ...)
 """
-periodic_table: list[list[str|None]] = open_json_file("data/elements/periodic_table.json")
+periodic_table: list[list[list[str]|None]] = open_json_file("data/elements/periodic_table.json")
 """
-List of lists witch represents periodic table. Elements are represented with they're symbols 
-and ```null``` or ```None``` means there is no elements in that square.
+List of lists of lists or nones witch represents periodic table. 
+Elements are represented with list – 1st item is element's symbol and the 
+2nd is it's color.
 """
 
 if __name__ == "__main__":
