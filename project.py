@@ -2,7 +2,7 @@
 from textual.app import App
 from textual.widgets import Header, Footer
 # PYTHON import
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 # APP import
 # from folder.folder.file import class
 from screens.welcome.welcome import WelcomeScreen
@@ -11,7 +11,7 @@ from data.locales.ui.translation import Translate
 
 @dataclass
 class AppState:
-    ...
+    selected_elements: set[str] = field(default_factory=set)
 
 class ChemistryQuiz(App):
     SCREENS = {

@@ -1,0 +1,106 @@
+#elements-scroll {
+    width: 100%;
+    height: 1fr;
+    overflow: auto;
+}
+#elements-grid {
+    layout: grid;
+    grid-size: 18 9;
+    grid-gutter: 0;
+    min-width: 108;
+    height: 28;
+    overflow: auto;
+}
+
+
+/*periodic table colors*/
+.alkali-metal {
+    background: #5b1f2a;
+    border: round #a94455;
+}
+
+.alkaline-earth-metal {
+    background: #4a3218;
+    border: round #9b6a32;
+}
+
+.transition-metal {
+    background: #45451d;
+    border: round #8a8a3a;
+}
+
+.post-transition-metal {
+    background: #253f2b;
+    border: round #5f8f66;
+}
+
+.metalloid {
+    background: #1f4a35;
+    border: round #4fa36c;
+}
+
+.reactive-nonmetal {
+    background: #17344a;
+    border: round #4b8fbd;
+}
+
+.halogen {
+    background: #37265a;
+    border: round #8160c7;
+}
+
+.noble-gas {
+    background: #33204d;
+    border: round #7656a6;
+}
+
+.lanthanide {
+    background: #4a2538;
+    border: round #a05c7d;
+}
+
+.actinide {
+    background: #4f2c1e;
+    border: round #a46645;
+}
+
+/*selected periodic table colors*/
+.alkali-metal.selected {
+    border: heavy #a94455;
+}
+
+.alkaline-earth-metal.selected {
+    border: heavy #9b6a32;
+}
+
+.transition-metal.selected {
+    border: heavy #8a8a3a;
+}
+
+.post-transition-metal.selected {
+    border: heavy #5f8f66;
+}
+
+.metalloid.selected {
+    border: heavy #4fa36c;
+}
+
+.reactive-nonmetal.selected {
+    border: heavy #4b8fbd;
+}
+
+.halogen.selected {
+    border: heavy #8160c7;
+}
+
+.noble-gas.selected {
+    border: heavy #7656a6;
+}
+
+.lanthanide.selected {
+    border: heavy #a05c7d;
+}
+
+.actinide.selected {
+    border: heavy #a46645;
+}

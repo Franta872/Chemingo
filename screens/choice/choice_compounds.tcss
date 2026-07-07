@@ -1,0 +1,72 @@
+#main-compounds-container {
+    overflow: auto;
+    height: 1fr;
+    layout: horizontal;
+}
+Screen.small .compounds-container {
+    layout: vertical;
+}
+Screen.wide .compounds-container {
+    layout: horizontal;
+}
+#compounds-container-1,
+#compounds-container-2,
+.compound-category-container {
+    height: auto;
+}
+#compounds-container-1 {
+    margin-left: 1;
+}
+#compounds-container-2 {
+    margin-right: 1;
+}
+
+#language-label {
+    margin: 0;
+}
+#language-select {
+    margin: 0;
+    width: 15;
+}
+#language-horizontal {
+    width: auto;
+    height: 1;
+    layer: language;
+}
+.compounds-category-label {
+    border: heavy $background-lighten-2;
+    content-align: center middle;
+    width: 100%;
+    height: auto;
+    margin: 0;
+}
+.selection-list--button, .selection-list--button-highlighted {
+    color: red;
+}
+.selection-list--button-selected, .selection-list--button-selected-highlighted {
+    color: lime;
+}
+
+.compounds-selection-container {
+    height: auto;
+    margin: 0 1 0 1;
+    align: center middle;
+    layout: horizontal;
+}
+.compounds-selection-button {
+    height: auto;
+    margin: 0 2 0 2;
+}
+
+#elements-selection-container {
+    layer: language;
+    height: auto;
+    width: 77.5%;
+    align: center middle;
+    layout: horizontal;
+}
+.elements-selection-buttons {
+    height: auto;
+    width: auto;
+    margin: 0 1 0 1;
+}
