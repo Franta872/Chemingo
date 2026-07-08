@@ -57,16 +57,3 @@ Screen.wide .compounds-container {
     height: auto;
     margin: 0 2 0 2;
 }
-
-#elements-selection-container {
-    layer: language;
-    height: auto;
-    width: 77.5%;
-    align: center middle;
-    layout: horizontal;
-}
-.elements-selection-buttons {
-    height: auto;
-    width: auto;
-    margin: 0 1 0 1;
-}

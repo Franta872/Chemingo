@@ -1,5 +1,6 @@
 from pathlib import Path
 import json
+from typing import Literal
 
 from data.locales.all_languages.language_select import all_languages
 
@@ -79,11 +80,15 @@ Example:
 ```
 ('en', 'la', 'cs', 'de', ...)
 """
-periodic_table: list[list[list[str]|None]] = open_json_file("data/elements/periodic_table.json")
+periodic_table: list[list[list[str] | list[None | Literal["sensitive", "insensitive"]]]] = open_json_file("data/elements/periodic_table.json")
 """
-List of lists of lists or nones witch represents periodic table. 
-Elements are represented with list – 1st item is element's symbol and the 
-2nd is it's color.
+Grid layout for the periodic table (9 rows x 18 columns)
+
+The inner lists contain either:
+1. An element: ```["Symbol", "tcss-color-class"]``` -> e.g., ```["H", "reactive-nonmetal"]```
+2. Empty space: ```[None, Literal["sensitive", "insensitive"]]``` -> e.g., ```[None, "sensitive"]```
+   - "sensitive" means a hover zone that shows control buttons (Select All, Deselect All, Invert)
+   - "insensitive" is just dead space
 """
 
 if __name__ == "__main__":

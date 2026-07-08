@@ -12,6 +12,25 @@
     overflow: auto;
 }
 
+#elements-selection-container {
+    row-span: 2;
+    column-span: 8;
+    align: center middle;
+    layout: horizontal;
+    /* background: red; */
+}
+.elements-selection-buttons {
+    height: auto;
+    width: auto;
+}
+#elements-deselect {
+    margin: 0 2 0 2;
+}
+
+.sensitive {
+    height: 100%;
+    width: 100%;
+}
 
 /*periodic table colors*/
 .alkali-metal {

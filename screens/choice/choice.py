@@ -36,17 +36,8 @@ class ChoiceScreen(Screen):
         with TabbedContent():
             with TransTabPane("periodic_table", *st):
                 yield Container(
-                    TransButton("select_all", *st, variant="success", 
-                    id="elements-select", classes="elements-selection-buttons"),
-                    TransButton("deselect_all", *st, variant="error", 
-                    id="elements-deselect", classes="elements-selection-buttons"),
-                    TransButton("invert_all", *st, variant="primary", 
-                    id="elements-invert", classes="elements-selection-buttons"),
-                    id="elements-selection-container"
-                )
-                yield Container(
-                Container(id="elements-grid"),
-                id="elements-scroll"
+                    Container(id="elements-grid"),
+                    id="elements-scroll"
                 )
             with TransTabPane("compounds", *st):
                 yield Container(
@@ -59,18 +50,42 @@ class ChoiceScreen(Screen):
 
     def on_mount(self) -> None:
         # Build periodic table
+        st = "choice", self.app.translate
+        buttons_were = False
         for row in periodic_table:
             for element in row:
-                if element is None:
-                    self.query_one("#elements-grid", Container).mount(
-                        Static() # blank square
+                if element[0] is None:
+                    if not element[1] == "absent":
+                        self.query_one("#elements-grid", Container).mount(
+                            Static(classes=element[1]) # blank square
+                            )
+                    elif not buttons_were: # and element[1] == "absent"
+                        self.query_one("#elements-grid", Container).mount(
+                            Container(
+                            TransButton("select_all", *st, variant="success", 
+                            id="elements-select", classes="elements-selection-buttons"),
+                            TransButton("deselect_all", *st, variant="error", 
+                            id="elements-deselect", classes="elements-selection-buttons"),
+                            TransButton("invert_all", *st, variant="primary", 
+                            id="elements-invert", classes="elements-selection-buttons"),
+                            id="elements-selection-container"
                         )
+                        )
+                        buttons_were = True
                 else: # type(element) is str
                     self.query_one("#elements-grid", Container).mount(
                         TransElementButton(element[0], self.app.translate, id=element[0],
                                            classes=f"element {element[1]}")
                         # button with the element symbol
                         )
+    @on(events.Enter, ".sensitive, #elements-selection-container, .elements-selection-buttons")
+    def mouse_entered_sensitive_area(self, _: events.Enter):
+        for button in self.query(".elements-selection-buttons"):
+            button.visible = True
+    @on(events.Leave, ".sensitive, #elements-selection-container")
+    def mouse_left_sensitive_area(self, _: events.Leave):
+        for button in self.query(".elements-selection-buttons"):
+            button.visible = False
 
     async def on_select_changed(self, event: Select.Changed):
         # changing language in whole screen
@@ -92,14 +107,14 @@ class ChoiceScreen(Screen):
 
         await self.query_one("#compounds-container-left").remove_children()
         await self.query_one("#compounds-container-right").remove_children()
-        self.add_compounds()
+        await self.add_compounds()
         
         for category in selected:
             for item in selected[category]:
                 self.query_one(f"#{category}", SelectionList).select(item)
 
         
-    def add_compounds(self):
+    async def add_compounds(self):
         """
         function for adding compounds to blank containers.
         """
@@ -128,7 +143,6 @@ class ChoiceScreen(Screen):
                 )
             )
             # adding Container, Label and SelectionList to left or right container
-
     def on_button_pressed(self, event: TransElementButton.Pressed):
         if event.button.has_class("element"):
             if event.button.has_class("selected"):
@@ -195,6 +209,7 @@ class ChoiceScreen(Screen):
 
         st = "choice", self.app.translate
         if not container.query(".compounds-selection-container"):
+            self.query(".compounds-selection-button").remove()
             container.mount(
                 Container(
                 TransButton("select_all", *st, variant="success", id="compounds-selection-select", classes="compounds-selection-button"),
