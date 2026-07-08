@@ -1,17 +1,20 @@
+# TEXTUAL imports
 from textual.screen import Screen
 from textual.widgets import Static, TabbedContent, SelectionList, \
                             Select
 from textual.containers import Container, HorizontalGroup
-
+from textual import events, on
+# APP imports
 from data.database import periodic_table, compounds_categories, compounds_by_formula, \
                           all_languages_select, elements_by_symbol
 from utils.translatable_widgets import TransLabel, TransElementButton, TransTabPane, \
                                        TransCompoundLabel, TransButton
-from textual import events, on
+# PYTHON import
 from typing import Literal
 
 from textual.widgets._toggle_button import ToggleButton
-ToggleButton.BUTTON_INNER = "●"
+ToggleButton.BUTTON_INNER = "●" # changing "X" in SelectionList to "●".
+# This is is not intended function of textual, so it's small hack.
 
 class ChoiceScreen(Screen):
     CSS_PATH = ["choice.tcss", "choice_periodic_table.tcss", "choice_compounds.tcss"]
@@ -47,15 +50,15 @@ class ChoiceScreen(Screen):
                 )
             with TransTabPane("compounds", *st):
                 yield Container(
-                    Container(id="compounds-container-1"),
-                    Container(id="compounds-container-2"),
+                    Container(id="compounds-container-left"),
+                    Container(id="compounds-container-right"),
                     id="main-compounds-container"
                     )
             with TransTabPane("testing", *st):
                 yield Container(id="testing-container")
 
     def on_mount(self) -> None:
-        # periodic table
+        # Build periodic table
         for row in periodic_table:
             for element in row:
                 if element is None:
@@ -70,21 +73,25 @@ class ChoiceScreen(Screen):
                         )
 
     async def on_select_changed(self, event: Select.Changed):
+        # changing language in whole screen
         if event.select.id == "language-select":
             for widget in self.query("TransLabel, TransElementButton, TransTabPane, TransCompoundLabel, TransButton"):
                 self.app.translate.language = event.value
                 
                 widget.update_language()
+                # telling widgets they need to change their language
                 
-        
+        # clearing and adding options to SelectionList, because
+        # Textual doesn't have build in function for that
         selected: dict[str, list[str]] = dict()
-        if not self.query_one("#compounds-container-1").is_empty and \
-           not self.query_one("#compounds-container-2").is_empty:
+        if not self.query_one("#compounds-container-left").is_empty and \
+           not self.query_one("#compounds-container-right").is_empty:
             for category in compounds_categories:
                 selected.update({category: self.query_one(f"#{category}", SelectionList).selected})
+        # saving selections of the user
 
-        await self.query_one("#compounds-container-1").remove_children()
-        await self.query_one("#compounds-container-2").remove_children()
+        await self.query_one("#compounds-container-left").remove_children()
+        await self.query_one("#compounds-container-right").remove_children()
         self.add_compounds()
         
         for category in selected:
@@ -93,10 +100,14 @@ class ChoiceScreen(Screen):
 
         
     def add_compounds(self):
+        """
+        function for adding compounds to blank containers.
+        """
         num_of_categories = [0, len(compounds_categories)]
         for category_id in compounds_categories:
-            category_container_num = "1" if num_of_categories[0] < num_of_categories[1] // 2.5 else "2"
+            category_container_site = "left" if num_of_categories[0] < num_of_categories[1] // 2.5 else "right"
             num_of_categories[0] += 1
+            # deciding to which site the container with compound category should be mounted
 
             compound_selection_list = SelectionList(id=category_id, classes="compounds-selection-list")
             
@@ -106,8 +117,9 @@ class ChoiceScreen(Screen):
                         (f"{compounds_by_formula[compound]['formula_unicode']}: {compounds_by_formula[compound]['names'][self.app.translate.language]}",
                          compound)
                     )
+            # adding options to SelectionList
 
-            self.query_one(f"#compounds-container-{category_container_num}", Container).mount(
+            self.query_one(f"#compounds-container-{category_container_site}", Container).mount(
                 Container(
                     TransCompoundLabel(compounds_categories[category_id]["names"][self.app.translate.language],
                         self.app.translate, classes="compounds-category-label", id=f"{category_id}-label"),
@@ -115,15 +127,17 @@ class ChoiceScreen(Screen):
                     id=f"{category_id}-container", classes="compound-category-container"
                 )
             )
+            # adding Container, Label and SelectionList to left or right container
 
     def on_button_pressed(self, event: TransElementButton.Pressed):
         if event.button.has_class("element"):
-            if not event.button.has_class("selected"):
-                self.query_one(f"#{event.button.id}").add_class("selected")
-                self.app.state.selected_elements.add(event.button.id)
-            elif event.button.has_class("selected"):
+            if event.button.has_class("selected"):
                 self.query_one(f"#{event.button.id}").remove_class("selected")
                 self.app.state.selected_elements.discard(event.button.id)
+            else: # not event.button.has_class("selected")
+                self.query_one(f"#{event.button.id}").add_class("selected")
+                self.app.state.selected_elements.add(event.button.id)
+        # adding and removing selected class from clicked elements in periodic table
 
         elif event.button.has_class("compounds-selection-button"):
             selection_list = event.button.parent.parent.query_one(".compounds-selection-list", SelectionList)
@@ -131,8 +145,9 @@ class ChoiceScreen(Screen):
                 selection_list.select_all()
             elif event.button.id == "compounds-selection-deselect":
                 selection_list.deselect_all()
-            elif event.button.id == "compounds-selection-invert":
+            else: # event.button.id == "compounds-selection-invert"
                 selection_list.toggle_all()
+        # handling select, deselect and invert buttons for compound categories
 
         elif event.button.has_class("elements-selection-buttons"):
             if event.button.id == "elements-select":
@@ -141,9 +156,13 @@ class ChoiceScreen(Screen):
                 self.elements_action("deselect")
             else: # event.button.id == "elements-invert"
                 self.elements_action("invert")
+        # detecting select, deselect and invert buttons for periodic table
 
 
     def elements_action(self, action: Literal["select", "deselect", "invert"]):
+        """
+        handling select, deselect and invert buttons for periodic table.
+        """
         selected_elements: set[str] = self.app.state.selected_elements
         if action == "select":
             for element in self.query(".element"):
@@ -165,6 +184,10 @@ class ChoiceScreen(Screen):
 
     @on(events.Enter, ".compounds-category-label, .compounds-selection-list, .compound-category-container")
     def mouse_entered_container(self, event: events.Enter) -> None:
+        """
+        Adding button to edit selected compounds when mouse enters certain 
+        compounds category.
+        """
         if event.node.has_class("compound-category-container"):
             container = event.node
         else:
@@ -183,6 +206,9 @@ class ChoiceScreen(Screen):
             )
     @on(events.Leave, ".compounds-category-label, .compounds-selection-list, .compound-category-container, .compounds-selection-container")
     async def mouse_left_container(self, event: events.Leave) -> None:
+        """
+        Removes buttons when mouse leaves compounds category.
+        """
         if event.node.has_class("compound-category-container"):
             container = event.node
         else:

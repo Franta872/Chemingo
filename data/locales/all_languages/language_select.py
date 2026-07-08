@@ -3,6 +3,10 @@ import json
 from typing import Literal
 
 def all_languages(mode: Literal["select", "codes"]) -> list[tuple[str, str]] | tuple[str, ...]:
+    """
+    Returns a codes of languages or list of tuples for Textual Select widget 
+    based on input.
+    """
     path = Path(__file__).parent / "languages.json"
     with path.open(encoding="utf-8") as file:
         langs: dict = json.load(file)

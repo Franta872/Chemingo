@@ -3,6 +3,9 @@ import json
 from data.database import all_languages_codes
 
 class Translate:
+    """
+    Class for storing current language and returning needed words.
+    """
     def __init__(self, language: str = "en"):
         self._language = language
 
@@ -22,3 +25,4 @@ class Translate:
         with path.open(encoding="utf-8") as file:
             screen_json = json.load(file)
             return screen_json[word]
+        # finds a word translation based on a language, screen and key word

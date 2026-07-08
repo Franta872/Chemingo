@@ -9,15 +9,15 @@ Screen.small .compounds-container {
 Screen.wide .compounds-container {
     layout: horizontal;
 }
-#compounds-container-1,
-#compounds-container-2,
+#compounds-container-left,
+#compounds-container-right,
 .compound-category-container {
     height: auto;
 }
-#compounds-container-1 {
+#compounds-container-left {
     margin-left: 1;
 }
-#compounds-container-2 {
+#compounds-container-right {
     margin-right: 1;
 }
 
