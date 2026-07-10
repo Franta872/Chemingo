@@ -29,6 +29,20 @@ class ChemistryQuiz(App):
         self.push_screen("welcome")
 
 
+def is_blank(dictionary: dict[str, list]):
+    """
+    This function check if a dictionary is completely blank.
+    """
+    #This function doesn't fit in this file, but it's here because of 
+    #the conditions of the CS50P final project.
+    for item in dictionary.values():
+        if item != []:
+            return False
+    return True
+
+def main(): # this is useless, but it's here because of the
+            # conditions of the CS50P final project.
+    ChemistryQuiz().run()
 
 if __name__ == "__main__":
-    ChemistryQuiz().run()
+    main()

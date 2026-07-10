@@ -2,8 +2,11 @@
     "language": "Language: ",
     "periodic_table": "Periodic Table",
     "compounds": "Compounds",
-    "testing": "Testing",
-    "select_all": "select all",
-    "deselect_all": "deselect all",
-    "invert_all": "invert all"
+    "testing_settings": "Testing Settings",
+    "select_all": "Select All",
+    "deselect_all": "Deselect All",
+    "invert_all": "Invert All",
+    "elements": "elements",
+    "summary": "summary",
+    "nothing_to_show": "Nothing to show, select something."
 }

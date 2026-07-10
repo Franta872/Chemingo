@@ -1,7 +1,7 @@
 # TEXTUAL imports
 from textual.screen import Screen
 from textual.widgets import Static, TabbedContent, SelectionList, \
-                            Select
+                            Select, Label
 from textual.containers import Container, HorizontalGroup
 from textual import events, on
 # APP imports
@@ -17,7 +17,12 @@ ToggleButton.BUTTON_INNER = "●" # changing "X" in SelectionList to "●".
 # This is is not intended function of textual, so it's small hack.
 
 class ChoiceScreen(Screen):
-    CSS_PATH = ["choice.tcss", "choice_periodic_table.tcss", "choice_compounds.tcss"]
+    CSS_PATH = [
+        "choice.tcss", 
+        "choice_periodic_table.tcss", 
+        "choice_compounds.tcss",
+        "choice_testing_settings.tcss"
+        ]
     HORIZONTAL_BREAKPOINTS = [
         (0, "small"),
         (70, "wide")
@@ -34,19 +39,23 @@ class ChoiceScreen(Screen):
             )
 
         with TabbedContent():
-            with TransTabPane("periodic_table", *st):
+            with TransTabPane("periodic_table", *st, id="periodic-table"):
                 yield Container(
                     Container(id="elements-grid"),
                     id="elements-scroll"
                 )
-            with TransTabPane("compounds", *st):
+            with TransTabPane("compounds", *st, id="compounds"):
                 yield Container(
                     Container(id="compounds-container-left"),
                     Container(id="compounds-container-right"),
                     id="main-compounds-container"
                     )
-            with TransTabPane("testing", *st):
-                yield Container(id="testing-container")
+            with TransTabPane("testing_settings", *st, id="testing-settings"):
+                yield Container(
+                    Container(
+                        id="summary-container"
+                    ),
+                    id="testing-container")
 
     def on_mount(self) -> None:
         # Build periodic table
@@ -108,12 +117,14 @@ class ChoiceScreen(Screen):
         await self.query_one("#compounds-container-left").remove_children()
         await self.query_one("#compounds-container-right").remove_children()
         await self.add_compounds()
-        
+
         for category in selected:
             for item in selected[category]:
                 self.query_one(f"#{category}", SelectionList).select(item)
-
         
+        self.testing_settings_tab_render()
+
+
     async def add_compounds(self):
         """
         function for adding compounds to blank containers.
@@ -134,7 +145,7 @@ class ChoiceScreen(Screen):
                     )
             # adding options to SelectionList
 
-            self.query_one(f"#compounds-container-{category_container_site}", Container).mount(
+            await self.query_one(f"#compounds-container-{category_container_site}", Container).mount(
                 Container(
                     TransCompoundLabel(compounds_categories[category_id]["names"][self.app.translate.language],
                         self.app.translate, classes="compounds-category-label", id=f"{category_id}-label"),
@@ -181,7 +192,9 @@ class ChoiceScreen(Screen):
         if action == "select":
             for element in self.query(".element"):
                 element.add_class("selected")
-                selected_elements = set(elements_by_symbol.keys())
+                selected_elements.clear()
+                for element in elements_by_symbol:
+                    selected_elements.add(element)
         elif action == "deselect":
             for element in self.query(".selected"):
                 element.remove_class("selected")
@@ -235,3 +248,34 @@ class ChoiceScreen(Screen):
                 container.query_one(".compounds-selection-container", Container).remove()
         except AttributeError:
             pass
+
+    @on(TabbedContent.TabActivated)
+    def tab_changed(self, event: TabbedContent.TabActivated|None) -> None:
+        if event.pane.id == "testing-settings":
+            self.testing_settings_tab_render()
+            
+    def testing_settings_tab_render(self) -> None:
+        selected: dict[str, list[str]] = dict()
+        for category in compounds_categories:
+            selected.update({category: self.query_one(f"#{category}", SelectionList).selected})
+        selected.update({"elements": sorted(list(self.app.state.selected_elements))})
+
+        self.query_one("#summary-container", Container).remove_children()
+        from project import is_blank
+        if not is_blank(selected):
+            for category, value in selected.items():
+
+                if value != []:
+                    label = Label(", ".join(value), classes="summary-label")
+                    self.query_one("#summary-container", Container).mount(
+                        label
+                    )
+                    if category == "elements":
+                        label.border_title = self.app.translate.t("elements", "choice")
+                    else:
+                        label.border_title = compounds_categories[category]["names"][self.app.translate.language]
+        else:
+            self.query_one("#summary-container", Container).mount(
+                Label(self.app.translate.t("nothing_to_show", "choice"), classes="summary-label")
+            )
+        self.query_one("#summary-container", Container).border_title = self.app.translate.t("summary", "choice")

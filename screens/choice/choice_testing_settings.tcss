@@ -1,0 +1,20 @@
+#testing-container {
+    overflow: auto;
+}
+#summary-container{
+    border: round $background-lighten-2;
+    height: auto;
+    width: 100%;
+    padding: 0 1 0 1;
+    /* min-width: 100; */
+    /* min-height: 100; */
+    overflow: auto;
+}
+.summary-label {
+    background: $background-lighten-1;
+    border: tall $background-lighten-3;
+    padding: 0 1 0 1;
+    margin: 1 0 1 0;
+    min-width: 15;
+    max-width: 100%;
+}

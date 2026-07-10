@@ -2,8 +2,11 @@
     "language": "Jazyk: ",
     "periodic_table": "Periodická Soustava Prvků",
     "compounds": "Sloučeniny",
-    "testing": "Zkoušení",
+    "testing_settings": "Nastavení zkoušení",
     "select_all": "vybrat vše",
     "deselect_all": "zrušit výběr",
-    "invert_all": "invertovat vše"
+    "invert_all": "invertovat vše",
+    "elements": "prvky",
+    "summary": "shrnutí",
+    "nothing_to_show": "Nic k ukázání, vyber něco."
 }
