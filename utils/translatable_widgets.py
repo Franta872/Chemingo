@@ -135,3 +135,73 @@ class TransTabPane(TabPane):
         This function will send order to translate itself to currently set language.
         """
         self.screen.query_one(TabbedContent).get_tab(self.id).label = self.translate.t(self._word, self._screen)
+
+from textual.widgets import RadioButton
+class TransRadioButton(RadioButton):
+    """
+    Ordinary Textual RadioButton, but it can translate itself 
+    with ```update_language()``` function.
+    """
+    def __init__(self, word: str, screen: str, trans, *args, trans_tooltip: str = "", **kwargs):
+        self._word = word
+        self._screen = screen
+        self.translate = trans
+        self._trans_tooltip = trans_tooltip
+
+        super().__init__(*args, **kwargs)
+
+    def on_mount(self) -> None:
+        self.update_language()
+    
+    def update_language(self) -> None:
+        """
+        This function will send order to translate itself to currently set language.
+        """
+        self.label = self.translate.t(self._word, self._screen)
+        self.tooltip = self.translate.t(self._trans_tooltip, self._screen)
+
+
+from textual.containers import Container
+class TransBorderContainer(Container):
+    """
+    Ordinary Textual Container, but it can translate it's border title
+    with ```update_language()``` function.
+    """
+    def __init__(self, word: str, screen: str, trans, *args, **kwargs):
+        self._word = word
+        self._screen = screen
+        self.translate = trans
+
+        super().__init__(*args, **kwargs)
+
+    def on_mount(self) -> None:
+        self.update_language()
+    
+    def update_language(self) -> None:
+        """
+        This function will send order to translate itself to currently set language.
+        """
+        self.border_title = self.translate.t(self._word, self._screen)
+
+
+from textual.widgets import Input
+class TransInput(Input):
+    """
+    Ordinary Textual Input, but it can translate it's placeholder.
+    with ```update_language()``` function.
+    """
+    def __init__(self, word: str, screen: str, trans, *args, **kwargs):
+        self._word = word
+        self._screen = screen
+        self.translate = trans
+
+        super().__init__(*args, **kwargs)
+
+    def on_mount(self) -> None:
+        self.update_language()
+    
+    def update_language(self) -> None:
+        """
+        This function will send order to translate itself to currently set language.
+        """
+        self.placeholder = self.translate.t(self._word, self._screen)

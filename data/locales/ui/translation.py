@@ -24,5 +24,10 @@ class Translate:
         path = Path(__file__).parent / f"screens/{screen}/{self._language}.json"
         with path.open(encoding="utf-8") as file:
             screen_json = json.load(file)
-            return screen_json[word]
-        # finds a word translation based on a language, screen and key word
+            if word == "":
+                return ""
+            elif isinstance(screen_json[word], list):
+                return "\n".join(screen_json[word])
+            else:
+                return screen_json[word]
+        # finds a word translation based on a language, screen and key word 

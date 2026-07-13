@@ -6,6 +6,7 @@ from dataclasses import dataclass, field
 # from folder.folder.file import class
 from screens.welcome.welcome import WelcomeScreen
 from screens.choice.choice import ChoiceScreen
+from screens.quiz.quiz import QuizScreen
 from data.locales.ui.translation import Translate
 
 @dataclass
@@ -19,7 +20,8 @@ class AppState:
 class ChemistryQuiz(App):
     SCREENS = {
         "welcome": WelcomeScreen,
-        "choice": ChoiceScreen
+        "choice": ChoiceScreen,
+        "quiz": QuizScreen
     }
 
     def on_mount(self):
@@ -29,16 +31,23 @@ class ChemistryQuiz(App):
         self.push_screen("welcome")
 
 
-def is_blank(dictionary: dict[str, list]):
+def is_blank_dictionary(dictionary: dict[str, list]| dict[str, bool]):
     """
-    This function check if a dictionary is completely blank.
+    This function check if a dictionary's lists are completely blank or if 
+    the dictionary stores all ```False``` values.
     """
     #This function doesn't fit in this file, but it's here because of 
     #the conditions of the CS50P final project.
     for item in dictionary.values():
-        if item != []:
+        if (isinstance(item, list) and item != []) or (isinstance(item, bool) and item):
             return False
     return True
+
+def count_dictionary_list_items(dictionary: dict[str, list]) -> int:
+    num = 0
+    for value in dictionary.values():
+        num += len(value)
+    return num
 
 def main(): # this is useless, but it's here because of the
             # conditions of the CS50P final project.

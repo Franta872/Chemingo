@@ -18,3 +18,70 @@
     min-width: 15;
     max-width: 100%;
 }
+
+#testing-settings-label {
+    background: $background-lighten-1;
+    border: tall $background-lighten-3;
+    width: 100%;
+    margin: 3 2 1 2;
+    height: 3;
+    content-align: center middle;
+}
+RadioSet {
+    max-width: 20;
+    width: auto;
+    margin: 1 0 0 2;
+}
+.settings-description-label {
+    width: auto;
+    margin-left: 1;
+}
+.settings-question-container {
+    width: auto;
+    height: auto;
+    border: round $background-lighten-3;
+}
+
+#amount-question-container {
+    layout: grid;
+    grid-size: 2 2;
+    grid-gutter: 1;
+    grid-rows: 3;
+    grid-columns: 12;
+    height: auto;
+    width: auto;
+    margin: 1;
+    content-align: left middle;
+}
+.amount-question-radiobutton {
+    height: 100%;
+    width: auto;
+    margin-right: 3;
+}
+#amount-question-input {
+    width: 200;
+    margin: 0;
+}
+#infinity-label {
+    width: 20;
+    content-align: left middle;
+}
+
+#start-quiz-container {
+    /* align: center middle; */
+    height: auto;
+    width: 100%;
+    /* border: tall red; */
+}
+#start-quiz-button {
+    margin: 1 0 2 0;
+    /* border: tall red; */
+}
+.error-label {
+    width: 100%;
+    content-align: center middle;
+    height: 1;
+    color: red;
+    text-style: bold;
+    /* border: tall red; */
+}

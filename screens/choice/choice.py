@@ -1,14 +1,16 @@
 # TEXTUAL imports
 from textual.screen import Screen
 from textual.widgets import Static, TabbedContent, SelectionList, \
-                            Select, Label
-from textual.containers import Container, HorizontalGroup
+                            Select, Label, RadioSet, RadioButton
+from textual.containers import Container, HorizontalGroup, Center
 from textual import events, on
+from textual.validation import Number
 # APP imports
 from data.database import periodic_table, compounds_categories, compounds_by_formula, \
                           all_languages_select, elements_by_symbol
 from utils.translatable_widgets import TransLabel, TransElementButton, TransTabPane, \
-                                       TransCompoundLabel, TransButton
+                                       TransCompoundLabel, TransButton, TransRadioButton, \
+                                       TransBorderContainer, TransInput
 # PYTHON import
 from typing import Literal
 
@@ -51,11 +53,55 @@ class ChoiceScreen(Screen):
                     id="main-compounds-container"
                     )
             with TransTabPane("testing_settings", *st, id="testing-settings"):
-                yield Container(
-                    Container(
-                        id="summary-container"
-                    ),
-                    id="testing-container")
+                with Container(id="testing-container"):
+                    yield Container(id="summary-container")
+                    yield TransLabel("testing_settings", *st, id="testing-settings-label")
+
+                    with TransBorderContainer("boolean_question", *st, classes="settings-question-container", id="settings-bool-container"):
+                        yield TransLabel("boolean_description", *st, classes="settings-description-label")
+                        with RadioSet(id="boolean-radioset"):
+                            yield TransRadioButton("yes", *st, value=True)
+                            yield TransRadioButton("no", *st)
+
+                    with TransBorderContainer("choice_question", *st, classes="settings-question-container", id="settings-choice-container"):
+                        yield TransLabel("choice_description", *st, classes="settings-description-label")
+                        with RadioSet(id="choice-radioset"):
+                            yield TransRadioButton("yes", *st, value=True)
+                            yield TransRadioButton("no", *st)
+
+                    with TransBorderContainer("typing_question", *st, classes="settings-question-container", id="settings-typing-container"):
+                        yield TransLabel("typing_description", *st, classes="settings-description-label")
+                        with RadioSet(id="typing-radioset"):
+                            yield TransRadioButton("yes", *st, value=True)
+                            yield TransRadioButton("no", *st)
+
+                    with TransBorderContainer("num_of_questions", *st, classes="settings-question-container"):
+                        yield TransLabel("num_of_questions_description", *st, classes="settings-description-label")
+                        with Container(id="amount-question-container"):
+                            #with RadioSet(id="amount-question-radioset"):
+                            yield TransRadioButton("", *st, classes="amount-question-radiobutton", id="amount-question-radiobutton-1", 
+                                                   value=True, trans_tooltip="number")
+                            yield TransInput("number", *st, type="integer", valid_empty=False,
+                                    validators=[Number(minimum=5)], id="amount-question-input")
+                            yield TransRadioButton("", *st, classes="amount-question-radiobutton", id="amount-question-radiobutton-2",
+                                                   trans_tooltip="infinity")
+                            yield Label("♾️", id="infinity-label")
+                    
+                    with Center(id="error-container"):
+                        yield Static("") # Textual doesn't like empty containers.
+                    with Center(id="start-quiz-container"):
+                        yield TransButton("start_quiz", *st, id="start-quiz-button", variant="primary")
+
+    def count_selected(self, elements: bool = False) -> dict[str, list[str]]:
+        selected: dict[str, list[str]] = dict()
+        if not self.query_one("#compounds-container-left").is_empty and \
+           not self.query_one("#compounds-container-right").is_empty:
+            for category in compounds_categories:
+                selected.update({category: self.query_one(f"#{category}", SelectionList).selected})
+        if elements:
+            selected.update({"elements": sorted(list(self.app.state.selected_elements))})
+        return selected
+
 
     def on_mount(self) -> None:
         # Build periodic table
@@ -99,19 +145,15 @@ class ChoiceScreen(Screen):
     async def on_select_changed(self, event: Select.Changed):
         # changing language in whole screen
         if event.select.id == "language-select":
-            for widget in self.query("TransLabel, TransElementButton, TransTabPane, TransCompoundLabel, TransButton"):
+            for widget in self.query("TransLabel, TransElementButton, TransTabPane, TransCompoundLabel, TransButton, TransRadioButton, TransBorderContainer, TransInput"):
                 self.app.translate.language = event.value
-                
+
                 widget.update_language()
                 # telling widgets they need to change their language
                 
         # clearing and adding options to SelectionList, because
         # Textual doesn't have build in function for that
-        selected: dict[str, list[str]] = dict()
-        if not self.query_one("#compounds-container-left").is_empty and \
-           not self.query_one("#compounds-container-right").is_empty:
-            for category in compounds_categories:
-                selected.update({category: self.query_one(f"#{category}", SelectionList).selected})
+        selected: dict[str, list[str]] = self.count_selected()
         # saving selections of the user
 
         await self.query_one("#compounds-container-left").remove_children()
@@ -182,6 +224,44 @@ class ChoiceScreen(Screen):
             else: # event.button.id == "elements-invert"
                 self.elements_action("invert")
         # detecting select, deselect and invert buttons for periodic table
+
+        elif event.button.id == "start-quiz-button":
+            from project import is_blank_dictionary
+            if self.query_one("#amount-question-radiobutton-1", TransRadioButton).value:
+                input_value = self.query_one("#amount-question-input", TransInput).value
+                input_value = 0 if input_value == "" else int(input_value)
+            elif self.query_one("#amount-question-radiobutton-2", TransRadioButton).value:
+                input_value = float("inf")
+
+            yes = self.app.translate.t("yes", "choice")
+            settings_questions = {
+                "boolean": self.query_one("#boolean-radioset", RadioSet).pressed_button.label == yes,
+                "choice": self.query_one("#choice-radioset", RadioSet).pressed_button.label == yes,
+                "typing": self.query_one("#typing-radioset", RadioSet).pressed_button.label == yes
+            }
+            error_container = self.query_one("#error-container", Center)
+            error_container.remove_children()
+            st = "choice", self.app.translate
+            if is_blank_dictionary(settings_questions):
+                error_container.mount(
+                    TransLabel("empty_question_types_error", *st, classes="error-label")
+                    )
+            if input_value < 5:
+                error_container.mount(
+                    TransLabel("lower_than_five_questions_error", *st, classes="error-label")
+                    )
+            from project import count_dictionary_list_items
+            if count_dictionary_list_items(self.count_selected(elements=True)) < 5:
+                # counts number of all selected items
+                error_container.mount(
+                    TransLabel("lower_than_five_selected_error", *st, classes="error-label")
+                    )
+            if error_container.is_empty:
+                self.query_one("#error-container", Center).remove_children()
+                self.app.push_screen("quiz")
+                #settings_questions.update({
+                #    "num_of_questions": input_value
+                #})
 
 
     def elements_action(self, action: Literal["select", "deselect", "invert"]):
@@ -255,14 +335,11 @@ class ChoiceScreen(Screen):
             self.testing_settings_tab_render()
             
     def testing_settings_tab_render(self) -> None:
-        selected: dict[str, list[str]] = dict()
-        for category in compounds_categories:
-            selected.update({category: self.query_one(f"#{category}", SelectionList).selected})
-        selected.update({"elements": sorted(list(self.app.state.selected_elements))})
+        selected: dict[str, list[str]] = self.count_selected(elements=True)
 
         self.query_one("#summary-container", Container).remove_children()
-        from project import is_blank
-        if not is_blank(selected):
+        from project import is_blank_dictionary
+        if not is_blank_dictionary(selected):
             for category, value in selected.items():
 
                 if value != []:
@@ -279,3 +356,17 @@ class ChoiceScreen(Screen):
                 Label(self.app.translate.t("nothing_to_show", "choice"), classes="summary-label")
             )
         self.query_one("#summary-container", Container).border_title = self.app.translate.t("summary", "choice")
+    
+    def on_radio_button_changed(self, event: RadioButton.Changed):
+        radio_button1 = self.query_one("#amount-question-radiobutton-1", TransRadioButton)
+        radio_button2 = self.query_one("#amount-question-radiobutton-2", TransRadioButton)
+        if (event.radio_button.id[-1] == "1" and event.radio_button.value) or \
+            (event.radio_button.id[-1] == "2" and not event.radio_button.value):
+            radio_button2.value = False
+            radio_button1.value = True
+            self.query_one("#amount-question-input").disabled = False
+        elif (event.radio_button.id[-1] == "2" and event.radio_button.value) or \
+            (event.radio_button.id[-1] == "1" and not event.radio_button.value):
+            radio_button1.value = False
+            radio_button2.value = True
+            self.query_one("#amount-question-input").disabled = True

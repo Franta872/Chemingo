@@ -8,5 +8,39 @@
     "invert_all": "invertovat vše",
     "elements": "prvky",
     "summary": "shrnutí",
-    "nothing_to_show": "Nic k ukázání, vyber něco."
+    "nothing_to_show": "Nic k ukázání, vyber něco.",
+    "yes": "ano",
+    "no": "ne",
+    "boolean_question": "booleovská otázka",
+    "boolean_description": [
+        "[i]Popis:   [/]Jednoduše ano/ne otázka.",
+        "[i]Příklad: [/]Je [i]H[/] značka [i]Neonu[/]? pravda/[b]lež[/]",
+        "",
+        "Chcete dostávat tyto typy otázek?"
+    ],
+    "choice_question": "výběrová otázka",
+    "choice_description": [
+        "[i]Popis:   [/]Musíš vybrat správnou možnost ze seznamu možností.",
+        "[i]Příklad: [/]Který z nich je [i]dusík[/]? H, [b]N[/], Ne, Li",
+        "",
+        "Chcete dostávat tyto typy otázek?"
+    ],
+    "typing_question": "psací otázka",
+    "typing_description": [
+        "[i]Popis:   [/]Musíte napsat správnou odpověď.",
+        "[i]Příklad: [/]Jaké je jméno [i]Fe[/]? ... [i](železo)[/]",
+        "",
+        "Chcete dostávat tyto typy otázek?"
+    ],
+    "num_of_questions": "počet otázek",
+    "num_of_questions_description": [
+        "Můžete vybrat konkrétní [b]číslo nebo nekonečno[/].",
+        "To konkrétní číslo musí být [b]minimálně pět[/]."
+    ],
+    "number": "číslo",
+    "infinity": "nekonečno",
+    "start_quiz": "Spustit Kvíz!",
+    "lower_than_five_questions_error": "Číslo otázek nesmí být menší než pět.",
+    "empty_question_types_error": "Musíte vybrat minimálně jeden typ otázek.",
+    "lower_than_five_selected_error": "Musíte vybrat minimálně pět prvků nebo sloučenin."
 }
