@@ -19,7 +19,7 @@
     max-width: 100%;
 }
 
-#testing-settings-label {
+#quiz-settings-label {
     background: $background-lighten-1;
     border: tall $background-lighten-3;
     width: 100%;
