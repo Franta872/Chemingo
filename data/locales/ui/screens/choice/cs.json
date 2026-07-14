@@ -1,46 +1,46 @@
 {
     "language": "Jazyk: ",
-    "periodic_table": "Periodická Soustava Prvků",
+    "periodic_table": "Periodická tabulka",
     "compounds": "Sloučeniny",
-    "quiz_settings": "Nastavení zkoušení",
-    "select_all": "vybrat vše",
-    "deselect_all": "zrušit výběr",
-    "invert_all": "invertovat vše",
+    "quiz_settings": "Nastavení kvízu",
+    "select_all": "Vybrat vše",
+    "deselect_all": "Zrušit výběr",
+    "invert_all": "Invertovat výběr",
     "elements": "prvky",
     "summary": "shrnutí",
-    "nothing_to_show": "Nic k ukázání, vyber něco.",
+    "nothing_to_show": "Nic k zobrazení. Něco vyber.",
     "yes": "ano",
     "no": "ne",
-    "boolean_question": "booleovská otázka",
+    "boolean_question": "pravda/nepravda otázka",
     "boolean_description": [
-        "[i]Popis:   [/]Jednoduše ano/ne otázka.",
-        "[i]Příklad: [/]Je [i]H[/] značka [i]Neonu[/]? pravda/[b]lež[/]",
+        "[i]Popis:   [/]Jednoduchá otázka ano/ne.",
+        "[i]Příklad: [/]Je [i]H[/] značka [i]neonu[/]? pravda/[b]nepravda[/]",
         "",
-        "Chcete dostávat tyto typy otázek?"
+        "Chceš dostávat tento typ otázek?"
     ],
     "choice_question": "výběrová otázka",
     "choice_description": [
-        "[i]Popis:   [/]Musíš vybrat správnou možnost ze seznamu možností.",
-        "[i]Příklad: [/]Který z nich je [i]dusík[/]? H, [b]N[/], Ne, Li",
+        "[i]Popis:   [/]Musíš vybrat správnou odpověď ze seznamu možností.",
+        "[i]Příklad: [/]Který z těchto prvků je [i]dusík[/]? H, [b]N[/], Ne, Li",
         "",
-        "Chcete dostávat tyto typy otázek?"
+        "Chceš dostávat tento typ otázek?"
     ],
     "typing_question": "psací otázka",
     "typing_description": [
-        "[i]Popis:   [/]Musíte napsat správnou odpověď.",
-        "[i]Příklad: [/]Jaké je jméno [i]Fe[/]? ... [i](železo)[/]",
+        "[i]Popis:   [/]Musíš napsat správnou odpověď.",
+        "[i]Příklad: [/]Jak se jmenuje [i]Fe[/]? ... [i](železo)[/]",
         "",
-        "Chcete dostávat tyto typy otázek?"
+        "Chceš dostávat tento typ otázek?"
     ],
     "num_of_questions": "počet otázek",
     "num_of_questions_description": [
-        "Můžete vybrat konkrétní [b]číslo nebo nekonečno[/].",
-        "To konkrétní číslo musí být [b]minimálně pět[/]."
+        "Můžeš vybrat konkrétní [b]číslo nebo nekonečno[/].",
+        "Konkrétní číslo musí být [b]alespoň pět[/]."
     ],
     "number": "číslo",
     "infinity": "nekonečno",
-    "start_quiz": "Spustit Kvíz!",
-    "lower_than_five_questions_error": "Číslo otázek nesmí být menší než pět.",
-    "empty_question_types_error": "Musíte vybrat minimálně jeden typ otázek.",
-    "lower_than_five_selected_error": "Musíte vybrat minimálně pět prvků nebo sloučenin."
+    "start_quiz": "Spustit kvíz!",
+    "lower_than_five_questions_error": "Počet otázek nesmí být menší než pět.",
+    "empty_question_types_error": "Musíš vybrat alespoň jeden typ otázek.",
+    "lower_than_five_selected_error": "Musíš vybrat alespoň pět prvků nebo sloučenin."
 }

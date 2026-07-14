@@ -2,45 +2,45 @@
     "language": "Language: ",
     "periodic_table": "Periodic Table",
     "compounds": "Compounds",
-    "quiz_settings": "Testing Settings",
+    "quiz_settings": "Quiz Settings",
     "select_all": "Select All",
     "deselect_all": "Deselect All",
-    "invert_all": "Invert All",
+    "invert_all": "Invert Selection",
     "elements": "elements",
     "summary": "summary",
-    "nothing_to_show": "Nothing to show, select something.",
+    "nothing_to_show": "Nothing to show. Select something.",
     "yes": "yes",
     "no": "no",
-    "boolean_question": "boolean question",
+    "boolean_question": "true/false question",
     "boolean_description": [
-        "[i]Description: [/]Simply yes/no question.",
-        "[i]Example:     [/]Is [i]H[/] symbol of [i]Neon[/]? True/[b]False[/]",
+        "[i]Description: [/]A simple yes/no question.",
+        "[i]Example:     [/]Is [i]H[/] the symbol of [i]neon[/]? True/[b]False[/]",
         "",
-        "Do you want to have these type of questions?"
+        "Do you want to get these types of questions?"
     ],
-    "choice_question": "choice question",
+    "choice_question": "multiple-choice question",
     "choice_description": [
-        "[i]Description: [/]You have to choose a correct answer from list of options.",
+        "[i]Description: [/]You have to choose the correct answer from a list of options.",
         "[i]Example:     [/]Which one of these is [i]nitrogen[/]? H, [b]N[/], Ne, Li",
         "",
-        "Do you want to have these type of questions?"
+        "Do you want to get these types of questions?"
     ],
     "typing_question": "typing question",
     "typing_description": [
         "[i]Description: [/]You have to type the correct answer.",
-        "[i]Example:     [/]What's the name of [i]Fe[/]? ... [i](iron)[/]",
+        "[i]Example:     [/]What is the name of [i]Fe[/]? ... [i](iron)[/]",
         "",
-        "Do you want to have these type of questions?"
+        "Do you want to get these types of questions?"
     ],
     "num_of_questions": "number of questions",
     "num_of_questions_description": [
-        "You can choose between particular [b]number or infinity[/].",
-        "The particular number must be at [b]minimum of five[/]."
+        "You can choose a specific [b]number or infinity[/].",
+        "The specific number must be [b]at least five[/]."
     ],
     "number": "number",
     "infinity": "infinity",
     "start_quiz": "Start Quiz!",
-    "lower_than_five_questions_error": "The number of questions can't be lower than five.",
-    "empty_question_types_error": "You must select at least one type of question.",
+    "lower_than_five_questions_error": "The number of questions cannot be lower than five.",
+    "empty_question_types_error": "You must select at least one question type.",
     "lower_than_five_selected_error": "You must select at least five elements or compounds."
 }

@@ -1,0 +1,46 @@
+{
+    "language": "言語: ",
+    "periodic_table": "周期表",
+    "compounds": "化合物",
+    "quiz_settings": "クイズ設定",
+    "select_all": "すべて選択",
+    "deselect_all": "選択を解除",
+    "invert_all": "選択を反転",
+    "elements": "元素",
+    "summary": "まとめ",
+    "nothing_to_show": "表示するものがありません。何か選択してください。",
+    "yes": "はい",
+    "no": "いいえ",
+    "boolean_question": "真偽問題",
+    "boolean_description": [
+        "[i]説明: [/]シンプルなはい/いいえ問題です。",
+        "[i]例:   [/][i]H[/] は [i]ネオン[/] の元素記号ですか？ 真/[b]偽[/]",
+        "",
+        "このタイプの問題を出題しますか？"
+    ],
+    "choice_question": "選択問題",
+    "choice_description": [
+        "[i]説明: [/]選択肢の中から正しい答えを選びます。",
+        "[i]例:   [/]次のうち [i]窒素[/] はどれですか？ H、[b]N[/]、Ne、Li",
+        "",
+        "このタイプの問題を出題しますか？"
+    ],
+    "typing_question": "入力問題",
+    "typing_description": [
+        "[i]説明: [/]正しい答えを入力します。",
+        "[i]例:   [/][i]Fe[/] の名前は何ですか？ ... [i](鉄)[/]",
+        "",
+        "このタイプの問題を出題しますか？"
+    ],
+    "num_of_questions": "問題数",
+    "num_of_questions_description": [
+        "具体的な[b]数または無限[/]を選べます。",
+        "具体的な数は[b]少なくとも5[/]である必要があります。"
+    ],
+    "number": "数",
+    "infinity": "無限",
+    "start_quiz": "クイズ開始！",
+    "lower_than_five_questions_error": "問題数は5未満にできません。",
+    "empty_question_types_error": "少なくとも1つの問題タイプを選択する必要があります。",
+    "lower_than_five_selected_error": "少なくとも5つの元素または化合物を選択する必要があります。"
+}

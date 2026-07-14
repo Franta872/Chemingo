@@ -1,0 +1,46 @@
+{
+    "language": "Lingua: ",
+    "periodic_table": "Tabula periodica",
+    "compounds": "Composita",
+    "quiz_settings": "Optiones exercitationis",
+    "select_all": "Omnia eligere",
+    "deselect_all": "Electionem omnem tollere",
+    "invert_all": "Electionem invertere",
+    "elements": "elementa",
+    "summary": "summarium",
+    "nothing_to_show": "Nihil ostendendum est. Aliquid elige.",
+    "yes": "ita",
+    "no": "non",
+    "boolean_question": "quaestio veri/falsi",
+    "boolean_description": [
+        "[i]Descriptio: [/]Simplex quaestio ita/non.",
+        "[i]Exemplum:   [/][i]H[/]ne symbolum [i]Neonis[/] est? Verum/[b]Falsum[/]",
+        "",
+        "Visne has species quaestionum accipere?"
+    ],
+    "choice_question": "quaestio cum optionibus",
+    "choice_description": [
+        "[i]Descriptio: [/]Rectam responsionem ex indice optionum eligere debes.",
+        "[i]Exemplum:   [/]Quod horum est [i]nitrogenium[/]? H, [b]N[/], Ne, Li",
+        "",
+        "Visne has species quaestionum accipere?"
+    ],
+    "typing_question": "quaestio scribenda",
+    "typing_description": [
+        "[i]Descriptio: [/]Rectam responsionem scribere debes.",
+        "[i]Exemplum:   [/]Quod nomen est [i]Fe[/]? ... [i](ferrum)[/]",
+        "",
+        "Visne has species quaestionum accipere?"
+    ],
+    "num_of_questions": "numerus quaestionum",
+    "num_of_questions_description": [
+        "Potes eligere certum [b]numerum aut infinitatem[/].",
+        "Certus numerus [b]saltem quinque[/] esse debet."
+    ],
+    "number": "numerus",
+    "infinity": "infinitas",
+    "start_quiz": "Incipere exercitationem!",
+    "lower_than_five_questions_error": "Numerus quaestionum minor quam quinque esse non potest.",
+    "empty_question_types_error": "Saltem unum genus quaestionis eligere debes.",
+    "lower_than_five_selected_error": "Saltem quinque elementa aut composita eligere debes."
+}

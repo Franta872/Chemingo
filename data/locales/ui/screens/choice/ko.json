@@ -1,0 +1,46 @@
+{
+    "language": "언어: ",
+    "periodic_table": "주기율표",
+    "compounds": "화합물",
+    "quiz_settings": "퀴즈 설정",
+    "select_all": "모두 선택",
+    "deselect_all": "모두 선택 해제",
+    "invert_all": "선택 반전",
+    "elements": "원소",
+    "summary": "요약",
+    "nothing_to_show": "표시할 내용이 없습니다. 항목을 선택하세요.",
+    "yes": "예",
+    "no": "아니요",
+    "boolean_question": "참/거짓 문제",
+    "boolean_description": [
+        "[i]설명: [/]간단한 예/아니요 문제입니다.",
+        "[i]예시: [/][i]H[/]는 [i]네온[/]의 원소 기호입니까? 참/[b]거짓[/]",
+        "",
+        "이 유형의 문제를 받을까요?"
+    ],
+    "choice_question": "선택형 문제",
+    "choice_description": [
+        "[i]설명: [/]선택지 목록에서 정답을 골라야 합니다.",
+        "[i]예시: [/]다음 중 [i]질소[/]는 무엇입니까? H, [b]N[/], Ne, Li",
+        "",
+        "이 유형의 문제를 받을까요?"
+    ],
+    "typing_question": "입력형 문제",
+    "typing_description": [
+        "[i]설명: [/]정답을 직접 입력해야 합니다.",
+        "[i]예시: [/][i]Fe[/]의 이름은 무엇입니까? ... [i](철)[/]",
+        "",
+        "이 유형의 문제를 받을까요?"
+    ],
+    "num_of_questions": "문제 수",
+    "num_of_questions_description": [
+        "구체적인 [b]숫자 또는 무한[/]을 선택할 수 있습니다.",
+        "구체적인 숫자는 [b]최소 다섯[/]이어야 합니다."
+    ],
+    "number": "숫자",
+    "infinity": "무한",
+    "start_quiz": "퀴즈 시작!",
+    "lower_than_five_questions_error": "문제 수는 다섯보다 작을 수 없습니다.",
+    "empty_question_types_error": "최소 하나의 문제 유형을 선택해야 합니다.",
+    "lower_than_five_selected_error": "최소 다섯 개의 원소 또는 화합물을 선택해야 합니다."
+}

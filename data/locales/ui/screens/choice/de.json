@@ -1,0 +1,46 @@
+{
+    "language": "Sprache: ",
+    "periodic_table": "Periodensystem",
+    "compounds": "Verbindungen",
+    "quiz_settings": "Quiz-Einstellungen",
+    "select_all": "Alle auswählen",
+    "deselect_all": "Auswahl aufheben",
+    "invert_all": "Auswahl umkehren",
+    "elements": "Elemente",
+    "summary": "Zusammenfassung",
+    "nothing_to_show": "Nichts anzuzeigen. Wähle etwas aus.",
+    "yes": "ja",
+    "no": "nein",
+    "boolean_question": "Wahr/Falsch-Frage",
+    "boolean_description": [
+        "[i]Beschreibung: [/]Eine einfache Ja/Nein-Frage.",
+        "[i]Beispiel:     [/]Ist [i]H[/] das Symbol von [i]Neon[/]? Wahr/[b]Falsch[/]",
+        "",
+        "Möchtest du diese Art von Fragen bekommen?"
+    ],
+    "choice_question": "Multiple-Choice-Frage",
+    "choice_description": [
+        "[i]Beschreibung: [/]Du musst die richtige Antwort aus einer Liste von Optionen auswählen.",
+        "[i]Beispiel:     [/]Welches davon ist [i]Stickstoff[/]? H, [b]N[/], Ne, Li",
+        "",
+        "Möchtest du diese Art von Fragen bekommen?"
+    ],
+    "typing_question": "Eingabefrage",
+    "typing_description": [
+        "[i]Beschreibung: [/]Du musst die richtige Antwort eintippen.",
+        "[i]Beispiel:     [/]Wie heißt [i]Fe[/]? ... [i](Eisen)[/]",
+        "",
+        "Möchtest du diese Art von Fragen bekommen?"
+    ],
+    "num_of_questions": "Anzahl der Fragen",
+    "num_of_questions_description": [
+        "Du kannst eine bestimmte [b]Zahl oder Unendlichkeit[/] wählen.",
+        "Die bestimmte Zahl muss [b]mindestens fünf[/] sein."
+    ],
+    "number": "Zahl",
+    "infinity": "Unendlichkeit",
+    "start_quiz": "Quiz starten!",
+    "lower_than_five_questions_error": "Die Anzahl der Fragen darf nicht kleiner als fünf sein.",
+    "empty_question_types_error": "Du musst mindestens einen Fragetyp auswählen.",
+    "lower_than_five_selected_error": "Du musst mindestens fünf Elemente oder Verbindungen auswählen."
+}

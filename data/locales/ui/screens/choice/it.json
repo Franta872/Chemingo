@@ -1,0 +1,46 @@
+{
+    "language": "Lingua: ",
+    "periodic_table": "Tavola periodica",
+    "compounds": "Composti",
+    "quiz_settings": "Impostazioni del quiz",
+    "select_all": "Seleziona tutto",
+    "deselect_all": "Deseleziona tutto",
+    "invert_all": "Inverti selezione",
+    "elements": "elementi",
+    "summary": "riepilogo",
+    "nothing_to_show": "Niente da mostrare. Seleziona qualcosa.",
+    "yes": "sì",
+    "no": "no",
+    "boolean_question": "domanda vero/falso",
+    "boolean_description": [
+        "[i]Descrizione: [/]Una semplice domanda sì/no.",
+        "[i]Esempio:     [/][i]H[/] è il simbolo del [i]neon[/]? Vero/[b]Falso[/]",
+        "",
+        "Vuoi ricevere questo tipo di domande?"
+    ],
+    "choice_question": "domanda a scelta multipla",
+    "choice_description": [
+        "[i]Descrizione: [/]Devi scegliere la risposta corretta da un elenco di opzioni.",
+        "[i]Esempio:     [/]Quale di questi è [i]azoto[/]? H, [b]N[/], Ne, Li",
+        "",
+        "Vuoi ricevere questo tipo di domande?"
+    ],
+    "typing_question": "domanda a risposta scritta",
+    "typing_description": [
+        "[i]Descrizione: [/]Devi digitare la risposta corretta.",
+        "[i]Esempio:     [/]Qual è il nome di [i]Fe[/]? ... [i](ferro)[/]",
+        "",
+        "Vuoi ricevere questo tipo di domande?"
+    ],
+    "num_of_questions": "numero di domande",
+    "num_of_questions_description": [
+        "Puoi scegliere un [b]numero specifico o infinito[/].",
+        "Il numero specifico deve essere [b]almeno cinque[/]."
+    ],
+    "number": "numero",
+    "infinity": "infinito",
+    "start_quiz": "Avvia quiz!",
+    "lower_than_five_questions_error": "Il numero di domande non può essere inferiore a cinque.",
+    "empty_question_types_error": "Devi selezionare almeno un tipo di domanda.",
+    "lower_than_five_selected_error": "Devi selezionare almeno cinque elementi o composti."
+}

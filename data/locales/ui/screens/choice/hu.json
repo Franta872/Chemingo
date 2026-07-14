@@ -1,0 +1,46 @@
+{
+    "language": "Nyelv: ",
+    "periodic_table": "Periódusos rendszer",
+    "compounds": "Vegyületek",
+    "quiz_settings": "Kvízbeállítások",
+    "select_all": "Összes kijelölése",
+    "deselect_all": "Kijelölés törlése",
+    "invert_all": "Kijelölés megfordítása",
+    "elements": "elemek",
+    "summary": "összegzés",
+    "nothing_to_show": "Nincs mit megjeleníteni. Válassz valamit.",
+    "yes": "igen",
+    "no": "nem",
+    "boolean_question": "igaz/hamis kérdés",
+    "boolean_description": [
+        "[i]Leírás: [/]Egyszerű igen/nem kérdés.",
+        "[i]Példa:  [/]A [i]H[/] a [i]neon[/] vegyjele? Igaz/[b]Hamis[/]",
+        "",
+        "Szeretnél ilyen típusú kérdéseket kapni?"
+    ],
+    "choice_question": "feleletválasztós kérdés",
+    "choice_description": [
+        "[i]Leírás: [/]Ki kell választanod a helyes választ a lehetőségek listájából.",
+        "[i]Példa:  [/]Melyik ezek közül a [i]nitrogén[/]? H, [b]N[/], Ne, Li",
+        "",
+        "Szeretnél ilyen típusú kérdéseket kapni?"
+    ],
+    "typing_question": "beírós kérdés",
+    "typing_description": [
+        "[i]Leírás: [/]Be kell írnod a helyes választ.",
+        "[i]Példa:  [/]Mi a neve a(z) [i]Fe[/] jelű elemnek? ... [i](vas)[/]",
+        "",
+        "Szeretnél ilyen típusú kérdéseket kapni?"
+    ],
+    "num_of_questions": "kérdések száma",
+    "num_of_questions_description": [
+        "Választhatsz konkrét [b]számot vagy végtelent[/].",
+        "A konkrét számnak [b]legalább ötnek[/] kell lennie."
+    ],
+    "number": "szám",
+    "infinity": "végtelen",
+    "start_quiz": "Kvíz indítása!",
+    "lower_than_five_questions_error": "A kérdések száma nem lehet kevesebb ötnél.",
+    "empty_question_types_error": "Legalább egy kérdéstípust ki kell választanod.",
+    "lower_than_five_selected_error": "Legalább öt elemet vagy vegyületet ki kell választanod."
+}

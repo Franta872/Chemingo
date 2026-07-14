@@ -1,0 +1,46 @@
+{
+    "language": "Langue : ",
+    "periodic_table": "Tableau périodique",
+    "compounds": "Composés",
+    "quiz_settings": "Paramètres du quiz",
+    "select_all": "Tout sélectionner",
+    "deselect_all": "Tout désélectionner",
+    "invert_all": "Inverser la sélection",
+    "elements": "éléments",
+    "summary": "résumé",
+    "nothing_to_show": "Rien à afficher. Sélectionne quelque chose.",
+    "yes": "oui",
+    "no": "non",
+    "boolean_question": "question vrai/faux",
+    "boolean_description": [
+        "[i]Description : [/]Une simple question oui/non.",
+        "[i]Exemple :     [/][i]H[/] est-il le symbole du [i]néon[/] ? Vrai/[b]Faux[/]",
+        "",
+        "Veux-tu recevoir ce type de questions ?"
+    ],
+    "choice_question": "question à choix multiple",
+    "choice_description": [
+        "[i]Description : [/]Tu dois choisir la bonne réponse dans une liste d’options.",
+        "[i]Exemple :     [/]Lequel de ceux-ci est [i]l’azote[/] ? H, [b]N[/], Ne, Li",
+        "",
+        "Veux-tu recevoir ce type de questions ?"
+    ],
+    "typing_question": "question à réponse saisie",
+    "typing_description": [
+        "[i]Description : [/]Tu dois taper la bonne réponse.",
+        "[i]Exemple :     [/]Quel est le nom de [i]Fe[/] ? ... [i](fer)[/]",
+        "",
+        "Veux-tu recevoir ce type de questions ?"
+    ],
+    "num_of_questions": "nombre de questions",
+    "num_of_questions_description": [
+        "Tu peux choisir un [b]nombre précis ou l’infini[/].",
+        "Le nombre précis doit être [b]au moins cinq[/]."
+    ],
+    "number": "nombre",
+    "infinity": "infini",
+    "start_quiz": "Lancer le quiz !",
+    "lower_than_five_questions_error": "Le nombre de questions ne peut pas être inférieur à cinq.",
+    "empty_question_types_error": "Tu dois sélectionner au moins un type de question.",
+    "lower_than_five_selected_error": "Tu dois sélectionner au moins cinq éléments ou composés."
+}

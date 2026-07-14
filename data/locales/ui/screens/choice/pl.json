@@ -1,0 +1,46 @@
+{
+    "language": "Język: ",
+    "periodic_table": "Układ okresowy",
+    "compounds": "Związki chemiczne",
+    "quiz_settings": "Ustawienia quizu",
+    "select_all": "Zaznacz wszystko",
+    "deselect_all": "Odznacz wszystko",
+    "invert_all": "Odwróć zaznaczenie",
+    "elements": "pierwiastki",
+    "summary": "podsumowanie",
+    "nothing_to_show": "Nie ma nic do pokazania. Wybierz coś.",
+    "yes": "tak",
+    "no": "nie",
+    "boolean_question": "pytanie prawda/fałsz",
+    "boolean_description": [
+        "[i]Opis:    [/]Proste pytanie tak/nie.",
+        "[i]Przykład:[/]Czy [i]H[/] jest symbolem [i]neonu[/]? Prawda/[b]Fałsz[/]",
+        "",
+        "Czy chcesz otrzymywać tego typu pytania?"
+    ],
+    "choice_question": "pytanie wyboru",
+    "choice_description": [
+        "[i]Opis:    [/]Musisz wybrać poprawną odpowiedź z listy opcji.",
+        "[i]Przykład:[/]Który z nich to [i]azot[/]? H, [b]N[/], Ne, Li",
+        "",
+        "Czy chcesz otrzymywać tego typu pytania?"
+    ],
+    "typing_question": "pytanie wpisywane",
+    "typing_description": [
+        "[i]Opis:    [/]Musisz wpisać poprawną odpowiedź.",
+        "[i]Przykład:[/]Jak nazywa się [i]Fe[/]? ... [i](żelazo)[/]",
+        "",
+        "Czy chcesz otrzymywać tego typu pytania?"
+    ],
+    "num_of_questions": "liczba pytań",
+    "num_of_questions_description": [
+        "Możesz wybrać konkretną [b]liczbę lub nieskończoność[/].",
+        "Konkretna liczba musi wynosić [b]co najmniej pięć[/]."
+    ],
+    "number": "liczba",
+    "infinity": "nieskończoność",
+    "start_quiz": "Rozpocznij quiz!",
+    "lower_than_five_questions_error": "Liczba pytań nie może być mniejsza niż pięć.",
+    "empty_question_types_error": "Musisz wybrać co najmniej jeden typ pytania.",
+    "lower_than_five_selected_error": "Musisz wybrać co najmniej pięć pierwiastków lub związków."
+}

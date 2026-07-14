@@ -1,0 +1,46 @@
+{
+    "language": "语言：",
+    "periodic_table": "元素周期表",
+    "compounds": "化合物",
+    "quiz_settings": "测验设置",
+    "select_all": "全选",
+    "deselect_all": "取消全选",
+    "invert_all": "反选",
+    "elements": "元素",
+    "summary": "摘要",
+    "nothing_to_show": "没有可显示的内容。请选择一些项目。",
+    "yes": "是",
+    "no": "否",
+    "boolean_question": "判断题",
+    "boolean_description": [
+        "[i]说明：[/]简单的是/否问题。",
+        "[i]示例：[/][i]H[/] 是 [i]氖[/] 的元素符号吗？真/[b]假[/]",
+        "",
+        "你想收到这种类型的问题吗？"
+    ],
+    "choice_question": "选择题",
+    "choice_description": [
+        "[i]说明：[/]你必须从选项列表中选择正确答案。",
+        "[i]示例：[/]以下哪一个是 [i]氮[/]？H、[b]N[/]、Ne、Li",
+        "",
+        "你想收到这种类型的问题吗？"
+    ],
+    "typing_question": "输入题",
+    "typing_description": [
+        "[i]说明：[/]你必须输入正确答案。",
+        "[i]示例：[/][i]Fe[/] 的名称是什么？... [i]（铁）[/]",
+        "",
+        "你想收到这种类型的问题吗？"
+    ],
+    "num_of_questions": "问题数量",
+    "num_of_questions_description": [
+        "你可以选择具体的[b]数字或无限[/]。",
+        "具体数字必须[b]至少为五[/]。"
+    ],
+    "number": "数字",
+    "infinity": "无限",
+    "start_quiz": "开始测验！",
+    "lower_than_five_questions_error": "问题数量不能少于五。",
+    "empty_question_types_error": "你必须至少选择一种问题类型。",
+    "lower_than_five_selected_error": "你必须至少选择五个元素或化合物。"
+}
