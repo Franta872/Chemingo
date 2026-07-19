@@ -1,0 +1,8 @@
+{
+    "true": "True",
+    "false": "False",
+    "boolean_question_text": "Does <1> belong to <2>?",
+    "correct": "Correct!",
+    "wrong": "Wrong!",
+    "your_answer": "Your answer"
+}

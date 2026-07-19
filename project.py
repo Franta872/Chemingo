@@ -8,6 +8,7 @@ from screens.welcome.welcome import WelcomeScreen
 from screens.choice.choice import ChoiceScreen
 from screens.quiz.quiz import QuizScreen
 from data.locales.ui.translation import Translate
+from data.database import compounds_categories
 
 @dataclass
 class AppState:
@@ -15,7 +16,11 @@ class AppState:
     Main app class for storing data among the screens.
     """
     selected_elements: set[str] = field(default_factory=set)
-
+    selected_compounds: dict[str, set] = field(
+        default_factory=lambda: {x: set() for x in compounds_categories.keys()}
+        )
+    question_answers: dict[str, bool] = field(default_factory=dict)
+    num_of_questions: int|float = 0
 
 class ChemistryQuiz(App):
     SCREENS = {
@@ -43,7 +48,7 @@ def is_blank_dictionary(dictionary: dict[str, list]| dict[str, bool]):
             return False
     return True
 
-def count_dictionary_list_items(dictionary: dict[str, list]) -> int:
+def count_dictionary_list_items(dictionary: dict[str, list|set|tuple]) -> int:
     num = 0
     for value in dictionary.values():
         num += len(value)

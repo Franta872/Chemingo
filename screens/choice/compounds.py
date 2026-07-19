@@ -31,6 +31,11 @@ class CompoundsTab(Container):
                 selection_list.toggle_all()
     # handling select, deselect and invert buttons for compound categories
 
+    @on(SelectionList.SelectedChanged, ".compounds-selection-list")
+    def selection_changed(self, event: SelectionList.SelectedChanged) -> None:
+        self.app.state.selected_compounds[event.selection_list.id] = \
+        event.selection_list.selected
+
     @on(events.Enter, ".compounds-category-label, .compounds-selection-list, .compound-category-container")
     def mouse_entered_container(self, event: events.Enter) -> None:
         """

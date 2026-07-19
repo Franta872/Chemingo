@@ -40,15 +40,15 @@ class ChoiceScreen(Screen):
             with TransTabPane("quiz_settings", *st, id="quiz-settings"):
                 yield QuizSettingsTab()
 
-    def return_selected(self, elements: bool = False) -> dict[str, list[str]]:
+    def return_selected(self, elements: bool = False) -> dict[str, set|list]:
         """
         Return a dictionary of selected elements and compounds.
         """
-        selected: dict[str, list[str]] = dict()
-        if not self.query_one("#compounds-container-left").is_empty and \
-           not self.query_one("#compounds-container-right").is_empty:
-            for category in compounds_categories:
-                selected.update({category: self.query_one(f"#{category}", SelectionList).selected})
+        #if not self.query_one("#compounds-container-left").is_empty and \
+        #   not self.query_one("#compounds-container-right").is_empty:
+        #    for category in compounds_categories:
+        #        selected.update({category: self.query_one(f"#{category}", SelectionList).selected})
+        selected: dict[str, set|list] = self.app.state.selected_compounds.copy()
         if elements:
             selected.update({"elements": sorted(list(self.app.state.selected_elements))})
         return selected
@@ -64,21 +64,21 @@ class ChoiceScreen(Screen):
 
         # clearing and adding options to SelectionList, because
         # Textual doesn't have build in function for that
-        selected: dict[str, list[str]] = self.return_selected()
+        selected: dict[str, set[str]] = self.return_selected()
         # saving selections of the user
 
         await self.query_one("#compounds-container-left").remove_children()
         await self.query_one("#compounds-container-right").remove_children()
         await self.query_one("CompoundsTab", CompoundsTab).add_compounds()
 
-        for category in selected:
-            for item in selected[category]:
+        for category in self.return_selected():
+            for item in self.return_selected()[category]:
                 self.query_one(f"#{category}", SelectionList).select(item)
-        
-        self.query_one("QuizSettingsTab", QuizSettingsTab).quiz_settings_tab_render()
+
+        self.query_one("QuizSettingsTab", QuizSettingsTab).quiz_settings_summary_render()
 
     @on(TabbedContent.TabActivated)
     def tab_changed(self, event: TabbedContent.TabActivated) -> None:
         if event.pane.id == "quiz-settings":
-            self.query_one("QuizSettingsTab", QuizSettingsTab).quiz_settings_tab_render()
+            self.query_one("QuizSettingsTab", QuizSettingsTab).quiz_settings_summary_render()
             # recreating settings tab because of possible changes.

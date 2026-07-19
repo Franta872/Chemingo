@@ -1,0 +1,8 @@
+{
+    "true": "Pravda",
+    "false": "Lež",
+    "boolean_question_text": "Patří <1> k <2>?",
+    "correct": "Správně!",
+    "wrong": "Špatně!",
+    "your_answer": "Tvá odpověď"
+}

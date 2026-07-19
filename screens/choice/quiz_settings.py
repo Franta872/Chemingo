@@ -60,17 +60,18 @@ class QuizSettingsTab(Container):
             elif self.query_one("#amount-question-radiobutton-2", TransRadioButton).value:
                 input_value = float("inf")
 
-            yes = self.app.translate.t("yes", "choice")
-            settings_questions = {
+            yes = self.app.translate.t("yes", "choice") # type: ignore[attr-defined]
+            question_answers = {
                 "boolean": self.query_one("#boolean-radioset", RadioSet).pressed_button.label == yes,
                 "choice": self.query_one("#choice-radioset", RadioSet).pressed_button.label == yes,
                 "typing": self.query_one("#typing-radioset", RadioSet).pressed_button.label == yes
             }
+            self.app.state.question_answers = question_answers # type: ignore[attr-defined]
             error_container = self.query_one("#error-container", Center)
             error_container.remove_children()
-            st = "choice", self.app.translate
+            st = "choice", self.app.translate # type: ignore[attr-defined]
             from project import is_blank_dictionary # accessing it locally because of circular import
-            if is_blank_dictionary(settings_questions):
+            if is_blank_dictionary(question_answers):
                 error_container.mount(
                     TransLabel("empty_question_types_error", *st, classes="error-label")
                     )
@@ -79,7 +80,7 @@ class QuizSettingsTab(Container):
                     TransLabel("lower_than_five_questions_error", *st, classes="error-label")
                     )
             from project import count_dictionary_list_items # accessing it locally because of circular import
-            if count_dictionary_list_items(self.screen.return_selected(elements=True)) < 5:
+            if count_dictionary_list_items(self.screen.return_selected(elements=True)) < 5: # type: ignore[attr-defined]
                 # counts number of all selected items
                 error_container.mount(
                     TransLabel("lower_than_five_selected_error", *st, classes="error-label")
@@ -87,9 +88,7 @@ class QuizSettingsTab(Container):
             if error_container.is_empty:
                 self.query_one("#error-container", Center).remove_children()
                 self.app.push_screen("quiz")
-                #settings_questions.update({
-                #    "num_of_questions": input_value
-                #})
+                self.app.state.num_of_questions = input_value # type: ignore[attr-defined]
     
     def on_radio_button_changed(self, event: RadioButton.Changed):
         radio_button1 = self.query_one("#amount-question-radiobutton-1", TransRadioButton)
@@ -105,13 +104,13 @@ class QuizSettingsTab(Container):
             radio_button2.value = True
             self.query_one("#amount-question-input").disabled = True
 
-    def quiz_settings_tab_render(self) -> None:
-        selected: dict[str, list[str]] = self.screen.return_selected(elements=True)
+    def quiz_settings_summary_render(self) -> None:
+        selected: dict[str, set] = self.screen.return_selected(elements=True)
         self.query_one("#summary-container", Container).remove_children()
         from project import is_blank_dictionary # accessing it locally because of circular import
         if not is_blank_dictionary(selected):
             for category, value in selected.items():
-                if value != []:
+                if value:
                     label = Label(", ".join(value), classes="summary-label")
                     self.query_one("#summary-container", Container).mount(
                         label

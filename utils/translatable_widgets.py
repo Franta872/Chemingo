@@ -7,10 +7,11 @@ class TransLabel(Label):
     Ordinary Textual Label, but it can translate itself 
     with ```update_language()``` function.
     """
-    def __init__(self, word: str, screen: str, trans, *args, **kwargs):
+    def __init__(self, word: str | tuple, screen: str, trans, description: dict | None = None, *args, **kwargs):
         self._word = word
         self._screen = screen
         self.translate = trans
+        self.description = description or {}
 
         super().__init__(*args, **kwargs)
 
@@ -21,7 +22,7 @@ class TransLabel(Label):
         """
         This function will send order to translate itself to currently set language.
         """
-        self.update(self.translate.t(self._word, self._screen))
+        self.update(self.translate.t(self._word, self._screen, self.description))
 
 
 class TransButton(Button):
@@ -29,7 +30,7 @@ class TransButton(Button):
     Ordinary Textual Button, but it can translate itself 
     with ```update_language()``` function.
     """
-    def __init__(self, word: str, screen: str, trans, *args, **kwargs):
+    def __init__(self, word: str | tuple, screen: str, trans, *args, **kwargs):
         self._word = word
         self._screen = screen
         self.translate = trans
@@ -51,7 +52,7 @@ class TransFigletWidget(FigletWidget):
     Ordinary Textual Figlet Widget, but it can translate itself 
     with ```update_language()``` function.
     """
-    def __init__(self, word: str, screen: str, trans, *args, **kwargs):
+    def __init__(self, word: str | tuple, screen: str, trans, *args, **kwargs):
         self._word = word
         self._screen = screen
         self.translate = trans
@@ -73,7 +74,7 @@ class TransElementButton(Button):
     This is is Textual Button, but it can translate it's toolbox 
     to currently set language.
     """
-    def __init__(self, label, trans, *args, **kwargs):
+    def __init__(self, label: str, trans, *args, **kwargs):
         self._label = label
         self.translate = trans
 
@@ -96,7 +97,7 @@ class TransCompoundLabel(Label):
     This is is Textual Label, but it can translate it's compound category value
     to currently set language.
     """
-    def __init__(self, label, trans, *args, **kwargs):
+    def __init__(self, label: str, trans, *args, **kwargs):
         self._label = label
         self.translate = trans
 
@@ -119,7 +120,7 @@ class TransTabPane(TabPane):
     Ordinary Textual Tab Pane, but it can translate itself 
     with ```update_language()``` function.
     """
-    def __init__(self, word: str, screen: str, trans, *args, **kwargs):
+    def __init__(self, word: str | tuple, screen: str, trans, *args, **kwargs):
         self._word = word
         self._screen = screen
         self.translate = trans
@@ -142,7 +143,7 @@ class TransRadioButton(RadioButton):
     Ordinary Textual RadioButton, but it can translate itself 
     with ```update_language()``` function.
     """
-    def __init__(self, word: str, screen: str, trans, *args, trans_tooltip: str = "", **kwargs):
+    def __init__(self, word: str | tuple, screen: str, trans, *args, trans_tooltip: str = "", **kwargs):
         self._word = word
         self._screen = screen
         self.translate = trans
@@ -167,7 +168,7 @@ class TransBorderContainer(Container):
     Ordinary Textual Container, but it can translate it's border title
     with ```update_language()``` function.
     """
-    def __init__(self, word: str, screen: str, trans, *args, **kwargs):
+    def __init__(self, word: str | tuple, screen: str, trans, *args, **kwargs):
         self._word = word
         self._screen = screen
         self.translate = trans
@@ -190,7 +191,7 @@ class TransInput(Input):
     Ordinary Textual Input, but it can translate it's placeholder.
     with ```update_language()``` function.
     """
-    def __init__(self, word: str, screen: str, trans, *args, **kwargs):
+    def __init__(self, word: str | tuple, screen: str, trans, *args, **kwargs):
         self._word = word
         self._screen = screen
         self.translate = trans
