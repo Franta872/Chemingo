@@ -42,5 +42,5 @@
     "start_quiz": "Kvíz indítása!",
     "lower_than_five_questions_error": "A kérdések száma nem lehet kevesebb ötnél.",
     "empty_question_types_error": "Legalább egy kérdéstípust ki kell választanod.",
-    "lower_than_five_selected_error": "Legalább öt elemet vagy vegyületet ki kell választanod."
+    "lower_than_five_selected_error": "Legalább egy kategóriában öt elemnek kijelölve kell lennie."
 }

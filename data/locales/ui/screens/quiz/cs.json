@@ -1,8 +1,12 @@
 {
     "true": "Pravda",
     "false": "Lež",
-    "boolean_question_text": "Patří <1> k <2>?",
+    "boolean_question_text": "Patří [u]<1>[/] k [u]<2>[/]?",
     "correct": "Správně!",
     "wrong": "Špatně!",
-    "your_answer": "Tvá odpověď"
+    "your_answer": "Tvá odpověď",
+    "correct_answer": "Správná odpověď",
+    "remaining_questions": "Zbývající otázky",
+    "language": "Jazyk",
+    "which_one": "Vyber který je [u]<1>[/]"
 }

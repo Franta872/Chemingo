@@ -42,5 +42,5 @@
     "start_quiz": "Quiz starten!",
     "lower_than_five_questions_error": "Die Anzahl der Fragen darf nicht kleiner als fünf sein.",
     "empty_question_types_error": "Du musst mindestens einen Fragetyp auswählen.",
-    "lower_than_five_selected_error": "Du musst mindestens fünf Elemente oder Verbindungen auswählen."
+    "lower_than_five_selected_error": "In mindestens einer Kategorie müssen fünf Einträge ausgewählt sein."
 }

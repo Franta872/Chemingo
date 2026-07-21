@@ -42,5 +42,5 @@
     "start_quiz": "开始测验！",
     "lower_than_five_questions_error": "问题数量不能少于五。",
     "empty_question_types_error": "你必须至少选择一种问题类型。",
-    "lower_than_five_selected_error": "你必须至少选择五个元素或化合物。"
+    "lower_than_five_selected_error": "至少一个类别中必须选择五项。"
 }

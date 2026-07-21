@@ -30,10 +30,11 @@ class TransButton(Button):
     Ordinary Textual Button, but it can translate itself 
     with ```update_language()``` function.
     """
-    def __init__(self, word: str | tuple, screen: str, trans, *args, **kwargs):
+    def __init__(self, word: str | tuple, screen: str, trans, description: dict | None = None, *args, **kwargs):
         self._word = word
         self._screen = screen
         self.translate = trans
+        self.description = description or {}
 
         super().__init__(*args, **kwargs)
 
@@ -44,7 +45,7 @@ class TransButton(Button):
         """
         This function will send order to translate itself to currently set language.
         """
-        self.label = self.translate.t(self._word, self._screen)
+        self.label = self.translate.t(self._word, self._screen, self.description)
 
 
 class TransFigletWidget(FigletWidget):

@@ -2,7 +2,7 @@
 #     border: tall red;
 # }
 #main-container {
-    min-height: 20;
+    min-height: 17;
     Static {
         display: none;
     }
@@ -20,7 +20,7 @@
         min-height: 4;
         border: tall $primary-background;
         content-align: center middle;
-        margin: 2 5 1 5;
+        margin: 1 5 1 5;
         background: $primary-background-darken-2;
         Static {
             display: none;
@@ -37,6 +37,10 @@
         height: 50%;
         width: 25%;
     }
+    .choice-button {
+        height: 40%;
+        width: 18%;
+    }
     #answer-button {
         margin: 0 4 0 4;
         width: 90%;
@@ -44,4 +48,25 @@
     Static {
         display: none;
     }
+}
+#top-container {
+    overflow: auto;
+    max-height: 6;
+}
+#remaining-questions-label {
+    border: tall $primary-background;
+    padding: 0 1 0 1;
+    background: $primary-background-darken-2;
+    margin: 1 0 0 1;
+}
+#language-select {
+    SelectCurrent {
+        border: tall $primary-background;
+        padding: 0 1 0 1;
+        background: $primary-background-darken-2;
+        margin: 1 0 0 1;
+    }
+}
+#language-label{
+    margin: 2 0 0 2;
 }

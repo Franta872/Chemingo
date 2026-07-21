@@ -7,6 +7,7 @@ from textual.validation import Number
 from utils.translatable_widgets import TransLabel, TransBorderContainer, TransRadioButton, \
                                        TransInput, TransButton
 from data.database import compounds_categories
+from screens.quiz.quiz import QuizScreen
 
 class QuizSettingsTab(Container):
     def compose(self) -> ComposeResult:
@@ -47,7 +48,7 @@ class QuizSettingsTab(Container):
                     yield Label("♾️", id="infinity-label")
 
             with Center(id="error-container"):
-                yield Static("") # Textual doesn't like empty containers.
+                yield Static() # Textual doesn't like empty containers.
             with Center(id="start-quiz-container"):
                 yield TransButton("start_quiz", *st, id="start-quiz-button", variant="primary")
     
@@ -80,16 +81,18 @@ class QuizSettingsTab(Container):
                     TransLabel("lower_than_five_questions_error", *st, classes="error-label")
                     )
             from project import count_dictionary_list_items # accessing it locally because of circular import
-            if count_dictionary_list_items(self.screen.return_selected(elements=True)) < 5: # type: ignore[attr-defined]
+            if len(self.app.state.selected_elements) < 5 and \
+            count_dictionary_list_items(self.app.state.selected_compounds) < 5: # type: ignore[attr-defined]
                 # counts number of all selected items
                 error_container.mount(
                     TransLabel("lower_than_five_selected_error", *st, classes="error-label")
                     )
             if error_container.is_empty:
-                self.query_one("#error-container", Center).remove_children()
-                self.app.push_screen("quiz")
                 self.app.state.num_of_questions = input_value # type: ignore[attr-defined]
-    
+                self.query_one("#error-container", Center).remove_children()
+                self.query_one("#error-container", Center).mount(Static())
+                self.app.push_screen(QuizScreen())
+
     def on_radio_button_changed(self, event: RadioButton.Changed):
         radio_button1 = self.query_one("#amount-question-radiobutton-1", TransRadioButton)
         radio_button2 = self.query_one("#amount-question-radiobutton-2", TransRadioButton)

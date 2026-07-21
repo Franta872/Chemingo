@@ -42,5 +42,5 @@
     "start_quiz": "Incipere exercitationem!",
     "lower_than_five_questions_error": "Numerus quaestionum minor quam quinque esse non potest.",
     "empty_question_types_error": "Saltem unum genus quaestionis eligere debes.",
-    "lower_than_five_selected_error": "Saltem quinque elementa aut composita eligere debes."
+    "lower_than_five_selected_error": "In uno saltem genere quinque res selectae esse debent."
 }

@@ -42,5 +42,5 @@
     "start_quiz": "Spustit kvíz!",
     "lower_than_five_questions_error": "Počet otázek nesmí být menší než pět.",
     "empty_question_types_error": "Musíš vybrat alespoň jeden typ otázek.",
-    "lower_than_five_selected_error": "Musíš vybrat alespoň pět prvků nebo sloučenin."
+    "lower_than_five_selected_error": "V alespoň jedné kategorii musí být vybráno nejméně pět položek."
 }

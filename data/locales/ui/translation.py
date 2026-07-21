@@ -24,7 +24,7 @@ class Translate:
     def t(self, word: str | tuple, screen: str, description: dict | None = None) -> str:
         if isinstance(word, tuple):
             return "".join(
-                [(self.t(x[1], screen, description) if x[0] == "w" else x[1]) for x in word]
+                [(self.t(x[1], screen, description) if x[0] == "w" else self.replace_chemical_placeholders(x[1], description)) for x in word]
                 )
         path = Path(__file__).parent / f"screens/{screen}/{self._language}.json"
         with path.open(encoding="utf-8") as file:

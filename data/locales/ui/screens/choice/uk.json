@@ -42,5 +42,5 @@
     "start_quiz": "Почати вікторину!",
     "lower_than_five_questions_error": "Кількість питань не може бути меншою за п’ять.",
     "empty_question_types_error": "Потрібно вибрати принаймні один тип питань.",
-    "lower_than_five_selected_error": "Потрібно вибрати принаймні п’ять елементів або сполук."
+    "lower_than_five_selected_error": "Принаймні в одній категорії має бути вибрано п’ять елементів."
 }

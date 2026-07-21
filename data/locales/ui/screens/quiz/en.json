@@ -1,8 +1,12 @@
 {
     "true": "True",
     "false": "False",
-    "boolean_question_text": "Does <1> belong to <2>?",
+    "boolean_question_text": "Does [u]<1>[/] belong to [u]<2>[/]?",
     "correct": "Correct!",
     "wrong": "Wrong!",
-    "your_answer": "Your answer"
+    "your_answer": "Your answer",
+    "correct_answer": "Correct answer",
+    "remaining_questions": "Remaining questions",
+    "language": "language",
+    "which_one": "Choose which one is [u]<1>[/]"
 }

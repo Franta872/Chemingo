@@ -6,7 +6,7 @@ from dataclasses import dataclass, field
 # from folder.folder.file import class
 from screens.welcome.welcome import WelcomeScreen
 from screens.choice.choice import ChoiceScreen
-from screens.quiz.quiz import QuizScreen
+#from screens.quiz.quiz import QuizScreen
 from data.locales.ui.translation import Translate
 from data.database import compounds_categories
 
@@ -20,13 +20,13 @@ class AppState:
         default_factory=lambda: {x: set() for x in compounds_categories.keys()}
         )
     question_answers: dict[str, bool] = field(default_factory=dict)
-    num_of_questions: int|float = 0
+    num_of_questions: int|float = 5
 
 class ChemistryQuiz(App):
     SCREENS = {
         "welcome": WelcomeScreen,
-        "choice": ChoiceScreen,
-        "quiz": QuizScreen
+        "choice": ChoiceScreen
+        # a new instance of a QuizScreen is made every time you enter it
     }
 
     def on_mount(self):

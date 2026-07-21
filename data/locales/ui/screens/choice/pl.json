@@ -42,5 +42,5 @@
     "start_quiz": "Rozpocznij quiz!",
     "lower_than_five_questions_error": "Liczba pytań nie może być mniejsza niż pięć.",
     "empty_question_types_error": "Musisz wybrać co najmniej jeden typ pytania.",
-    "lower_than_five_selected_error": "Musisz wybrać co najmniej pięć pierwiastków lub związków."
+    "lower_than_five_selected_error": "W co najmniej jednej kategorii musi być zaznaczonych pięć pozycji."
 }
