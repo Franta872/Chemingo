@@ -1,17 +1,15 @@
 # PYTHON import
 from typing import TYPE_CHECKING
-
-from textual.widget import Widget
 if TYPE_CHECKING:
     from typing import Literal
 # TEXTUAL imports
 if TYPE_CHECKING:
+    from textual.widget import Widget
     from textual.screen import Screen
     from textual.app import ComposeResult
 from utils.translatable_widgets import TransButton, TransLabel
 from textual.containers import Container, HorizontalGroup
 from textual.message import Message
-from textual import on
 
 class BooleanQuestion(Container):
     def __init__(self,

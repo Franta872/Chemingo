@@ -10,10 +10,12 @@ from textual.reactive import reactive
 if TYPE_CHECKING:
     from textual.app import ComposeResult
 # APP import
+from screens.quiz.statistics_screen import StatisticsScreen
 from screens.quiz.question_types.boolean import BooleanQuestion
 from screens.quiz.question_types.choice import ChoiceQuestion
+from screens.quiz.question_types.typing import TypingQuestion
 from screens.quiz.random_question import random_question
-from utils.translatable_widgets import TransLabel
+from utils.translatable_widgets import TransLabel, TransButton
 from data.database import all_languages_select
 
 class QuizScreen(Screen):
@@ -27,6 +29,7 @@ class QuizScreen(Screen):
             yield TransLabel((("w", "language"), ( "n", ":")), *st, id="language-label")
             yield Select(all_languages_select, allow_blank=False, id="language-select",
                    value=self.app.translate.language) # type: ignore[attr-defined]
+            yield TransButton("statistics", *st, id="statistics-button")
         with VerticalScroll(id="main-container"):
             yield Static()
     
@@ -76,6 +79,14 @@ class QuizScreen(Screen):
                     item_4=random["4"]
                 )
             )
+        elif random["random_question"] == "typing":
+            self.query_one("#main-container", VerticalScroll).mount(
+                TypingQuestion(
+                    quiz_screen=self,
+                    answer=random["answer"],
+                    item=random["1"],
+                )
+            )
 
     @on(BooleanQuestion.UserAnswered)
     def user_answered_boolean(self, message: BooleanQuestion.UserAnswered):
@@ -85,6 +96,10 @@ class QuizScreen(Screen):
     def user_answered_choice(self, message: ChoiceQuestion.UserAnswered):
         self.query_one(ChoiceQuestion).remove()
         self.next_question()
+    @on(TypingQuestion.UserAnswered)
+    def user_answered_typing(self, message: TypingQuestion.UserAnswered):
+        self.query_one(TypingQuestion).remove()
+        self.next_question()
     
     def on_select_changed(self, event: Select.Changed):
         # changing language in whole screen
@@ -93,3 +108,7 @@ class QuizScreen(Screen):
             for widget in self.query("TransLabel, TransButton"):
                 widget.update_language() # type: ignore[attr-defined]
             self.watch_num_of_questions(*(self.num_of_questions,)*2)
+
+    def on_button_pressed(self, event: TransButton.Pressed) -> None:
+        if event.button.id == "statistics-button":
+            self.app.push_screen(StatisticsScreen())

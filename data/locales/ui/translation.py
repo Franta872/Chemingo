@@ -20,7 +20,7 @@ class Translate:
             raise KeyError(f"{lang} is not in supported languages.")
         else:
             self._language = lang
-    
+
     def t(self, word: str | tuple, screen: str, description: dict | None = None) -> str:
         if isinstance(word, tuple):
             return "".join(
