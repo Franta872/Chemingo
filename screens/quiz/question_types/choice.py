@@ -88,7 +88,12 @@ class ChoiceQuestion(Container):
                 self.users_answer = False
 
         elif event.button.id == "answer-button":
+            statistics = self.app.state.statistics # type: ignore[attr-defined]
             if self.users_answer:
+                statistics["correct"] += 1
+                statistics["choice"]["correct"] += 1
                 self.post_message(self.UserAnswered("correct"))
             else: # not self.users_answer
+                statistics["wrong"] += 1
+                statistics["choice"]["wrong"] += 1
                 self.post_message(self.UserAnswered("wrong"))

@@ -21,6 +21,28 @@ class AppState:
         )
     question_answers: dict[str, bool] = field(default_factory=dict)
     num_of_questions: int|float = 5
+    statistics: dict = field(
+        default_factory=lambda: {
+            "correct": 0,
+            "wrong": 0,
+            "boolean": {
+                "correct": 0,
+                "wrong": 0
+            },
+            "choice": {
+                "correct": 0,
+                "wrong": 0
+            },
+            "typing": {
+                "absolutely_correct": 0,
+                "correct": 0,
+                "rather_correct": 0,
+                "rather_wrong": 0,
+                "wrong": 0,
+                "completely_wrong": 0
+            }
+        }
+    )
 
 class ChemistryQuiz(App):
     SCREENS = {

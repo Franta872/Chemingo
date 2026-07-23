@@ -59,7 +59,7 @@ class BooleanQuestion(Container):
 
     def on_button_pressed(self, event: TransButton.Pressed):
         if event.button.id in ("true", "false"):
-            st = "quiz", self.quiz_screen.app.translate  # type: ignore[attr-defined]
+            st = "quiz", self.quiz_screen.app.translate # type: ignore[attr-defined]
             input_container = self.query_one("#input-container", HorizontalGroup)
             input_container.remove_children()
             if (event.button.id == "true" and self.answer) or (event.button.id == "false" and not self.answer):
@@ -92,7 +92,12 @@ class BooleanQuestion(Container):
                 self.users_answer = False
 
         elif event.button.id == "answer-button":
+            statistics = self.app.state.statistics # type: ignore[attr-defined]
             if self.users_answer:
+                statistics["correct"] += 1
+                statistics["boolean"]["correct"] += 1
                 self.post_message(self.UserAnswered("correct"))
             else: # not self.users_answer
+                statistics["wrong"] += 1
+                statistics["boolean"]["wrong"] += 1
                 self.post_message(self.UserAnswered("wrong"))

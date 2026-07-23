@@ -68,6 +68,8 @@ class TypingQuestion(Container):
         input_container = self.query_one("#input-container", HorizontalGroup)
         input_container.remove_children()
         if self.percent == 1:
+            self.app.state.statistics["typing"]["absolutely_correct"] += 1 # type: ignore[attr-defined]
+            self.app.state.statistics["correct"] += 1 # type: ignore[attr-defined]
             input_container.mount(
                 TransButton((
                     ("w", "absolutely_correct"),
@@ -105,6 +107,11 @@ class TypingQuestion(Container):
                           variant: Literal["success", "error"]
                           ) -> TransButton:
         st = "quiz", self.app.translate # type: ignore[attr-defined]
+        self.app.state.statistics["typing"][status] += 1 # type: ignore[attr-defined]
+        if variant == "success":
+            self.app.state.statistics["correct"] += 1 # type: ignore[attr-defined]
+        if variant == "error":
+            self.app.state.statistics["wrong"] += 1 # type: ignore[attr-defined]
         return TransButton((
                         ("w", status),
                         ("n", "\n") if status == "completely_wrong" else ("n", f"\n{round(self.percent*100, 1)}%\n"),

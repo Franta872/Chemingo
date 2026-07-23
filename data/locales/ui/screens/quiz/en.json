@@ -22,5 +22,15 @@
     "formula_of_compound": "What's the formula of the compound [u]<1>[/]",
     "symbol_of_element": "What's the symbol of the element [u]<1>[/]",
     "answer": "Answer (e.g. CaCl2)",
-    "answer_nothing": "You didn't write nothing"
+    "answer_nothing": "You didn't write nothing",
+
+    "chosen_items": "Chosen items",
+    "chosen_elements": "Chosen elements",
+    "chosen_compounds": "Chosen compounds",
+    "answered_questions": "Answered questions",
+    "correct_questions": "Correct questions",
+    "wrong_questions": "Wrong questions",
+    "total_answered_questions": "Total answered questions",
+    "total_correct_questions": "Total correct questions",
+    "total_wrong_questions": "Total wrong questions"
 }

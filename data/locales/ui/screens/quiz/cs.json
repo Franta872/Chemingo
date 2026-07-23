@@ -20,5 +20,15 @@
     "formula_of_compound": "Jaký je vzorec sloučeniny [u]<1>[/]",
     "symbol_of_element": "Jaká je značka prvku [u]<1>[/]",
     "answer": "Odpověď (např. CaCl2)",
-    "answer_nothing": "Nic jsi nenapsal"
+    "answer_nothing": "Nic jsi nenapsal",
+
+    "chosen_items": "Vybrané položky",
+    "chosen_elements": "Vybrané prvky",
+    "chosen_compounds": "Vybrané sloučeniny",
+    "answered_questions": "Zodpovězené otázky",
+    "correct_questions": "Správné otázky",
+    "wrong_questions": "Špatné otázky",
+    "total_answered_questions": "Zodpovězené otázky celkem",
+    "total_correct_questions": "Správné otázky celkem",
+    "total_wrong_questions": "Špatné otázky celkem"
 }
