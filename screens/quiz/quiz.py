@@ -4,7 +4,7 @@ from math import isinf
 # TEXTUAL imports
 from textual.screen import Screen
 from textual.containers import VerticalScroll, HorizontalScroll
-from textual.widgets import Static, Select
+from textual.widgets import Static, Select, Footer
 from textual import on
 from textual.reactive import reactive
 if TYPE_CHECKING:
@@ -32,6 +32,8 @@ class QuizScreen(Screen):
             yield TransButton("statistics", *st, id="statistics-button")
         with VerticalScroll(id="main-container"):
             yield Static()
+
+        yield Footer()
     
     def on_mount(self) -> None:
         self.query_one("#main-container", VerticalScroll).remove_children(selector=Static)
@@ -59,6 +61,7 @@ class QuizScreen(Screen):
             self.app.state.selected_compounds, # type: ignore[attr-defined]
             self.app.state.question_answers # type: ignore[attr-defined]
             )
+        self.query_one("#main-container", VerticalScroll).remove_children()
         if random["random_question"] == "boolean":
             self.query_one("#main-container", VerticalScroll).mount(
                 BooleanQuestion(

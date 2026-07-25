@@ -14,6 +14,14 @@ if TYPE_CHECKING:
 from utils.translatable_widgets import TransButton, TransLabel
 
 class ChoiceQuestion(Container):
+    BINDINGS = [
+            ("1", "1", "➀"),
+            ("2", "2", "➁"),
+            ("3", "3", "➂"),
+            ("4", "4", "➃"),
+            ("enter", "next_question", "➡️")
+        ]
+    can_focus = True
     def __init__(
             self, 
             quiz_screen: Screen,
@@ -43,6 +51,30 @@ class ChoiceQuestion(Container):
             yield TransButton((("n", "<3>",),), *st, {"3": self.item_3}, variant="success", classes="choice-button", id="choice-button-3")
             yield TransButton((("n", "<4>",),), *st, {"4": self.item_4}, variant="primary", classes="choice-button", id="choice-button-4")
 
+    def on_mount(self):
+        self.focus()
+
+    def action_1(self):
+        self.query_one("#choice-button-1", TransButton).press()
+    def action_2(self):
+        self.query_one("#choice-button-2", TransButton).press()
+    def action_3(self):
+        self.query_one("#choice-button-3", TransButton).press()
+    def action_4(self):
+        self.query_one("#choice-button-4", TransButton).press()
+    def action_next_question(self):
+        self.query_one("#answer-button", TransButton).press()
+
+    def check_action(
+        self, action: str, parameters: tuple[object, ...]
+        ) -> bool:
+        """Check if an action may run."""
+        if action in ("1", "2", "3", "4"):
+            return bool(self.query(".choice-button"))
+        elif action == "next_question":
+            return bool(self.query("#answer-button"))
+        return True
+
     class UserAnswered(Message):
         def __init__(self, value: Literal["correct", "wrong"]) -> None:
             self.value = value
@@ -53,6 +85,7 @@ class ChoiceQuestion(Container):
             st = "quiz", self.quiz_screen.app.translate # type: ignore[attr-defined]
             input_container = self.query_one("#input-container", HorizontalGroup)
             input_container.remove_children()
+            self.refresh_bindings()
             if event.button.description[event.button.id[-1]]["item"] == self.asked["item"]:
                 # correct
                 input_container.mount(

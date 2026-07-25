@@ -17,6 +17,11 @@ if TYPE_CHECKING:
 from utils.translatable_widgets import TransLabel, TransInput, TransButton
 
 class TypingQuestion(Container):
+    BINDINGS = [
+            ("enter", "enter", "➡️")
+        ]
+    can_focus = True
+
     def __init__(self,
                 quiz_screen: Screen,
                 answer: dict[str, str], 
@@ -50,6 +55,15 @@ class TypingQuestion(Container):
             yield TransInput("answer", *st, id="answer-input")
             yield Button("✓", variant="success", id="check-mark-button")
 
+    def on_mount(self):
+        self.query_one("#answer-input", TransInput).focus()
+
+    async def action_enter(self):
+        if self.query("#answer-input"):
+            self.query_one("#check-mark-button", Button).press()
+        elif self.query("#answer-button"):
+            self.query_one("#answer-button", TransButton).press()
+
     class UserAnswered(Message):
         def __init__(self, value: Literal["correct", "wrong"]) -> None:
             self.value = value
@@ -67,6 +81,7 @@ class TypingQuestion(Container):
             ).ratio()
         input_container = self.query_one("#input-container", HorizontalGroup)
         input_container.remove_children()
+        self.remove_children("#answer-button")
         if self.percent == 1:
             self.app.state.statistics["typing"]["absolutely_correct"] += 1 # type: ignore[attr-defined]
             self.app.state.statistics["correct"] += 1 # type: ignore[attr-defined]

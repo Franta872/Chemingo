@@ -1,6 +1,7 @@
 {
     "true": "Pravda",
     "false": "Lež",
+    "enabled": "povoleno",
     "boolean_question_text": "Patří [u]<1>[/] k [u]<2>[/]?",
     "absolutely_correct": "Absolutně správně!",
     "correct": "Správně!",

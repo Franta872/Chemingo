@@ -1,6 +1,7 @@
 {
     "true": "True",
     "false": "False",
+    "enabled": "enabled",
     "boolean_question_text": "Does [u]<1>[/] belong to [u]<2>[/]?",
     "absolutely_correct": "Absolutely correct!",
     "correct": "Correct!",

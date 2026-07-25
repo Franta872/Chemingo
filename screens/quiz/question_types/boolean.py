@@ -12,13 +12,23 @@ from textual.containers import Container, HorizontalGroup
 from textual.message import Message
 
 class BooleanQuestion(Container):
+    BINDINGS = [
+        ("1", "true", "✅"),
+        ("enter", "true"),
+        ("2", "false", "❌"),
+        ("escape", "false"),
+        ("enter", "next_question", "➡️")
+    ]
+    can_focus = True
+
     def __init__(self,
                 quiz_screen: Screen,
                 dict_1: dict[str, str],
                 dict_2: dict[str, str],
                 answer: bool = True, 
                 *children: Widget,
-                **kwargs) -> None:
+                **kwargs
+                ) -> None:
 
         self.quiz_screen = quiz_screen
         self.type_1 = dict_1["type"]
@@ -51,53 +61,79 @@ class BooleanQuestion(Container):
         with HorizontalGroup(id="input-container"):
             yield TransButton("true", *st, variant="success", id="true")
             yield TransButton("false", *st, variant="error", id="false")
+
+    def on_mount(self):
+        self.focus()
     
     class UserAnswered(Message):
         def __init__(self, value: Literal["correct", "wrong"]) -> None:
             self.value = value
             super().__init__()
 
-    def on_button_pressed(self, event: TransButton.Pressed):
-        if event.button.id in ("true", "false"):
-            st = "quiz", self.quiz_screen.app.translate # type: ignore[attr-defined]
-            input_container = self.query_one("#input-container", HorizontalGroup)
-            input_container.remove_children()
-            if (event.button.id == "true" and self.answer) or (event.button.id == "false" and not self.answer):
-                # correct
-                input_container.mount(
-                    TransButton((
-                        ("w", "correct"),
-                        ("n", "\n\n[not bold]"),
-                        ("w", "your_answer"),
-                        ("n", f": {st[1].t(event.button.id, st[0])}[/not bold]")
-                    ),
-                    *st,
-                    variant="success",
-                    id="answer-button")
-                )
-                self.users_answer = True
-            else: # (event.button.id == "true" and not self.answer) or (event.button.id == "false" and self.answer):
-                # wrong
-                input_container.mount(
-                    TransButton((
-                        ("w", "wrong"),
-                        ("n", "\n\n[not bold]"),
-                        ("w", "your_answer"),
-                        ("n", f": {st[1].t(event.button.id, st[0])}[/not bold]")
-                    ),
-                    *st,
-                    variant="error",
-                    id="answer-button")
-                )
-                self.users_answer = False
+    def action_true(self):
+        self.process_answer(True)
+    def action_false(self):
+        self.process_answer(False)
+    def action_next_question(self):
+        self.next_question()
 
+    def check_action(
+        self, action: str, parameters: tuple[object, ...]
+        ) -> bool:
+        """Check if an action may run."""
+        if action in ("true", "false"):
+            return bool(self.query("#true, #false"))
+        elif action == "next_question":
+            return bool(self.query("#answer-button"))
+        return True
+
+    def process_answer(self, answer: bool) -> None:
+        st = "quiz", self.quiz_screen.app.translate # type: ignore[attr-defined]
+        input_container = self.query_one("#input-container", HorizontalGroup)
+        input_container.remove_children()
+        self.refresh_bindings()
+        if (answer and self.answer) or (not answer and not self.answer):
+            # correct
+            input_container.mount(
+                TransButton((
+                    ("w", "correct"),
+                    ("n", "\n\n[not bold]"),
+                    ("w", "your_answer"),
+                    ("n", f": {st[1].t(str(answer).lower(), st[0])}[/not bold]")
+                ),
+                *st,
+                variant="success",
+                id="answer-button")
+            )
+            self.users_answer = True
+        else: # (event.button.id == "true" and not self.answer) or (event.button.id == "false" and self.answer):
+            # wrong
+            input_container.mount(
+                TransButton((
+                    ("w", "wrong"),
+                    ("n", "\n\n[not bold]"),
+                    ("w", "your_answer"),
+                    ("n", f": {st[1].t(str(answer).lower(), st[0])}[/not bold]")
+                ),
+                *st,
+                variant="error",
+                id="answer-button")
+            )
+            self.users_answer = False
+
+    def next_question(self) -> None:
+        statistics = self.app.state.statistics # type: ignore[attr-defined]
+        if self.users_answer:
+            statistics["correct"] += 1
+            statistics["boolean"]["correct"] += 1
+            self.post_message(self.UserAnswered("correct"))
+        else: # not self.users_answer
+            statistics["wrong"] += 1
+            statistics["boolean"]["wrong"] += 1
+            self.post_message(self.UserAnswered("wrong"))
+    
+    def on_button_pressed(self, event: TransButton.Pressed) -> None:
+        if event.button.id in ("true", "false"):
+            self.process_answer(event.button.id == "true")
         elif event.button.id == "answer-button":
-            statistics = self.app.state.statistics # type: ignore[attr-defined]
-            if self.users_answer:
-                statistics["correct"] += 1
-                statistics["boolean"]["correct"] += 1
-                self.post_message(self.UserAnswered("correct"))
-            else: # not self.users_answer
-                statistics["wrong"] += 1
-                statistics["boolean"]["wrong"] += 1
-                self.post_message(self.UserAnswered("wrong"))
+            self.next_question()
