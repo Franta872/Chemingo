@@ -52,8 +52,6 @@ class QuizScreen(Screen):
             )
 
     def next_question(self) -> None:
-        self.app.state.num_of_questions -= 1 # type: ignore[attr-defined]
-        self.num_of_questions -= 1
         if self.app.state.num_of_questions <= 0:
             self.app.pop_screen()
         random = random_question(
@@ -65,7 +63,6 @@ class QuizScreen(Screen):
         if random["random_question"] == "boolean":
             self.query_one("#main-container", VerticalScroll).mount(
                 BooleanQuestion(
-                    quiz_screen=self,
                     dict_1=random["1"],
                     dict_2=random["2"],
                     answer=random["answer"]
@@ -74,7 +71,6 @@ class QuizScreen(Screen):
         elif random["random_question"] == "choice":
             self.query_one("#main-container", VerticalScroll).mount(
                 ChoiceQuestion(
-                    quiz_screen=self,
                     asked=random["asked"],
                     item_1=random["1"],
                     item_2=random["2"],
@@ -85,11 +81,11 @@ class QuizScreen(Screen):
         elif random["random_question"] == "typing":
             self.query_one("#main-container", VerticalScroll).mount(
                 TypingQuestion(
-                    quiz_screen=self,
                     answer=random["answer"],
                     item=random["1"],
                 )
             )
+        self.num_of_questions -= 1
 
     @on(BooleanQuestion.UserAnswered)
     def user_answered_boolean(self, message: BooleanQuestion.UserAnswered):

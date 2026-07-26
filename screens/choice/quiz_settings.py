@@ -19,20 +19,20 @@ class QuizSettingsTab(Container):
             with TransBorderContainer("boolean_question", classes="settings-question-container", id="settings-bool-container"):
                 yield TransLabel("boolean_description", classes="settings-description-label")
                 with RadioSet(id="boolean-radioset"):
-                    yield TransRadioButton("yes", trans_tooltip="yes", value=True)
-                    yield TransRadioButton("no", trans_tooltip="no")
+                    yield TransRadioButton("yes", trans_tooltip="yes", value=True, id="boolean-yes")
+                    yield TransRadioButton("no", trans_tooltip="no", id="boolean-no")
 
             with TransBorderContainer("choice_question", classes="settings-question-container", id="settings-choice-container"):
                 yield TransLabel("choice_description", classes="settings-description-label")
                 with RadioSet(id="choice-radioset"):
-                    yield TransRadioButton("yes", trans_tooltip="yes", value=True)
-                    yield TransRadioButton("no", trans_tooltip="no")
+                    yield TransRadioButton("yes", trans_tooltip="yes", value=True, id="choice-yes")
+                    yield TransRadioButton("no", trans_tooltip="no", id="choice-no")
 
             with TransBorderContainer("typing_question", classes="settings-question-container", id="settings-typing-container"):
                 yield TransLabel("typing_description", classes="settings-description-label")
                 with RadioSet(id="typing-radioset"):
-                    yield TransRadioButton("yes", trans_tooltip="yes", value=True)
-                    yield TransRadioButton("no", trans_tooltip="no")
+                    yield TransRadioButton("yes", trans_tooltip="yes", value=True, id="typing-yes")
+                    yield TransRadioButton("no", trans_tooltip="no", id="typing-no")
 
             with TransBorderContainer("num_of_questions", classes="settings-question-container"):
                 yield TransLabel("num_of_questions_description", classes="settings-description-label")
@@ -61,9 +61,9 @@ class QuizSettingsTab(Container):
                 input_value = float("inf")
 
             question_answers = {
-                "boolean": self.query_one("#boolean-radioset", RadioSet).pressed_button.label == self.app.translate.t("yes", "choice"), # type: ignore[attr-defined]
-                "choice": self.query_one("#choice-radioset", RadioSet).pressed_button.label == self.app.translate.t("yes", "choice"), # type: ignore[attr-defined]
-                "typing": self.query_one("#typing-radioset", RadioSet).pressed_button.label == self.app.translate.t("yes", "choice") # type: ignore[attr-defined]
+                "boolean": self.query_one("#boolean-radioset", RadioSet).pressed_button.id == "boolean-yes",
+                "choice": self.query_one("#choice-radioset", RadioSet).pressed_button.id == "choice-yes",
+                "typing": self.query_one("#typing-radioset", RadioSet).pressed_button.id == "typing-yes"
             }
             self.app.state.question_answers = question_answers # type: ignore[attr-defined]
             error_container = self.query_one("#error-container", Center)

@@ -11,7 +11,6 @@ from textual.widgets import Button
 from textual.message import Message
 from textual import on
 if TYPE_CHECKING:
-    from textual.screen import Screen
     from textual.app import ComposeResult
 # APP import
 from utils.translatable_widgets import TransLabel, TransInput, TransButton
@@ -28,13 +27,11 @@ class TypingQuestion(Container):
     can_focus = True
 
     def __init__(self,
-                quiz_screen: Screen,
                 answer: dict[str, str], 
                 item: dict[str, str],
                 *children: Widget,
                 **kwargs) -> None:
 
-        self.quiz_screen = quiz_screen
         self.item = item
         self.answer = answer
         self._answered = False

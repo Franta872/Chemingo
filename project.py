@@ -68,17 +68,14 @@ class ChemistryQuiz(App):
                 yield command
 
 
-def is_blank_dictionary(dictionary: dict[str, list]| dict[str, bool]):
+def is_blank_dictionary(dictionary: dict):
     """
     This function check if a dictionary's lists are completely blank or if 
     the dictionary stores all ```False``` values.
     """
     #This function doesn't fit in this file, but it's here because of 
     #the conditions of the CS50P final project.
-    for item in dictionary.values():
-        if (isinstance(item, list) and item != []) or (isinstance(item, bool) and item):
-            return False
-    return True
+    return not any(dictionary.values())
 
 def count_dictionary_list_items(dictionary: dict[str, list|set|tuple]) -> int:
     num = 0

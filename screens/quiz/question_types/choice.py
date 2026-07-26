@@ -8,7 +8,6 @@ from textual.containers import Container, HorizontalGroup
 from textual.widget import Widget
 from textual.message import Message
 if TYPE_CHECKING:
-    from textual.screen import Screen
     from textual.app import ComposeResult
 # APP import
 from utils.translatable_widgets import TransButton, TransLabel
@@ -24,7 +23,6 @@ class ChoiceQuestion(Container):
     can_focus = True
     def __init__(
             self, 
-            quiz_screen: Screen,
             asked: dict[str, str],
             item_1: dict[str, str],
             item_2: dict[str, str],
@@ -33,7 +31,7 @@ class ChoiceQuestion(Container):
             *children: Widget, 
             **kwargs
             ) -> None:
-        self.quiz_screen = quiz_screen
+
         self.asked = asked
         self.item_1 = item_1
         self.item_2 = item_2

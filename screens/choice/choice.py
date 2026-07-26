@@ -65,8 +65,6 @@ class ChoiceScreen(Screen):
 
         # clearing and adding options to SelectionList, because
         # Textual doesn't have build in function for that
-        selected: dict[str, set[str]] = self.return_selected()
-        # saving selections of the user
 
         await self.query_one("#compounds-container-left").remove_children()
         await self.query_one("#compounds-container-right").remove_children()

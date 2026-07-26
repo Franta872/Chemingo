@@ -41,7 +41,7 @@ class PeriodicTableTab(Container):
                         buttons_were = True
                 else: # type(element) is str
                     self.query_one("#elements-grid", Container).mount(
-                        TransElementButton(element[0], self.app.translate, id=element[0],
+                        TransElementButton(element[0], id=element[0],
                                            classes=f"element {element[1]}")
                         # button with the element symbol
                         )
@@ -82,8 +82,8 @@ class PeriodicTableTab(Container):
             selected_elements.clear()
             for element_widget in self.query(".element"):
                 element_widget.add_class("selected")
-                for element in elements_by_symbol:
-                    selected_elements.add(element)
+            for element in elements_by_symbol:
+                selected_elements.add(element)
         elif action == "deselect":
             selected_elements.clear()
             for element in self.query(".selected"):

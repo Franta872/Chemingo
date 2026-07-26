@@ -5,7 +5,6 @@ if TYPE_CHECKING:
 # TEXTUAL imports
 if TYPE_CHECKING:
     from textual.widget import Widget
-    from textual.screen import Screen
     from textual.app import ComposeResult
 from utils.translatable_widgets import TransButton, TransLabel
 from textual.containers import Container, HorizontalGroup
@@ -22,7 +21,6 @@ class BooleanQuestion(Container):
     can_focus = True
 
     def __init__(self,
-                quiz_screen: Screen,
                 dict_1: dict[str, str],
                 dict_2: dict[str, str],
                 answer: bool = True, 
@@ -30,7 +28,6 @@ class BooleanQuestion(Container):
                 **kwargs
                 ) -> None:
 
-        self.quiz_screen = quiz_screen
         self.type_1 = dict_1["type"]
         self.item_1 = dict_1["item"]
         self.appearance_1 = dict_1["appearance"]

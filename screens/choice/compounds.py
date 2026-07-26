@@ -98,7 +98,7 @@ class CompoundsTab(Container):
             await self.query_one(f"#compounds-container-{category_container_site}", Container).mount(
                 Container(
                     TransCompoundLabel(compounds_categories[category_id]["names"][self.app.translate.language],
-                        self.app.translate, classes="compounds-category-label", id=f"{category_id}-label"),
+                        classes="compounds-category-label", id=f"{category_id}-label"),
                         compound_selection_list,
                     id=f"{category_id}-container", classes="compound-category-container"
                 )

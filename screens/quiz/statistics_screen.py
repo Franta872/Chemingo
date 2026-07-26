@@ -49,7 +49,7 @@ class StatisticsScreen(ModalScreen):
             choice_question_answered.add_leaf(f"{t("wrong_questions", "quiz")}: [b]{statistics["choice"]["wrong"]}[/]")
 
             typing_question = tree.root.add(t("typing_question", "choice"))
-            boolean_question.add_leaf(f"{t("enabled", "quiz")}: [b]{t("yes", "choice") if state.question_answers["typing"] else t("no", "choice")}[/]") # type: ignore[attr-defined]
+            typing_question.add_leaf(f"{t("enabled", "quiz")}: [b]{t("yes", "choice") if state.question_answers["typing"] else t("no", "choice")}[/]") # type: ignore[attr-defined]
             typing_question_answered = typing_question.add_leaf(f"{t("answered_questions", "quiz")}: [b]{sum(statistics["typing"].values())}[/]")
             typing_question_answered.add_leaf(f"{t("absolutely_correct", "quiz")[:-1]}: [b]{statistics["typing"]["absolutely_correct"]}[/]")
             typing_question_answered.add_leaf(f"{t("correct", "quiz")[:-1]}: [b]{statistics["typing"]["correct"]}[/]")
