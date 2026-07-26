@@ -60,11 +60,10 @@ class QuizSettingsTab(Container):
             elif self.query_one("#amount-question-radiobutton-2", TransRadioButton).value:
                 input_value = float("inf")
 
-            yes = self.app.translate.t("yes", "choice") # type: ignore[attr-defined]
             question_answers = {
-                "boolean": self.query_one("#boolean-radioset", RadioSet).pressed_button.label == yes,
-                "choice": self.query_one("#choice-radioset", RadioSet).pressed_button.label == yes,
-                "typing": self.query_one("#typing-radioset", RadioSet).pressed_button.label == yes
+                "boolean": self.query_one("#boolean-radioset", RadioSet).pressed_button.label == self.app.translate.t("yes", "choice"), # type: ignore[attr-defined]
+                "choice": self.query_one("#choice-radioset", RadioSet).pressed_button.label == self.app.translate.t("yes", "choice"), # type: ignore[attr-defined]
+                "typing": self.query_one("#typing-radioset", RadioSet).pressed_button.label == self.app.translate.t("yes", "choice") # type: ignore[attr-defined]
             }
             self.app.state.question_answers = question_answers # type: ignore[attr-defined]
             error_container = self.query_one("#error-container", Center)

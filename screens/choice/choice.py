@@ -24,7 +24,6 @@ class ChoiceScreen(Screen):
     ]
 
     def compose(self):
-
         yield HorizontalGroup(
             TransLabel("language", id="language-label"),
             Select(all_languages_select, allow_blank=False, compact=True, id="language-select",
@@ -56,11 +55,13 @@ class ChoiceScreen(Screen):
     async def on_select_changed(self, event: Select.Changed):
         # changing language in whole screen
         if event.select.id == "language-select":
-            self.app.translate.language = event.value
-            # sets the language in the whole app
-            for widget in self.query("TransLabel, TransElementButton, TransTabPane, TransCompoundLabel, TransButton, TransRadioButton, TransBorderContainer, TransInput"):
-                widget.update_language()
-                # telling widgets they need to change their language
+            await self.change_language()
+    async def change_language(self):
+        self.app.translate.language = self.query_one("#language-select").value
+        # sets the language in the whole app
+        for widget in self.query("TransLabel, TransElementButton, TransTabPane, TransCompoundLabel, TransButton, TransRadioButton, TransBorderContainer, TransInput"):
+            widget.update_language()
+            # telling widgets they need to change their language
 
         # clearing and adding options to SelectionList, because
         # Textual doesn't have build in function for that
@@ -82,3 +83,7 @@ class ChoiceScreen(Screen):
         if event.pane.id == "quiz-settings":
             self.query_one("QuizSettingsTab", QuizSettingsTab).quiz_settings_summary_render()
             # recreating settings tab because of possible changes.
+    
+    async def on_screen_resume(self) -> None:
+        self.query_one("#language-select").value = self.app.translate.language
+        await self.change_language()

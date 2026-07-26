@@ -15,7 +15,7 @@ from screens.quiz.question_types.boolean import BooleanQuestion
 from screens.quiz.question_types.choice import ChoiceQuestion
 from screens.quiz.question_types.typing import TypingQuestion
 from screens.quiz.random_question import random_question
-from utils.translatable_widgets import TransLabel, TransButton
+from utils.translatable_widgets import TransLabel, TransButton, TransMixin
 from data.database import all_languages_select
 
 class QuizScreen(Screen):
@@ -108,8 +108,9 @@ class QuizScreen(Screen):
         # changing language in whole screen
         if event.select.id == "language-select":
             self.app.translate.language = event.value # type: ignore[attr-defined]
-            for widget in self.query("TransLabel, TransButton"):
-                widget.update_language() # type: ignore[attr-defined]
+            for widget in self.query():
+                if isinstance(widget, TransMixin):
+                    widget.update_language() # type: ignore[attr-defined]
             self.watch_num_of_questions(*(self.num_of_questions,)*2)
 
     def on_button_pressed(self, event: TransButton.Pressed) -> None:

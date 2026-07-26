@@ -64,8 +64,8 @@
 
 
 #top-container {
-    overflow: auto;
     max-height: 6;
+    min-height: 4;
 }
 #remaining-questions-label {
     border: tall $primary-background;
@@ -73,7 +73,7 @@
     background: $primary-background-darken-2;
     margin: 1 0 0 1;
 }
-#language-select {
+QuizScreen #language-select {
     SelectCurrent {
         border: tall $primary-background;
         padding: 0 1 0 1;

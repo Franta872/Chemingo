@@ -1,9 +1,22 @@
-Screen {
+ChoiceScreen {
     layers: normal language;
 }
-TabbedContent {
+ChoiceScreen TabbedContent {
     height: 1fr;
 }
-TabPane {
+ChoiceScreen TabPane {
     height: 1fr;
+}
+
+ChoiceScreen #language-horizontal {
+    width: auto;
+    height: auto;
+    layer: language;
+}
+ChoiceScreen #language-label {
+    margin: 0;
+}
+ChoiceScreen #language-select {
+    margin: 0;
+    width: 15;
 }
