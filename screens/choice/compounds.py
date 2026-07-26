@@ -47,14 +47,13 @@ class CompoundsTab(Container):
         else:
             container = event.node.parent
 
-        st = "choice", self.app.translate
         if not container.query(".compounds-selection-container"):
             self.query(".compounds-selection-button").remove()
             container.mount(
                 Container(
-                TransButton("select_all", *st, variant="success", id="compounds-selection-select", classes="compounds-selection-button"),
-                TransButton("deselect_all", *st, variant="error", id="compounds-selection-deselect", classes="compounds-selection-button"),
-                TransButton("invert_all", *st, variant="primary", id="compounds-selection-invert", classes="compounds-selection-button"),
+                TransButton("select_all", variant="success", id="compounds-selection-select", classes="compounds-selection-button"),
+                TransButton("deselect_all", variant="error", id="compounds-selection-deselect", classes="compounds-selection-button"),
+                TransButton("invert_all", variant="primary", id="compounds-selection-invert", classes="compounds-selection-button"),
                 classes="compounds-selection-container"
                 ),
                 after=0

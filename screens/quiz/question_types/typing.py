@@ -36,7 +36,6 @@ class TypingQuestion(Container):
         super().__init__(*children, **kwargs)
 
     def compose(self) -> ComposeResult:
-        st = "quiz", self.app.translate # type: ignore[attr-defined]
         if self.item["type"] == "element":
             if self.answer["appearance"] == "name":
                 label_input = "name_of_element"
@@ -50,9 +49,9 @@ class TypingQuestion(Container):
             
 
         with Container(id="label-container"):
-            yield TransLabel(label_input, *st, {"1": self.item})
+            yield TransLabel(label_input, {"1": self.item})
         with HorizontalGroup(id="input-container"):
-            yield TransInput("answer", *st, id="answer-input")
+            yield TransInput("answer", id="answer-input")
             yield Button("✓", variant="success", id="check-mark-button")
 
     def on_mount(self):
@@ -72,10 +71,9 @@ class TypingQuestion(Container):
     @on(TransInput.Submitted, "#answer-input")
     @on(Button.Pressed, "#check-mark-button")
     def answer_check(self):
-        st = "quiz", self.app.translate # type: ignore[attr-defined]
         self.users_answer = self.query_one("#answer-input",TransInput).value.strip()
         self.percent = SequenceMatcher(
-            a=st[1].t((("n", "<1>"),), "", {"1": self.answer}), # type: ignore[attr-defined]
+            a=self.app.translate.t((("n", "<1>"),), "", {"1": self.answer}), # type: ignore[attr-defined]
             b=self.users_answer, 
             autojunk=False
             ).ratio()
@@ -92,7 +90,6 @@ class TypingQuestion(Container):
                     ("w", "your_answer"),
                     ("n", f": {self.users_answer}")
                     ),
-                *st,
                 variant="success",
                 id="answer-button")
             )
@@ -121,7 +118,6 @@ class TypingQuestion(Container):
                           status: Literal["absolutely_correct", "correct", "rather_correct", "rather_wrong", "wrong", "completely_wrong"],
                           variant: Literal["success", "error"]
                           ) -> TransButton:
-        st = "quiz", self.app.translate # type: ignore[attr-defined]
         self.app.state.statistics["typing"][status] += 1 # type: ignore[attr-defined]
         if variant == "success":
             self.app.state.statistics["correct"] += 1 # type: ignore[attr-defined]
@@ -136,7 +132,6 @@ class TypingQuestion(Container):
                         ("w", "correct_answer"),
                         ("n", f": <1>")
                     ),
-                    *st,
                     {"1": self.answer},
                     variant=variant,
                     id="answer-button")

@@ -19,17 +19,17 @@ from utils.translatable_widgets import TransLabel, TransButton
 from data.database import all_languages_select
 
 class QuizScreen(Screen):
-    CSS_PATH = "quiz.tcss"
+    CSS_PATH = "tcss/quiz.tcss"
+    NAME = "quiz"
     num_of_questions: reactive[int|float] = reactive(0)
 
     def compose(self) -> ComposeResult:
-        st = "quiz", self.app.translate # type: ignore[attr-defined]
         with HorizontalScroll(id="top-container"):
-            yield TransLabel("remaining_questions", *st, id="remaining-questions-label")
-            yield TransLabel((("w", "language"), ( "n", ":")), *st, id="language-label")
+            yield TransLabel("remaining_questions", id="remaining-questions-label")
+            yield TransLabel((("w", "language"), ( "n", ":")), id="language-label")
             yield Select(all_languages_select, allow_blank=False, id="language-select",
                    value=self.app.translate.language) # type: ignore[attr-defined]
-            yield TransButton("statistics", *st, id="statistics-button")
+            yield TransButton("statistics", id="statistics-button")
         with VerticalScroll(id="main-container"):
             yield Static()
 

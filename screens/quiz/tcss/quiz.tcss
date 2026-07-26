@@ -84,6 +84,7 @@
 #language-label{
     margin: 2 0 0 2;
 }
+
 #statistics-button {
     border: tall $primary-background;
     padding: 0 1 0 1;
@@ -91,29 +92,4 @@
     margin: 1 0 0 1;
     align: center middle;
     align-horizontal: center;
-}
-StatisticsScreen {
-    align: center middle;
-}
-#statistics-container {
-    width: 60;
-    height: 30;
-    border: tall $background-lighten-2;
-    background: $surface;
-    align: center middle;
-    align-horizontal: center;
-}
-Tree {
-    background: $surface;
-    margin: 1;
-    padding: 1;
-}
-#statistics-label {
-    width: auto;
-    align-horizontal: center;
-    text-style: bold underline;
-}
-.statistics-center-container {
-    align: center middle;
-    height: auto;
 }

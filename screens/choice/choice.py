@@ -17,27 +17,27 @@ class ChoiceScreen(Screen):
         "tcss/choice_compounds.tcss",
         "tcss/choice_quiz_settings.tcss"
         ]
+    NAME = "choice"
     HORIZONTAL_BREAKPOINTS = [
         (0, "small"),
         (70, "wide")
     ]
 
     def compose(self):
-        st = "choice", self.app.translate
 
         yield HorizontalGroup(
-            TransLabel("language", *st, id="language-label"),
+            TransLabel("language", id="language-label"),
             Select(all_languages_select, allow_blank=False, compact=True, id="language-select",
                    value=self.app.translate.language),
             id="language-horizontal"
             )
 
         with TabbedContent():
-            with TransTabPane("periodic_table", *st, id="periodic-table"):
+            with TransTabPane("periodic_table", id="periodic-table"):
                 yield PeriodicTableTab()
-            with TransTabPane("compounds", *st, id="compounds"):
+            with TransTabPane("compounds", id="compounds"):
                 yield CompoundsTab()
-            with TransTabPane("quiz_settings", *st, id="quiz-settings"):
+            with TransTabPane("quiz_settings", id="quiz-settings"):
                 yield QuizSettingsTab()
 
     def return_selected(self, elements: bool = False) -> dict[str, set|list]:

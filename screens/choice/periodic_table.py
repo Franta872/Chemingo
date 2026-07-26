@@ -18,7 +18,6 @@ class PeriodicTableTab(Container):
     
     def on_mount(self) -> None:
         # Build periodic table
-        st = "choice", self.app.translate
         buttons_were = False
         for row in periodic_table:
             for element in row:
@@ -30,11 +29,11 @@ class PeriodicTableTab(Container):
                     elif not buttons_were: # and element[1] == "absent"
                         self.query_one("#elements-grid", Container).mount(
                             Container(
-                                TransButton("select_all", *st, variant="success", 
+                                TransButton("select_all", variant="success", 
                                 id="elements-select", classes="elements-selection-buttons"),
-                                TransButton("deselect_all", *st, variant="error", 
+                                TransButton("deselect_all", variant="error", 
                                 id="elements-deselect", classes="elements-selection-buttons"),
-                                TransButton("invert_all", *st, variant="primary", 
+                                TransButton("invert_all", variant="primary", 
                                 id="elements-invert", classes="elements-selection-buttons"),
                                 id="elements-selection-container"
                             )

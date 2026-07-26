@@ -42,7 +42,6 @@ class BooleanQuestion(Container):
         super().__init__(*children, **kwargs)
     
     def compose(self) -> ComposeResult:
-        st = "quiz", self.quiz_screen.app.translate  # type: ignore[attr-defined]
         label_text = {
                 "1": {
                 "type": self.type_1,
@@ -57,10 +56,10 @@ class BooleanQuestion(Container):
             }
 
         with Container(id="label-container"):
-            yield TransLabel("boolean_question_text", *st, label_text)
+            yield TransLabel("boolean_question_text", label_text)
         with HorizontalGroup(id="input-container"):
-            yield TransButton("true", *st, variant="success", id="true")
-            yield TransButton("false", *st, variant="error", id="false")
+            yield TransButton("true", variant="success", id="true")
+            yield TransButton("false", variant="error", id="false")
 
     def on_mount(self):
         self.focus()
@@ -88,7 +87,6 @@ class BooleanQuestion(Container):
         return True
 
     def process_answer(self, answer: bool) -> None:
-        st = "quiz", self.quiz_screen.app.translate # type: ignore[attr-defined]
         input_container = self.query_one("#input-container", HorizontalGroup)
         input_container.remove_children()
         self.refresh_bindings()
@@ -99,9 +97,8 @@ class BooleanQuestion(Container):
                     ("w", "correct"),
                     ("n", "\n\n[not bold]"),
                     ("w", "your_answer"),
-                    ("n", f": {st[1].t(str(answer).lower(), st[0])}[/not bold]")
+                    ("n", f": {self.app.translate.t(str(answer).lower(), "quiz")}[/not bold]")
                 ),
-                *st,
                 variant="success",
                 id="answer-button")
             )
@@ -113,9 +110,8 @@ class BooleanQuestion(Container):
                     ("w", "wrong"),
                     ("n", "\n\n[not bold]"),
                     ("w", "your_answer"),
-                    ("n", f": {st[1].t(str(answer).lower(), st[0])}[/not bold]")
+                    ("n", f": {self.app.translate.t(str(answer).lower(), "quiz")}[/not bold]")
                 ),
-                *st,
                 variant="error",
                 id="answer-button")
             )

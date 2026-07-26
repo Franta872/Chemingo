@@ -11,11 +11,13 @@ from textual.containers import Container
 from utils.translatable_widgets import TransLabel, TransButton
 
 class StatisticsScreen(ModalScreen):
+    CSS_PATH = "tcss/statistics.tcss"
+    NAME = "quiz" # it grabs translations from quiz screen
+    BINDINGS = [("escape", "exit", "close❌")]
     def compose(self) -> ComposeResult:
-        st = "quiz", self.app.translate # type: ignore[attr-defined]
         with Container(id="statistics-container"):
             with Container(classes="statistics-center-container"):
-                yield TransLabel("statistics", *st, id="statistics-label")
+                yield TransLabel("statistics", id="statistics-label")
 
             from project import count_dictionary_list_items # accessing it locally because of circular import
             t = self.app.translate.t # type: ignore[attr-defined]
@@ -60,7 +62,10 @@ class StatisticsScreen(ModalScreen):
             yield tree
 
             with Container(classes="statistics-center-container"):
-                yield TransButton("close", *st, id="close-button", variant="error")
+                yield TransButton("close", id="close-button", variant="error")
+
+    def action_exit(self):
+        self.app.pop_screen()
     
     def on_button_pressed(self, event: TransButton.Pressed) -> None:
         if event.button.id == "close-button":

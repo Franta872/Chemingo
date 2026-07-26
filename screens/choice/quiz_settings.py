@@ -11,46 +11,45 @@ from screens.quiz.quiz import QuizScreen
 
 class QuizSettingsTab(Container):
     def compose(self) -> ComposeResult:
-        st = "choice", self.app.translate
 
         with Container(id="testing-container"):
             yield Container(id="summary-container")
-            yield TransLabel("quiz_settings", *st, id="quiz-settings-label")
+            yield TransLabel("quiz_settings", id="quiz-settings-label")
 
-            with TransBorderContainer("boolean_question", *st, classes="settings-question-container", id="settings-bool-container"):
-                yield TransLabel("boolean_description", *st, classes="settings-description-label")
+            with TransBorderContainer("boolean_question", classes="settings-question-container", id="settings-bool-container"):
+                yield TransLabel("boolean_description", classes="settings-description-label")
                 with RadioSet(id="boolean-radioset"):
-                    yield TransRadioButton("yes", *st, value=True)
-                    yield TransRadioButton("no", *st)
+                    yield TransRadioButton("yes", trans_tooltip="yes", value=True)
+                    yield TransRadioButton("no", trans_tooltip="no")
 
-            with TransBorderContainer("choice_question", *st, classes="settings-question-container", id="settings-choice-container"):
-                yield TransLabel("choice_description", *st, classes="settings-description-label")
+            with TransBorderContainer("choice_question", classes="settings-question-container", id="settings-choice-container"):
+                yield TransLabel("choice_description", classes="settings-description-label")
                 with RadioSet(id="choice-radioset"):
-                    yield TransRadioButton("yes", *st, value=True)
-                    yield TransRadioButton("no", *st)
+                    yield TransRadioButton("yes", trans_tooltip="yes", value=True)
+                    yield TransRadioButton("no", trans_tooltip="no")
 
-            with TransBorderContainer("typing_question", *st, classes="settings-question-container", id="settings-typing-container"):
-                yield TransLabel("typing_description", *st, classes="settings-description-label")
+            with TransBorderContainer("typing_question", classes="settings-question-container", id="settings-typing-container"):
+                yield TransLabel("typing_description", classes="settings-description-label")
                 with RadioSet(id="typing-radioset"):
-                    yield TransRadioButton("yes", *st, value=True)
-                    yield TransRadioButton("no", *st)
+                    yield TransRadioButton("yes", trans_tooltip="yes", value=True)
+                    yield TransRadioButton("no", trans_tooltip="no")
 
-            with TransBorderContainer("num_of_questions", *st, classes="settings-question-container"):
-                yield TransLabel("num_of_questions_description", *st, classes="settings-description-label")
+            with TransBorderContainer("num_of_questions", classes="settings-question-container"):
+                yield TransLabel("num_of_questions_description", classes="settings-description-label")
                 with Container(id="amount-question-container"):
                     #with RadioSet(id="amount-question-radioset"):
-                    yield TransRadioButton("", *st, classes="amount-question-radiobutton", id="amount-question-radiobutton-1", 
+                    yield TransRadioButton("", classes="amount-question-radiobutton", id="amount-question-radiobutton-1", 
                                            value=True, trans_tooltip="number")
-                    yield TransInput("number", *st, type="integer", valid_empty=False,
+                    yield TransInput("number", type="integer", valid_empty=False,
                             validators=[Number(minimum=5)], id="amount-question-input")
-                    yield TransRadioButton("", *st, classes="amount-question-radiobutton", id="amount-question-radiobutton-2",
+                    yield TransRadioButton("", classes="amount-question-radiobutton", id="amount-question-radiobutton-2",
                                            trans_tooltip="infinity")
                     yield Label("♾️", id="infinity-label")
 
             with Center(id="error-container"):
                 yield Static() # Textual doesn't like empty containers.
             with Center(id="start-quiz-container"):
-                yield TransButton("start_quiz", *st, id="start-quiz-button", variant="primary")
+                yield TransButton("start_quiz", id="start-quiz-button", variant="primary")
     
 
     def on_button_pressed(self, event: TransButton.Pressed):
@@ -70,22 +69,21 @@ class QuizSettingsTab(Container):
             self.app.state.question_answers = question_answers # type: ignore[attr-defined]
             error_container = self.query_one("#error-container", Center)
             error_container.remove_children()
-            st = "choice", self.app.translate # type: ignore[attr-defined]
             from project import is_blank_dictionary # accessing it locally because of circular import
             if is_blank_dictionary(question_answers):
                 error_container.mount(
-                    TransLabel("empty_question_types_error", *st, classes="error-label")
+                    TransLabel("empty_question_types_error", classes="error-label")
                     )
             if input_value < 5:
                 error_container.mount(
-                    TransLabel("lower_than_five_questions_error", *st, classes="error-label")
+                    TransLabel("lower_than_five_questions_error", classes="error-label")
                     )
             from project import count_dictionary_list_items # accessing it locally because of circular import
             if len(self.app.state.selected_elements) < 5 and \
             count_dictionary_list_items(self.app.state.selected_compounds) < 5: # type: ignore[attr-defined]
                 # counts number of all selected items
                 error_container.mount(
-                    TransLabel("lower_than_five_selected_error", *st, classes="error-label")
+                    TransLabel("lower_than_five_selected_error", classes="error-label")
                     )
             if error_container.is_empty:
                 self.app.state.num_of_questions = input_value # type: ignore[attr-defined]

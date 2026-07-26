@@ -1,7 +1,12 @@
-# TEXTUAL imports
-from textual.app import App
 # PYTHON import
 from dataclasses import dataclass, field
+from typing import TYPE_CHECKING
+# TEXTUAL imports
+from textual.app import App
+if TYPE_CHECKING:
+    from textual.app import SystemCommand
+    from typing import Iterable
+    from textual.screen import Screen
 # APP imports
 # from folder.folder.file import class
 from screens.welcome.welcome import WelcomeScreen
@@ -56,6 +61,11 @@ class ChemistryQuiz(App):
 
         self.state = AppState()
         self.push_screen("welcome")
+
+    def get_system_commands(self, screen: Screen) -> Iterable[SystemCommand]:
+        for command in super().get_system_commands(screen):
+            if command.title != "Maximize":
+                yield command
 
 
 def is_blank_dictionary(dictionary: dict[str, list]| dict[str, bool]):

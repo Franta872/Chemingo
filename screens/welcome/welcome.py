@@ -1,6 +1,6 @@
 # TEXTUAL imports
 from textual.screen import Screen
-from textual.widgets import Button, Header, Select
+from textual.widgets import Button, Select
 from textual.containers import Horizontal
 
 # APP imports
@@ -10,18 +10,14 @@ from utils.translatable_widgets import TransLabel, TransButton, TransFigletWidge
 
 class WelcomeScreen(Screen):
     CSS_PATH = "welcome.tcss"
+    NAME = "welcome"
 
     def compose(self):
-        st = "welcome", self.app.translate
-
-        yield Header()
-
-        yield TransLabel("language", *st)
+        yield TransLabel("language")
         yield Select(all_languages_select, allow_blank=False)
 
         yield TransFigletWidget(
             "welcome",
-            *st,
             colors=["#00ff88", "#00aaff"],
             animate=True,
             font="doom",
@@ -29,7 +25,6 @@ class WelcomeScreen(Screen):
         )
         yield TransFigletWidget(
             "slogan",
-            *st,
             colors=["#ff0000", "#ffdd00"],
             animate=True,
             font="threepoint",
@@ -37,7 +32,7 @@ class WelcomeScreen(Screen):
             id="figlet2"
         )
         yield Horizontal(
-            TransButton("choose_topic", *st, variant="primary")
+            TransButton("choose_topic", variant="primary")
             )
         
     def on_select_changed(self, event: Select.Changed):

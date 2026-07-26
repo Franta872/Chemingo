@@ -42,14 +42,13 @@ class ChoiceQuestion(Container):
         super().__init__(*children, **kwargs)
 
     def compose(self) -> ComposeResult:
-        st = "quiz", self.quiz_screen.app.translate  # type: ignore[attr-defined]
         with Container(id="label-container"):
-            yield TransLabel("which_one", *st, {"1": self.asked})
+            yield TransLabel("which_one", {"1": self.asked})
         with HorizontalGroup(id="input-container"):
-            yield TransButton((("n", "<1>",),), *st, {"1": self.item_1}, variant="warning", classes="choice-button", id="choice-button-1")
-            yield TransButton((("n", "<2>",),), *st, {"2": self.item_2}, variant="error", classes="choice-button", id="choice-button-2")
-            yield TransButton((("n", "<3>",),), *st, {"3": self.item_3}, variant="success", classes="choice-button", id="choice-button-3")
-            yield TransButton((("n", "<4>",),), *st, {"4": self.item_4}, variant="primary", classes="choice-button", id="choice-button-4")
+            yield TransButton((("n", "<1>",),), {"1": self.item_1}, variant="warning", classes="choice-button", id="choice-button-1")
+            yield TransButton((("n", "<2>",),), {"2": self.item_2}, variant="error", classes="choice-button", id="choice-button-2")
+            yield TransButton((("n", "<3>",),), {"3": self.item_3}, variant="success", classes="choice-button", id="choice-button-3")
+            yield TransButton((("n", "<4>",),), {"4": self.item_4}, variant="primary", classes="choice-button", id="choice-button-4")
 
     def on_mount(self):
         self.focus()
@@ -82,7 +81,6 @@ class ChoiceQuestion(Container):
 
     def on_button_pressed(self, event: TransButton.Pressed):
         if event.button.has_class("choice-button"):
-            st = "quiz", self.quiz_screen.app.translate # type: ignore[attr-defined]
             input_container = self.query_one("#input-container", HorizontalGroup)
             input_container.remove_children()
             self.refresh_bindings()
@@ -95,7 +93,6 @@ class ChoiceQuestion(Container):
                         ("w", "your_answer"),
                         ("n", ": [u]<1>[/u][/not bold]")
                     ),
-                    *st,
                     {"1": event.button.description[event.button.id[-1]]},
                     variant="success",
                     id="answer-button")
@@ -112,7 +109,6 @@ class ChoiceQuestion(Container):
                         ("w", "correct_answer"),
                         ("n", ": [u]<2>[/u][/not bold]")
                     ),
-                    *st,
                     {"1": event.button.description[event.button.id[-1]],
                      "2": self.asked | {"appearance": self.item_1["appearance"]}},
                     variant="error",
