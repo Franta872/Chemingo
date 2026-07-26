@@ -16,6 +16,11 @@ if TYPE_CHECKING:
 # APP import
 from utils.translatable_widgets import TransLabel, TransInput, TransButton
 
+class AutoFocusTransInput(TransInput):
+    def on_mount(self) -> None:
+        super().on_mount()
+        self.focus()
+
 class TypingQuestion(Container):
     BINDINGS = [
             ("enter", "enter", "➡️")
@@ -32,6 +37,7 @@ class TypingQuestion(Container):
         self.quiz_screen = quiz_screen
         self.item = item
         self.answer = answer
+        self._answered = False
 
         super().__init__(*children, **kwargs)
 
@@ -51,16 +57,13 @@ class TypingQuestion(Container):
         with Container(id="label-container"):
             yield TransLabel(label_input, {"1": self.item})
         with HorizontalGroup(id="input-container"):
-            yield TransInput("answer", id="answer-input")
+            yield AutoFocusTransInput("answer", id="answer-input")
             yield Button("✓", variant="success", id="check-mark-button")
 
-    def on_mount(self):
-        self.query_one("#answer-input", TransInput).focus()
-
-    async def action_enter(self):
-        if self.query("#answer-input"):
+    def action_enter(self):
+        if not self._answered:
             self.query_one("#check-mark-button", Button).press()
-        elif self.query("#answer-button"):
+        else: # self._answered
             self.query_one("#answer-button", TransButton).press()
 
     class UserAnswered(Message):
@@ -68,10 +71,12 @@ class TypingQuestion(Container):
             self.value = value
             super().__init__()
 
-    @on(TransInput.Submitted, "#answer-input")
+    @on(AutoFocusTransInput.Submitted, "#answer-input")
     @on(Button.Pressed, "#check-mark-button")
-    def answer_check(self):
-        self.users_answer = self.query_one("#answer-input",TransInput).value.strip()
+    def answer_check(self) -> None:
+        if self._answered:
+            return
+        self.users_answer = self.query_one("#answer-input",AutoFocusTransInput).value.strip()
         self.percent = SequenceMatcher(
             a=self.app.translate.t((("n", "<1>"),), "", {"1": self.answer}), # type: ignore[attr-defined]
             b=self.users_answer, 
@@ -113,6 +118,7 @@ class TypingQuestion(Container):
             input_container.mount(
                 self.get_answer_button("completely_wrong", "error")
             )
+        self._answered = True
 
     def get_answer_button(self,
                           status: Literal["absolutely_correct", "correct", "rather_correct", "rather_wrong", "wrong", "completely_wrong"],
