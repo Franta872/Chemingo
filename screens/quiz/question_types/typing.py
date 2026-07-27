@@ -75,7 +75,7 @@ class TypingQuestion(Container):
             return
         self.users_answer = self.query_one("#answer-input",AutoFocusTransInput).value.strip()
         self.percent = SequenceMatcher(
-            a=self.app.translate.t((("n", "<1>"),), "", {"1": self.answer}), # type: ignore[attr-defined]
+            a=self.app.translate.t((("n", "<1>"),), "", {"1": self.answer}) if self.answer["appearance"] == "name" else self.answer["item"], # type: ignore[attr-defined]
             b=self.users_answer, 
             autojunk=False
             ).ratio()
@@ -133,7 +133,7 @@ class TypingQuestion(Container):
                         ("n", f": {self.users_answer}") if self.users_answer else ("w", "answer_nothing"),
                         ("n", "\n"),
                         ("w", "correct_answer"),
-                        ("n", f": <1>")
+                        ("n", f": <1>") if self.answer["appearance"] == "name" else ("n", f": {self.answer["item"]}")
                     ),
                     {"1": self.answer},
                     variant=variant,
