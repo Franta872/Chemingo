@@ -87,8 +87,7 @@ class BooleanQuestion(Container):
         input_container = self.query_one("#input-container", HorizontalGroup)
         input_container.remove_children()
         self.refresh_bindings()
-        if (answer and self.answer) or (not answer and not self.answer):
-            # correct
+        if (answer and self.answer) or (not answer and not self.answer): # correct answer
             input_container.mount(
                 TransButton((
                     ("w", "correct"),
@@ -100,8 +99,7 @@ class BooleanQuestion(Container):
                 id="answer-button")
             )
             self.users_answer = True
-        else: # (event.button.id == "true" and not self.answer) or (event.button.id == "false" and self.answer):
-            # wrong
+        else: # wrong answer
             input_container.mount(
                 TransButton((
                     ("w", "wrong"),

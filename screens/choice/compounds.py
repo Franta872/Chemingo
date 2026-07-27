@@ -6,10 +6,10 @@ from textual import events, on
 
 from textual.widgets._toggle_button import ToggleButton
 ToggleButton.BUTTON_INNER = "●" # changing "X" in SelectionList to "●".
-# This is is not intended function of textual, so it's small hack.
+# This modifies an internal Textual constant and may break after an update.
 
 # APP imports
-from data.database import compounds_by_formula, compounds_categories
+from data.database import compounds_by_formula, compound_categories
 from utils.translatable_widgets import TransCompoundLabel, TransButton
 
 class CompoundsTab(Container):
@@ -20,7 +20,7 @@ class CompoundsTab(Container):
             id="main-compounds-container"
             )
     
-    def on_button_pressed(self, event: Button.Pressed): # edit this button hint pls
+    def on_button_pressed(self, event: Button.Pressed):
         if event.button.has_class("compounds-selection-button"):
             selection_list = event.button.parent.parent.query_one(".compounds-selection-list", SelectionList)
             if event.button.id == "compounds-selection-select":
@@ -38,10 +38,7 @@ class CompoundsTab(Container):
 
     @on(events.Enter, ".compounds-category-label, .compounds-selection-list, .compound-category-container")
     def mouse_entered_container(self, event: events.Enter) -> None:
-        """
-        Adding button to edit selected compounds when mouse enters certain 
-        compounds category.
-        """
+        """Add bulk-selection buttons when the pointer enters a compound category."""
         if event.node.has_class("compound-category-container"):
             container = event.node
         else:
@@ -60,9 +57,7 @@ class CompoundsTab(Container):
             )
     @on(events.Leave, ".compounds-category-label, .compounds-selection-list, .compound-category-container, .compounds-selection-container")
     async def mouse_left_container(self, event: events.Leave) -> None:
-        """
-        Removes buttons when mouse leaves compounds category.
-        """
+        """Remove bulk-selection buttons when the pointer leaves a category."""
         if event.node.has_class("compound-category-container"):
             container = event.node
         else:
@@ -76,11 +71,9 @@ class CompoundsTab(Container):
             pass
 
     async def add_compounds(self):
-        """
-        function for adding compounds to blank containers.
-        """
-        num_of_categories = [0, len(compounds_categories)]
-        for category_id in compounds_categories:
+        """Populate the compound category containers."""
+        num_of_categories = [0, len(compound_categories)]
+        for category_id in compound_categories:
             category_container_site = "left" if num_of_categories[0] < num_of_categories[1] // 2.5 else "right"
             num_of_categories[0] += 1
             # deciding to which site the container with compound category should be mounted
@@ -97,7 +90,7 @@ class CompoundsTab(Container):
     
             await self.query_one(f"#compounds-container-{category_container_site}", Container).mount(
                 Container(
-                    TransCompoundLabel(compounds_categories[category_id]["names"][self.app.translate.language],
+                    TransCompoundLabel(compound_categories[category_id]["names"][self.app.translate.language],
                         classes="compounds-category-label", id=f"{category_id}-label"),
                         compound_selection_list,
                     id=f"{category_id}-container", classes="compound-category-container"

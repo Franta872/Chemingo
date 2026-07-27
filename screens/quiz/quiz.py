@@ -54,6 +54,7 @@ class QuizScreen(Screen):
     def next_question(self) -> None:
         if self.app.state.num_of_questions <= 0:
             self.app.pop_screen()
+            return
         random = random_question(
             self.app.state.selected_elements, # type: ignore[attr-defined]
             self.app.state.selected_compounds, # type: ignore[attr-defined]

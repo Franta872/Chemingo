@@ -8,21 +8,17 @@ if TYPE_CHECKING:
     from typing import Iterable
     from textual.screen import Screen
 # APP imports
-# from folder.folder.file import class
 from screens.welcome.welcome import WelcomeScreen
 from screens.choice.choice import ChoiceScreen
-#from screens.quiz.quiz import QuizScreen
 from data.locales.ui.translation import Translate
-from data.database import compounds_categories
+from data.database import compound_categories
 
 @dataclass
 class AppState:
-    """
-    Main app class for storing data among the screens.
-    """
+    """Stores application state shared between screens."""
     selected_elements: set[str] = field(default_factory=set)
     selected_compounds: dict[str, set] = field(
-        default_factory=lambda: {x: set() for x in compounds_categories.keys()}
+        default_factory=lambda: {x: set() for x in compound_categories.keys()}
         )
     question_answers: dict[str, bool] = field(default_factory=dict)
     num_of_questions: int|float = 5
@@ -73,10 +69,7 @@ class ChemistryQuiz(App):
 
 
 def is_blank_dictionary(dictionary: dict):
-    """
-    This function check if a dictionary's lists are completely blank or if 
-    the dictionary stores all ```False``` values.
-    """
+    """Return True if all values in the dictionary are empty or false."""
     #This function doesn't fit in this file, but it's here because of 
     #the conditions of the CS50P final project.
     if not isinstance(dictionary, dict):
@@ -84,6 +77,7 @@ def is_blank_dictionary(dictionary: dict):
     return not any(dictionary.values())
 
 def count_dictionary_list_items(dictionary: dict[str, list|set|tuple]) -> int:
+    """Return the total number of items in the dictionary's collections."""
     num = 0
     for value in dictionary.values():
         num += len(value)
@@ -92,7 +86,8 @@ def count_dictionary_list_items(dictionary: dict[str, list|set|tuple]) -> int:
 def translate(word: str, screen: str, lang: str):
     return Translate(language=lang).t(word, screen)
 
-def main():
+def main() -> None:
+    """Run the Chemingo application."""
     ChemistryQuiz().run()
 
 if __name__ == "__main__":

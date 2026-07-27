@@ -4,16 +4,17 @@ from textual_pyfiglet import FigletWidget
 from textual.containers import Container
 # APP DATABASE imports
 from data.database import elements_by_symbol
-from data.database import compounds_categories
+from data.database import compound_categories
 
 class TransMixin:
+    """Adds runtime translation support to Textual widgets."""
     def __init__(self, word: str | tuple, description: dict | None = None, *args, **kwargs) -> None:
         self._word = word
         self.description = description or {}
 
         if isinstance(self, TransTabPane):
             super().__init__("", *args, **kwargs)
-            # empty string: it wants some value, so I give it an empty string and that will change later.
+            # TabPane requires an initial title; it is translated after mounting.
         else: 
             super().__init__(*args, **kwargs)
 
@@ -27,58 +28,37 @@ class TransMixin:
 
 
 class TransLabel(TransMixin, Label):
-    """
-    Ordinary Textual Label, but it can translate itself 
-    with ```update_language()``` function.
-    """
+    """A Textual Label that can update its translated text."""
     def update_language(self) -> None:
         self.update(self.app.translate.t(self._word, self.screen.NAME, self.description))
 
 class TransButton(TransMixin, Button):
-    """
-    Ordinary Textual Button, but it can translate itself 
-    with ```update_language()``` function.
-    """
+    """A Textual Button that can update its translated label."""
     def update_language(self) -> None:
         self.label: str = self.app.translate.t(self._word, self.screen.NAME, self.description)
 
 class TransFigletWidget(TransMixin, FigletWidget):
-    """
-    Ordinary Textual Figlet Widget, but it can translate itself 
-    with ```update_language()``` function.
-    """
+    """A Textual Figlet Widget that can update its translatable text"""
     def update_language(self) -> None:
         self.update(self.app.translate.t(self._word, self.screen.NAME, self.description))
 
 class TransElementButton(TransMixin, Button):
-    """
-    This is is Textual Button, but it can translate it's toolbox 
-    to currently set language.
-    """
+    """A button whose tooltip contains the translated element name."""
     def update_language(self) -> None:
         self.tooltip = elements_by_symbol[self.id]["names"][self.app.translate.language] # type: ignore[attr-defined]
 
 class TransCompoundLabel(TransMixin, Label):
-    """
-    This is is Textual Label, but it can translate it's compound category value
-    to currently set language.
-    """
+    """A label that displays a translated compound category name."""
     def update_language(self) -> None:
-        self.update(compounds_categories[self.id.split("-")[0]]["names"][self.app.translate.language]) # type: ignore[attr-defined]
+        self.update(compound_categories[self.id.split("-")[0]]["names"][self.app.translate.language]) # type: ignore[attr-defined]
 
 class TransTabPane(TransMixin, TabPane):
-    """
-    Ordinary Textual Tab Pane, but it can translate itself 
-    with ```update_language()``` function.
-    """
+    """A TabPane whose title can be translated at runtime."""
     def update_language(self) -> None:
         self.screen.query_one(TabbedContent).get_tab(self.id).label = self.app.translate.t(self._word, self.screen.NAME)
 
 class TransRadioButton(TransMixin, RadioButton):
-    """
-    Ordinary Textual RadioButton, but it can translate itself 
-    with ```update_language()``` function.
-    """
+    """A RadioButton that can update its translatable text and tooltip"""
     def __init__(self, *args, trans_tooltip: str = "", **kwargs):
         self._trans_tooltip = trans_tooltip
         super().__init__(*args, **kwargs)
@@ -88,17 +68,11 @@ class TransRadioButton(TransMixin, RadioButton):
         self.tooltip = self.app.translate.t(self._trans_tooltip, self.screen.NAME)
 
 class TransBorderContainer(TransMixin, Container):
-    """
-    Ordinary Textual Container, but it can translate it's border title
-    with ```update_language()``` function.
-    """
+    """A container with a translatable border title."""
     def update_language(self) -> None:
         self.border_title = self.app.translate.t(self._word, self.screen.NAME)
 
 class TransInput(TransMixin, Input):
-    """
-    Ordinary Textual Input, but it can translate it's placeholder.
-    with ```update_language()``` function.
-    """
+    """An Input with a translatable placeholder."""
     def update_language(self) -> None:
         self.placeholder = self.app.translate.t(self._word, self.screen.NAME)

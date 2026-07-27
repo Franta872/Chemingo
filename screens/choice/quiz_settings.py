@@ -6,7 +6,7 @@ from textual.validation import Number
 # APP import
 from utils.translatable_widgets import TransLabel, TransBorderContainer, TransRadioButton, \
                                        TransInput, TransButton
-from data.database import compounds_categories
+from data.database import compound_categories
 from screens.quiz.quiz import QuizScreen
 
 class QuizSettingsTab(Container):
@@ -68,7 +68,7 @@ class QuizSettingsTab(Container):
             self.app.state.question_answers = question_answers # type: ignore[attr-defined]
             error_container = self.query_one("#error-container", Center)
             error_container.remove_children()
-            from project import is_blank_dictionary # accessing it locally because of circular import
+            from project import is_blank_dictionary # Imported locally to avoid a circular import.
             if is_blank_dictionary(question_answers):
                 error_container.mount(
                     TransLabel("empty_question_types_error", classes="error-label")
@@ -77,7 +77,7 @@ class QuizSettingsTab(Container):
                 error_container.mount(
                     TransLabel("lower_than_five_questions_error", classes="error-label")
                     )
-            from project import count_dictionary_list_items # accessing it locally because of circular import
+            from project import count_dictionary_list_items # Imported locally to avoid a circular import.
             if len(self.app.state.selected_elements) < 5 and \
             count_dictionary_list_items(self.app.state.selected_compounds) < 5: # type: ignore[attr-defined]
                 # counts number of all selected items
@@ -107,7 +107,7 @@ class QuizSettingsTab(Container):
     def quiz_settings_summary_render(self) -> None:
         selected: dict[str, set] = self.screen.return_selected(elements=True)
         self.query_one("#summary-container", Container).remove_children()
-        from project import is_blank_dictionary # accessing it locally because of circular import
+        from project import is_blank_dictionary # Imported locally to avoid a circular import.
         if not is_blank_dictionary(selected):
             for category, value in selected.items():
                 if value:
@@ -118,7 +118,7 @@ class QuizSettingsTab(Container):
                     if category == "elements":
                         label.border_title = self.app.translate.t("elements", "choice")
                     else:
-                        label.border_title = compounds_categories[category]["names"][self.app.translate.language]
+                        label.border_title = compound_categories[category]["names"][self.app.translate.language]
         else:
             self.query_one("#summary-container", Container).mount(
                 Label(self.app.translate.t("nothing_to_show", "choice"), classes="summary-label")

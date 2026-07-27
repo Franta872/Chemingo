@@ -11,7 +11,7 @@ def open_json_file(path: str) -> dict | list:
 
 compounds_by_formula: dict[str, dict] = open_json_file("data/compounds/by_formula.json")
 """
-A large dictionary of **compounds sorted by formula**.
+A large dictionary of **compounds indexed by formula**.
 Example:
 ```
 {
@@ -28,9 +28,9 @@ Example:
 }
 ```
 """
-compounds_categories: dict[str, dict] = open_json_file("data/compounds/categories.json")
+compound_categories: dict[str, dict] = open_json_file("data/compounds/categories.json")
 """
-A dictionary of **compounds categories sorted by their id** (englisch name).
+A dictionary of **compounds categories sorted by their id** (Englisch name).
 Example:
 ```
 {
@@ -66,12 +66,11 @@ Example:
 """
 all_languages_select: list[tuple[str, str]] = all_languages("select")
 """
-A list of tuples and in each tuple is name of the language in the language
-and it's language code. Languages are languages, that this app supports.
+A list of (native language name, language code) tuples used by
+Textual Select widgets.
+
 Example:
-```
-[('English', 'en'), ('Latina', 'la'), ('Čeština', 'cs'), ...]
-``` 
+[("English", "en"), ("Latina", "la"), ("Čeština", "cs"), ...]
 """
 all_languages_codes: tuple[str, ...] = all_languages("codes")
 """
@@ -86,10 +85,8 @@ Grid layout for the periodic table (9 rows x 18 columns)
 
 The inner lists contain either:
 1. An element: ```["Symbol", "tcss-color-class"]``` -> e.g., ```["H", "reactive-nonmetal"]```
-2. Empty space: ```[None, Literal["sensitive", "insensitive"]]``` -> e.g., ```[None, "sensitive"]```
-   - "sensitive" means a hover zone that shows control buttons (Select All, Deselect All, Invert)
-   - "insensitive" is just dead space
+2. Empty space: ```[None, Literal["sensitive", "insensitive", "absent"]]``` -> e.g., ```[None, "sensitive"]```
+   - "sensitive": empty hover area that reveals the bulk-selection buttons
+   - "insensitive": ordinary empty grid space
+   - "absent": position used for the bulk-selection controls
 """
-
-if __name__ == "__main__":
-    print(compounds_categories)

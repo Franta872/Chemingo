@@ -4,7 +4,7 @@ from textual.widgets import TabbedContent, SelectionList, Select
 from textual.containers import HorizontalGroup
 from textual import on
 # APP imports
-from data.database import compounds_categories, all_languages_select
+from data.database import all_languages_select
 from utils.translatable_widgets import TransLabel, TransTabPane
 from screens.choice.periodic_table import PeriodicTableTab
 from screens.choice.compounds import CompoundsTab
@@ -40,13 +40,7 @@ class ChoiceScreen(Screen):
                 yield QuizSettingsTab()
 
     def return_selected(self, elements: bool = False) -> dict[str, set|list]:
-        """
-        Return a dictionary of selected elements and compounds.
-        """
-        #if not self.query_one("#compounds-container-left").is_empty and \
-        #   not self.query_one("#compounds-container-right").is_empty:
-        #    for category in compounds_categories:
-        #        selected.update({category: self.query_one(f"#{category}", SelectionList).selected})
+        """Return selected compounds and optionally selected elements."""
         selected: dict[str, set|list] = self.app.state.selected_compounds.copy()
         if elements:
             selected.update({"elements": sorted(list(self.app.state.selected_elements))})
@@ -64,7 +58,7 @@ class ChoiceScreen(Screen):
             # telling widgets they need to change their language
 
         # clearing and adding options to SelectionList, because
-        # Textual doesn't have build in function for that
+        # Textual doesn't have built-in function for that
 
         await self.query_one("#compounds-container-left").remove_children()
         await self.query_one("#compounds-container-right").remove_children()
@@ -80,7 +74,7 @@ class ChoiceScreen(Screen):
     def tab_changed(self, event: TabbedContent.TabActivated) -> None:
         if event.pane.id == "quiz-settings":
             self.query_one("QuizSettingsTab", QuizSettingsTab).quiz_settings_summary_render()
-            # recreating settings tab because of possible changes.
+            # Refresh the summary because the selection may have changed.
     
     async def on_screen_resume(self) -> None:
         self.query_one("#language-select").value = self.app.translate.language

@@ -9,7 +9,7 @@ def random_question(
         compounds: dict[str, set], 
         question_types: dict[Literal["boolean", "choice", "typing"], bool]
         ) -> dict:
-    from project import count_dictionary_list_items # accessing it locally because of circular import
+    from project import count_dictionary_list_items # Imported locally to avoid a circular import.
     random_question: Literal["boolean", "choice", "typing"] = random.choice(tuple(x[0] for x in question_types.items() if x[1]))
     if random_question == "boolean":
         possible_types: list = []

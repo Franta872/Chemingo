@@ -39,11 +39,10 @@ class PeriodicTableTab(Container):
                             )
                         )
                         buttons_were = True
-                else: # type(element) is str
+                else: # element[0] contains a chemical symbol
                     self.query_one("#elements-grid", Container).mount(
                         TransElementButton(element[0], id=element[0],
                                            classes=f"element {element[1]}")
-                        # button with the element symbol
                         )
     @on(events.Enter, ".sensitive, #elements-selection-container, .elements-selection-buttons")
     def mouse_entered_sensitive_area(self, _: events.Enter):
@@ -62,7 +61,6 @@ class PeriodicTableTab(Container):
             else: # not event.button.has_class("selected")
                 self.query_one(f"#{event.button.id}").add_class("selected")
                 self.app.state.selected_elements.add(event.button.id)
-        # adding and removing selected class from clicked elements in periodic table
 
         elif event.button.has_class("elements-selection-buttons"):
             if event.button.id == "elements-select":
@@ -71,12 +69,9 @@ class PeriodicTableTab(Container):
                 self.elements_action("deselect")
             else: # event.button.id == "elements-invert"
                 self.elements_action("invert")
-        # detecting select, deselect and invert buttons for periodic table
 
     def elements_action(self, action: Literal["select", "deselect", "invert"]):
-        """
-        handling select, deselect and invert buttons for periodic table.
-        """
+        """Apply a bulk selection action to all element buttons."""
         selected_elements: set[str] = self.app.state.selected_elements
         if action == "select":
             selected_elements.clear()
