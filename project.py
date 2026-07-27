@@ -63,6 +63,10 @@ class ChemistryQuiz(App):
         self.push_screen("welcome")
 
     def get_system_commands(self, screen: Screen) -> Iterable[SystemCommand]:
+        """
+        This ensures, that maximize command in command list won't be available, 
+        because it causes problems.
+        """
         for command in super().get_system_commands(screen):
             if command.title != "Maximize":
                 yield command
@@ -75,6 +79,8 @@ def is_blank_dictionary(dictionary: dict):
     """
     #This function doesn't fit in this file, but it's here because of 
     #the conditions of the CS50P final project.
+    if not isinstance(dictionary, dict):
+        raise TypeError("input is not a dictionary")
     return not any(dictionary.values())
 
 def count_dictionary_list_items(dictionary: dict[str, list|set|tuple]) -> int:
@@ -83,8 +89,10 @@ def count_dictionary_list_items(dictionary: dict[str, list|set|tuple]) -> int:
         num += len(value)
     return num
 
-def main(): # this is useless, but it's here because of the
-            # conditions of the CS50P final project.
+def translate(word: str, screen: str, lang: str):
+    return Translate(language=lang).t(word, screen)
+
+def main():
     ChemistryQuiz().run()
 
 if __name__ == "__main__":

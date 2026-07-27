@@ -22,6 +22,9 @@ class TransMixin:
             self.label = self._word
         self.update_language()
 
+    def update_language(self) -> None:
+        raise NotImplementedError
+
 
 class TransLabel(TransMixin, Label):
     """
