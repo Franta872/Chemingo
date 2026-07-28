@@ -1,14 +1,13 @@
 from pathlib import Path
 import json
 from data.database import all_languages_codes, compounds_by_formula, elements_by_symbol
-import re
 
 class Translate:
     """
     Class for storing current language and returning needed words.
     """
     def __init__(self, language: str = "en"):
-        self._language = language
+        self.language = language
 
     @property
     def language(self):

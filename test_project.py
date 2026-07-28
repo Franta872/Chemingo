@@ -76,5 +76,5 @@ def test_translate():
         translate("welcome", "non_existing_screen", "en")
     with pytest.raises(KeyError):
         translate("non_existing_word", "welcome", "en")
-    with pytest.raises(FileNotFoundError):
+    with pytest.raises(KeyError):
         translate("welcome", "welcome", "tat")
