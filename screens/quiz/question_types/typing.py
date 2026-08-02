@@ -1,4 +1,5 @@
 # PYTHON imports
+from __future__ import annotations
 from typing import TYPE_CHECKING
 from difflib import SequenceMatcher
 if TYPE_CHECKING:
