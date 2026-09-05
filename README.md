@@ -1,187 +1,153 @@
 # Chemingo
 
-#### [Video Demo](https://youtu.be/d6RWccxthVU)
+Chemingo is a terminal-based chemistry quiz app written in Python with [Textual](https://textual.textualize.io/).
 
-## Description
+It lets you choose the chemical elements and compounds you want to practise, configure the quiz, and then test yourself using several different question types. The interface is fully interactive, can be controlled with a mouse, and supports multiple languages.
 
-A short introduction to the application:
+Chemingo was originally created as my final project for [**CS50's Introduction to Programming with Python (CS50P)**](docs/harvard/README.md). \
+[View CS50P certificate](https://cs50.harvard.edu/certificates/a6ba7939-8156-4a5b-80ab-a69f252a2bf2)
 
-- Chemingo is an application where users select items from a list of elements and compounds, and the application then quizzes them on those items.
-- The application is intended for people who want to practice or learn how to name elements and compounds.
-- Users can learn the names and symbols of the entire periodic table, as well as compounds from up to 12 different categories.
-- I did not create the application because I personally love chemistry. I created it because the idea seemed interesting to me, and my friend, who is interested in this subject, suggested adding compounds as well as elements. That is how the idea for Chemingo was born.
+---
+
+## What does it look like?
+
+### Welcome Screen
+![Welcome screen](docs/screenshots/welcome.png)
+
+### Periodic Table
+![Periodic table](docs/screenshots/periodic-table.png)
+
+### Compounds
+![Compounds](docs/screenshots/compounds.png)
+
+### Quiz Settings
+![Quiz settings](docs/screenshots/quiz-settings.png)
+
+### Quiz
+![Quiz](docs/screenshots/quiz.png)
+
+---
 
 ## Features
 
-A description of the application's main features:
+### Interactive periodic table
 
-- The application contains an interactive periodic table. Users can click on elements to select them and add them to the list of items they will be quizzed on. There are also buttons that make selecting elements faster.
-- The application also contains a list of categories with their corresponding compounds. Users can select a compound by clicking on it. Each category also has buttons for faster selection.
-- The settings allow users to choose which question types will appear in the quiz and how many questions they will receive before the quiz closes and the selection screen appears again. It is also possible to choose an unlimited number of questions.
-- Clicking the button starts the quiz. The quiz contains **three question types**:
-    - **true/false question**: the user must decide whether the displayed statement is true by clicking either *true* or *false*.
-    > Example: \
-    > **Question**: *Does <ins>H</ins> correspond to <ins>hydrogen</ins>?* \
-    > **Options**: *true* or *false*
+Choose exactly which elements you want to practise directly from the periodic table. You can select elements one by one or use shortcuts to speed up larger selections.
 
-    - **multiple-choice question**: the user chooses the correct answer from four options.
-    > Example: \
-    > **Question**: *Select the symbol of the element <ins>hydrogen</ins>.* \
-    > **Options**: *C*, *H*, *Fe*, *Al*
+### Chemical compounds
 
-    - **typing question**: the user is shown an element or compound and must type its name, symbol, or formula.
-    > Example: \
-    > **Question**: *Write the symbol of the element <ins>iron</ins>.* \
-    > **Answer**: *Fe*
+Chemingo also includes compounds divided into **12 categories**. You can select individual compounds or work with entire groups at once.
 
-- After a question is answered, the program immediately evaluates the answer and tells the user whether it was correct. If the answer was incorrect, the program also displays the correct answer. Typing questions also show the percentage of similarity to the correct answer. Subscripts do not have to be typed.
-- During the quiz, users can open the *statistics* screen to see information about their performance and the current question settings.
-- A language selection menu is available on the application's main screens. Users can choose any of the 13 supported languages, and all translatable parts of the current screen update immediately.
+### Three question types
 
-## How the Application Works
+The quiz can generate three different kinds of questions:
 
-A description of a normal walkthrough of the application:
+- **True / False**  
+  Decide whether two pieces of chemical information belong together.
 
-1. The user opens the welcome screen, sees a greeting, and clicks a button to continue to the next screen.
-2. The user selects elements from the periodic table and compounds from the available categories.
-3. The user chooses which question types they want to receive and sets the number of questions.
-4. The user starts the quiz by clicking another button.
-5. The application generates different questions, and the user answers them.
-6. The results are stored in the statistics, where the user can view them.
+- **Multiple choice**  
+  Choose the correct answer from four options.
 
-## Project Structure
+- **Typing**  
+  Type the correct element name, symbol, compound name, or formula.
 
-| File or directory                    | Purpose                                                                                                              |
-| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
-| `project.py`                         | The application's entry point, the main `ChemistryQuiz` class, shared state, and testable helper functions.          |
-| `screens/welcome/`                   | The application's welcome screen.                                                                                    |
-| `screens/choice/choice.py`           | Controls the selection screen, language switching, and its individual tabs.                                          |
-| `screens/choice/periodic_table.py`   | Renders the interactive periodic table and handles element selection.                                                 |
-| `screens/choice/compounds.py`        | Allows users to select compound categories and individual compounds.                                                 |
-| `screens/choice/quiz_settings.py`    | Contains the question type and quiz length settings.                                                                 |
-| `screens/quiz/quiz.py`               | Controls the quiz, loads new questions, and manages statistics.                                                       |
-| `screens/quiz/question_types/`       | Contains the implementations of boolean, multiple-choice, and typing questions.                                      |
-| `screens/quiz/random_question.py`    | Randomly selects the question type and its chemical items.                                                            |
-| `screens/quiz/statistics_screen.py`  | Displays current answer statistics, selected items, enabled question types, and the number of remaining questions.   |
-| `data/database.py`                   | Loads chemical and language data from JSON files.                                                                    |
-| `data/locales/`                      | Contains the translation files and translation system.                                                               |
-| `utils/translatable_widgets.py`      | Contains custom Textual widgets that can change language at runtime.                                                  |
-| `*.tcss`                             | Defines the layout and appearance of the individual screens.                                                         |
-| `requirements.txt`                   | Contains the dependencies installed using `pip`.                                                                     |
-| `test_project.py`                    | Contains tests for the functions required by CS50P.                                                                  |
+Typing questions also show how similar your answer was to the correct one, which can help distinguish a small typo from a completely wrong answer.
 
-## Translation System
+### Custom quiz settings
 
-At first, it was a small file that only translated text based on the screen, word, and language. Over time, I needed to add more features, so the translation system ended up much more complicated than I originally expected.
+Before starting a quiz, you can choose:
 
-### The `Translate` Class
+- which question types are enabled,
+- how many questions you want,
+- or an unlimited number of questions.
 
-- First, an instance of the `Translate` class is created. It can receive a `language` argument, which determines the active language and is set to English by default. Only the code of a supported language is considered valid.
-- This class has a method named `t` (short for translate), which accepts the following arguments:
-    1. **word**: a translation key or composed text that the method should process. It can be passed as a normal `str`, or as a `tuple`. In that case, it must use the following format:
-    ```python
-    (
-        ("w", "some_word"),
-        ("n", "some_note"),
-        ("w", "some_other_word")
-    )
-    ```
-    **w – word**: a translation key that will be translated. It must be valid, otherwise the method raises an error.\
-    **n – untranslated text**: the method does not translate this text and inserts it directly into the result.\
-    In the end, all of these parts are joined together.\
-    2. **screen**: the screen to which the given word belongs. If the word is valid but the screen is incorrect, or the other way around, the method raises an error.\
-    3. **description**: this argument is optional. It specifies that a placeholder such as `<1>` should be replaced with an element or compound. It does not matter whether `word` was a `str` or a `tuple`. The replacement also works inside untranslated parts of the text.\
-    Example:
-    ```python
-    Translate(language="en").t(
-        word="symbol_of_element",
-        screen="quiz",
-        description={
-            "1": {
-                "type": "element",
-                "item": "Fe",
-                "appearance": "name"
-            }
-        }
-    )
-    ```
-    Output: `"What is the symbol of the element [u]iron[/]?"`
+### Statistics
 
-### Language JSON Files
+During a quiz you can open the statistics screen to see your progress, selected items, enabled question types, correct and incorrect answers, and the number of remaining questions.
 
-- They are stored in: `data/locales/ui/screens/<screen>/<language>.json`
-- Each file contains one large dictionary where the keys are internal names and the values are the actual texts shown to the user in the selected language.
+### 13 languages
 
-### Custom Translatable Widgets
+The interface can be switched between **13 supported languages** while the application is running. The current screen updates immediately after changing the language.
 
-I also needed to solve the problem of translating all widgets. Rewriting every widget separately on every screen whenever the language changed would be stupid, so I created widgets that translate themselves.
+### Mouse and keyboard controls
 
-- They are located in `utils/translatable_widgets.py`.
-- The main part is `TransMixin`, which contains the shared properties of all translatable widgets, such as receiving and storing the `word` and `description` arguments. Each widget finds its screen automatically based on where it is located.
-- Each widget type then inherits from its original Textual widget as well as from `TransMixin`.
-- Every widget has its own `update_language` method, which updates its contents to the currently selected language. The way each widget changes is slightly different, so each widget type has its own translation method.
-- This means that every widget remembers its own information, and changing the language only requires calling `update_language` for every descendant of `TransMixin`.
+Although Chemingo runs entirely inside a terminal, it behaves more like a regular application than a traditional command-line program.
 
-## Generating Quiz Questions
+Most of the interface can be controlled with a mouse. The quiz screen also provides keyboard shortcuts, which are shown in the footer.
 
-- The application generates random questions using the `random_question()` function in `random_question.py`. This function selects a random question type and returns the information needed to display and evaluate it.
-- After every question, `quiz.py` completely removes the previous question, asks `random_question.py` to generate new information, and creates a new question from it.
-- Each question type is a special `Container`. It receives the necessary information, displays the question, evaluates the answer, stores the results, sends a message to `QuizScreen`, and is then removed while the next question is created.
+---
 
-## Design Choices
+## How it works
 
-- **Textual**: I chose it because I had already tried *PyQt6*, but it seemed too difficult, so I thought I could try making a TUI instead. Working with this framework is not exactly easy either, but it is definitely easier than PyQt6.
-- I divided the application into three different screens and one modal statistics window to keep everything organized. The individual parts of the application are separated, and it is easy to move between them.
-- I needed a way to store all the data, so I chose JSON. CSV might have been a better fit for some parts, but since I was already using JSON, I used it for everything.
-- To store data shared between screens in one place, I created the `AppState` dataclass.
-- At first, I repeated the shared translation code inside every custom widget. Later, I improved it and moved the code into the `TransMixin` mixin, reducing duplication according to the DRY principle.
-- I wanted every question to be separate from everything else and to perform only its own task. Then it seemed practical to make the questions disposable, one-time widgets. And yes, it is very practical.
+A normal session looks like this:
 
-### Development Problems
+1. Start Chemingo and continue from the welcome screen.
+2. Select elements from the periodic table.
+3. Select any compounds you also want to practise.
+4. Choose the question types and quiz length.
+5. Start the quiz.
+6. Answer randomly generated questions.
+7. Check your statistics whenever you want.
 
-It was more difficult to monitor the application's state during development because using the `print()` function is not very practical inside a terminal user interface.
+The application keeps the selected items, settings, language, and quiz statistics in a shared application state while it is running.
 
-TCSS caused me the most problems. Some selectors also applied to widgets on other screens, which caused them to disappear unexpectedly or changed their layout. I solved this by limiting the selectors to specific screens.
+---
 
 ## Installation
 
-The application requires Python 3.10 or newer. It was developed and tested with the following versions:
+Chemingo requires **Python 3.12.3 or newer**.
 
-- Python 3.14.6
+The project is currently tested with:
+
+- Python 3.12.3 on Linux
+- Python 3.14.6 on Windows
 - Textual 5.3.0
 - textual-pyfiglet 1.1.0
 
-After downloading the project, open a terminal in its root directory and install the required dependencies:
+Clone the repository:
 
 ```bash
-python -m pip install -r requirements.txt
+git clone https://github.com/Franta872/Chemingo.git
+cd Chemingo
 ```
 
-Then run the application using:
+Creating a virtual environment is recommended.
+
+### Linux / macOS
 
 ```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
 python project.py
 ```
 
-## Controls and Usage
+On some Debian/Ubuntu-based systems, you may need to install the venv package first:
 
-Although it runs in a terminal, the TUI application can be comfortably controlled with a mouse. I also added keyboard controls to the quiz screen for convenience. The keyboard shortcuts are displayed in the footer of the quiz screen.
+```bash
+sudo apt install python3-venv
+```
 
-## Future Improvements
+### Windows PowerShell
 
-In the future, I would like to add:
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python project.py
+```
 
-- Questions based on the user's previous mistakes instead of only random questions, or at least a way to prevent the same questions from repeating too often.
-- Possibly more question types.
-- Possibly more languages.
+---
 
-## Sources
+## Built with
 
-### Libraries and Frameworks
+- **Python**
+- **Textual**
+- **textual-pyfiglet**
+- **JSON** for chemical and translation data
 
-- `Textual` 5.3.0 – used to create the terminal user interface
-- `textual-pyfiglet` 1.1.0 – used to render animated ASCII headings
+---
 
-### Chemical and Language Data
+## Notes
 
-- ChatGPT – helped with compiling the chemical data, translations, and checking the documentation
+Chemingo is a learning project, not a professional chemistry reference database. The main goal of the project was to practise Python, application structure, TUI development, working with data, testing, and building a larger project from start to finish.
