@@ -4,8 +4,10 @@ from typing import Literal
 
 from data.locales.all_languages.language_select import all_languages
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 def open_json_file(path: str) -> dict | list:
-    with Path(path).open(encoding="utf-8") as file:
+    with open(BASE_DIR / path, encoding="utf-8") as file:
         return json.load(file)
 
 
