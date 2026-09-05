@@ -219,3 +219,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# packaging
+packaging/.tools/
+packaging/appimage/AppDir/
